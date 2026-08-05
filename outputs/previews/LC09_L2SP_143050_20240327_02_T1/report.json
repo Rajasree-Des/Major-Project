@@ -1,0 +1,150 @@
+{
+  "scene_id": "LC09_L2SP_143050_20240327_02_T1",
+  "scene_dir": "C:\\Users\\HP\\Downloads\\ISRO project\\Major-Project\\dataset\\raw\\LC09_L2SP_143050_20240327_02_T1",
+  "bands_present": [
+    "ST_B10",
+    "SR_B2",
+    "SR_B3",
+    "SR_B4"
+  ],
+  "bands_missing": [],
+  "metadata": {
+    "ST_B10": {
+      "name": "ST_B10",
+      "path": "C:\\Users\\HP\\Downloads\\ISRO project\\Major-Project\\dataset\\raw\\LC09_L2SP_143050_20240327_02_T1\\ST_B10.tif",
+      "width": 7641,
+      "height": 7781,
+      "crs": "EPSG:32644",
+      "resolution_x": 30.0,
+      "resolution_y": 30.0,
+      "bounds": [
+        180285.0,
+        1481985.0,
+        409515.0,
+        1715415.0
+      ],
+      "dtype": "uint16",
+      "nodata": 0.0,
+      "count": 1
+    },
+    "SR_B2": {
+      "name": "SR_B2",
+      "path": "C:\\Users\\HP\\Downloads\\ISRO project\\Major-Project\\dataset\\raw\\LC09_L2SP_143050_20240327_02_T1\\SR_B2.tif",
+      "width": 7641,
+      "height": 7781,
+      "crs": "EPSG:32644",
+      "resolution_x": 30.0,
+      "resolution_y": 30.0,
+      "bounds": [
+        180285.0,
+        1481985.0,
+        409515.0,
+        1715415.0
+      ],
+      "dtype": "uint16",
+      "nodata": 0.0,
+      "count": 1
+    },
+    "SR_B3": {
+      "name": "SR_B3",
+      "path": "C:\\Users\\HP\\Downloads\\ISRO project\\Major-Project\\dataset\\raw\\LC09_L2SP_143050_20240327_02_T1\\SR_B3.tif",
+      "width": 7641,
+      "height": 7781,
+      "crs": "EPSG:32644",
+      "resolution_x": 30.0,
+      "resolution_y": 30.0,
+      "bounds": [
+        180285.0,
+        1481985.0,
+        409515.0,
+        1715415.0
+      ],
+      "dtype": "uint16",
+      "nodata": 0.0,
+      "count": 1
+    },
+    "SR_B4": {
+      "name": "SR_B4",
+      "path": "C:\\Users\\HP\\Downloads\\ISRO project\\Major-Project\\dataset\\raw\\LC09_L2SP_143050_20240327_02_T1\\SR_B4.tif",
+      "width": 7641,
+      "height": 7781,
+      "crs": "EPSG:32644",
+      "resolution_x": 30.0,
+      "resolution_y": 30.0,
+      "bounds": [
+        180285.0,
+        1481985.0,
+        409515.0,
+        1715415.0
+      ],
+      "dtype": "uint16",
+      "nodata": 0.0,
+      "count": 1
+    }
+  },
+  "statistics": {
+    "ST_B10": {
+      "name": "ST_B10",
+      "min": 42639.0,
+      "max": 60995.0,
+      "mean": 49088.091854588194,
+      "median": 49234.0,
+      "std": 1434.0379536849086,
+      "valid_pixel_count": 40662008,
+      "nodata_pixel_count": 18792613
+    },
+    "SR_B2": {
+      "name": "SR_B2",
+      "min": 91.0,
+      "max": 31830.0,
+      "mean": 9292.864752569418,
+      "median": 9262.0,
+      "std": 701.3395228342979,
+      "valid_pixel_count": 40663486,
+      "nodata_pixel_count": 18791135
+    },
+    "SR_B3": {
+      "name": "SR_B3",
+      "min": 4919.0,
+      "max": 32385.0,
+      "mean": 10631.806162692417,
+      "median": 10542.0,
+      "std": 961.5660824304865,
+      "valid_pixel_count": 40663493,
+      "nodata_pixel_count": 18791128
+    },
+    "SR_B4": {
+      "name": "SR_B4",
+      "min": 5951.0,
+      "max": 33728.0,
+      "mean": 11628.52920222569,
+      "median": 11568.0,
+      "std": 1580.6409681419184,
+      "valid_pixel_count": 40663493,
+      "nodata_pixel_count": 18791128
+    }
+  },
+  "alignment": {
+    "crs_match": true,
+    "bounds_overlap_ratio": 1.0,
+    "thermal_resolution_m": 30.0,
+    "rgb_resolution_m": 30.0,
+    "resolution_ratio": 1.0,
+    "shape_ratio_height": 1.0,
+    "shape_ratio_width": 1.0,
+    "status": "warn",
+    "messages": [
+      "CRS consistent across all bands (EPSG:32644).",
+      "Thermal/RGB bounds overlap ratio: 1.000",
+      "Resolution ratio thermal/RGB: 1.000 (expected ~3.33)",
+      "Shape ratio H\u00d7W thermal/RGB: 1.000 \u00d7 1.000 (expected ~0.300)",
+      "WARN: resolution or shape ratio outside \u00b115% tolerance."
+    ]
+  },
+  "outputs": {
+    "thermal_preview": "C:\\Users\\HP\\Downloads\\ISRO project\\Major-Project\\outputs\\previews\\LC09_L2SP_143050_20240327_02_T1\\thermal_preview.png",
+    "rgb_composite": "C:\\Users\\HP\\Downloads\\ISRO project\\Major-Project\\outputs\\previews\\LC09_L2SP_143050_20240327_02_T1\\rgb_composite.png",
+    "histograms": "C:\\Users\\HP\\Downloads\\ISRO project\\Major-Project\\outputs\\previews\\LC09_L2SP_143050_20240327_02_T1\\histograms.png"
+  },
+  "generated_at": "2026-08-04T02:59:02Z"
+}

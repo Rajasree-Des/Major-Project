@@ -11,16 +11,21 @@ API rate limits (read automatically by the planetary-computer SDK).
 from __future__ import annotations
 
 import argparse
+import http.client
 import logging
+import math
+import random
+import re
 import sys
 import time
 from datetime import datetime
 from pathlib import Path
-from typing import Iterable, Sequence
+from typing import Iterable, Mapping, Sequence
 
 import planetary_computer
 import pystac_client
 import requests
+import urllib3.exceptions
 from pystac import Item
 from tqdm import tqdm
 
@@ -37,6 +42,15 @@ ASSET_KEY_ALIASES: dict[str, tuple[str, ...]] = {
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_OUTPUT_DIR = PROJECT_ROOT / "dataset" / "raw"
 RETRYABLE_STATUS_CODES = {429, 500, 502, 503, 504}
+
+# Download tuning (adjust here; CLI is unchanged).
+DEFAULT_CHUNK_SIZE = 128 * 1024  # 128 KB
+CONNECT_TIMEOUT = 30  # seconds
+READ_TIMEOUT = 300  # seconds
+BACKOFF_BASE_SECONDS = 2
+BACKOFF_MAX_SECONDS = 60
+BACKOFF_JITTER_MAX = 1.0
+LOG_PROGRESS_INTERVAL = 5.0  # seconds between DEBUG speed/ETA logs
 
 logger = logging.getLogger(__name__)
 
@@ -202,14 +216,282 @@ def search_landsat_scenes(
     return items
 
 
+def is_transient_download_error(exc: BaseException) -> bool:
+    """Return True if a download error is likely temporary and worth retrying.
+
+    Args:
+        exc: Exception raised during HTTP request or streaming.
+
+    Returns:
+        True for transient network/HTTP errors; False otherwise.
+    """
+    if isinstance(
+        exc,
+        (
+            ConnectionResetError,
+            ConnectionError,
+            TimeoutError,
+            requests.exceptions.Timeout,
+            requests.exceptions.ConnectionError,
+            requests.exceptions.ChunkedEncodingError,
+            requests.exceptions.SSLError,
+            urllib3.exceptions.ProtocolError,
+            http.client.IncompleteRead,
+            http.client.RemoteDisconnected,
+        ),
+    ):
+        return True
+
+    if isinstance(exc, requests.exceptions.HTTPError):
+        if exc.response is not None:
+            return exc.response.status_code in RETRYABLE_STATUS_CODES
+        return True
+
+    return False
+
+
+def _backoff_seconds(attempt: int) -> float:
+    """Compute exponential backoff with jitter for a retry attempt.
+
+    Args:
+        attempt: One-based attempt number that just failed.
+
+    Returns:
+        Seconds to sleep before the next attempt.
+    """
+    base = min(BACKOFF_MAX_SECONDS, BACKOFF_BASE_SECONDS ** attempt)
+    return base + random.uniform(0, BACKOFF_JITTER_MAX)
+
+
+def _part_path(dest: Path) -> Path:
+    """Return the partial-download path for a destination file.
+
+    Args:
+        dest: Final asset path, e.g. ``ST_B10.tif``.
+
+    Returns:
+        Companion ``.part`` path, e.g. ``ST_B10.tif.part``.
+    """
+    return dest.with_suffix(dest.suffix + ".part")
+
+
+def _existing_resume_offset(part_path: Path) -> int:
+    """Return the number of bytes already stored in a partial file.
+
+    Args:
+        part_path: Path to the ``.part`` file.
+
+    Returns:
+        Existing file size in bytes, or ``0`` if the file does not exist.
+    """
+    if part_path.exists():
+        return part_path.stat().st_size
+    return 0
+
+
+def _parse_total_size(
+    headers: Mapping[str, str],
+    resume_offset: int,
+    status_code: int,
+) -> int | None:
+    """Derive the expected total object size from HTTP response headers.
+
+    Args:
+        headers: Response headers from the download request.
+        resume_offset: Byte offset used for a resumed request.
+        status_code: HTTP status code returned by the server.
+
+    Returns:
+        Expected total size in bytes, or ``None`` if unknown.
+    """
+    content_range = headers.get("Content-Range")
+    if content_range:
+        match = re.search(r"/(\d+)\s*$", content_range)
+        if match:
+            return int(match.group(1))
+
+    content_length = headers.get("Content-Length")
+    if content_length:
+        length = int(content_length)
+        if status_code == 206 and resume_offset > 0:
+            return resume_offset + length
+        return length
+
+    return None
+
+
+def _verify_file_size(path: Path, expected: int) -> bool:
+    """Verify that a downloaded file matches the expected total size.
+
+    Args:
+        path: Path to the downloaded ``.part`` file.
+        expected: Expected total size in bytes.
+
+    Returns:
+        True if sizes match.
+    """
+    return path.stat().st_size == expected
+
+
+def _finalize_download(part_path: Path, dest: Path) -> None:
+    """Atomically promote a completed partial file to the final destination.
+
+    Args:
+        part_path: Completed ``.part`` file.
+        dest: Final destination path.
+    """
+    part_path.replace(dest)
+
+
+def _format_bytes(num_bytes: int) -> str:
+    """Format a byte count for human-readable logging.
+
+    Args:
+        num_bytes: Size in bytes.
+
+    Returns:
+        Short string such as ``"43.2 MB"``.
+    """
+    if num_bytes < 1024:
+        return f"{num_bytes} B"
+    size = float(num_bytes)
+    for unit in ("KB", "MB", "GB", "TB"):
+        size /= 1024.0
+        if size < 1024.0:
+            return f"{size:.1f} {unit}"
+    return f"{size:.1f} PB"
+
+
+def _format_eta(seconds: float) -> str:
+    """Format remaining seconds as ``MM:SS`` for logs.
+
+    Args:
+        seconds: Estimated seconds remaining.
+
+    Returns:
+        Formatted ETA string.
+    """
+    if seconds < 0 or not math.isfinite(seconds):
+        return "--:--"
+    minutes, secs = divmod(int(seconds), 60)
+    return f"{minutes:02d}:{secs:02d}"
+
+
+def _log_download_complete(
+    label: str,
+    context: str,
+    dest: Path,
+    started_at: float,
+) -> None:
+    """Log a successful download summary.
+
+    Args:
+        label: Asset label for logs.
+        context: Optional scene context prefix.
+        dest: Final downloaded file path.
+        started_at: ``time.monotonic()`` timestamp when download began.
+    """
+    elapsed = time.monotonic() - started_at
+    size = dest.stat().st_size
+    avg_speed = size / elapsed if elapsed > 0 else 0.0
+    logger.info(
+        "Completed %s | %ssize=%s | elapsed=%s | avg_speed=%s/s",
+        label,
+        context,
+        _format_bytes(size),
+        _format_eta(elapsed),
+        _format_bytes(int(avg_speed)),
+    )
+
+
+def _stream_response_to_part(
+    response: requests.Response,
+    part_path: Path,
+    *,
+    file_mode: str,
+    resume_offset: int,
+    expected_total: int | None,
+    chunk_size: int,
+    label: str,
+    context: str,
+) -> None:
+    """Stream HTTP response bytes into a partial file with progress reporting.
+
+    Args:
+        response: Open streaming HTTP response.
+        part_path: Partial file destination.
+        file_mode: File open mode, ``"wb"`` or ``"ab"``.
+        resume_offset: Bytes already on disk before this stream.
+        expected_total: Expected final object size, if known.
+        chunk_size: Read chunk size in bytes.
+        label: Asset label for logs and progress bar.
+        context: Optional scene context prefix.
+
+    Raises:
+        Exception: Propagates network/stream errors to the caller for retry.
+    """
+    progress = tqdm(
+        total=expected_total if expected_total else None,
+        initial=resume_offset if expected_total else 0,
+        unit="B",
+        unit_scale=True,
+        unit_divisor=1024,
+        desc=label,
+        leave=False,
+    )
+
+    session_start = time.monotonic()
+    last_log_time = session_start
+    session_bytes = 0
+
+    try:
+        with part_path.open(file_mode) as file_handle:
+            for chunk in response.iter_content(chunk_size=chunk_size):
+                if not chunk:
+                    continue
+                file_handle.write(chunk)
+                file_handle.flush()
+                chunk_len = len(chunk)
+                session_bytes += chunk_len
+                progress.update(chunk_len)
+
+                now = time.monotonic()
+                if now - last_log_time >= LOG_PROGRESS_INTERVAL:
+                    current_size = part_path.stat().st_size
+                    elapsed = now - session_start
+                    speed = session_bytes / elapsed if elapsed > 0 else 0.0
+                    if expected_total and speed > 0:
+                        remaining = max(expected_total - current_size, 0)
+                        eta = remaining / speed
+                    else:
+                        eta = float("inf")
+                    logger.debug(
+                        "Streaming %s | %sspeed=%s/s | eta=%s | written=%s",
+                        label,
+                        context,
+                        _format_bytes(int(speed)),
+                        _format_eta(eta),
+                        _format_bytes(current_size),
+                    )
+                    last_log_time = now
+    finally:
+        progress.close()
+
+
 def download_with_retry(
     url: str,
     dest: Path,
     session: requests.Session,
     max_retries: int = 3,
-    chunk_size: int = 8192,
+    chunk_size: int = DEFAULT_CHUNK_SIZE,
+    scene_id: str | None = None,
+    asset_name: str | None = None,
 ) -> bool:
-    """Download a remote asset with retry logic and progress reporting.
+    """Download a remote asset with resume, retry, and integrity verification.
+
+    Downloads stream into ``<dest>.part`` and atomically renames on success.
+    Partial files are preserved across transient failures to support HTTP Range
+    resume.
 
     Args:
         url: Signed asset URL.
@@ -217,85 +499,232 @@ def download_with_retry(
         session: Shared requests session.
         max_retries: Maximum number of download attempts.
         chunk_size: Stream chunk size in bytes.
+        scene_id: Optional scene identifier for structured logs.
+        asset_name: Optional asset label for structured logs.
 
     Returns:
         True if the file was downloaded or already exists; False on failure.
     """
+    label = asset_name or dest.name
+    context = f"scene={scene_id} | " if scene_id else ""
+
     if dest.exists() and dest.stat().st_size > 0:
         logger.debug("Skipping existing file: %s", dest)
         return True
 
     dest.parent.mkdir(parents=True, exist_ok=True)
-    temp_path = dest.with_suffix(dest.suffix + ".part")
+    part_path = _part_path(dest)
+    download_start = time.monotonic()
 
     for attempt in range(1, max_retries + 1):
+        resume_offset = _existing_resume_offset(part_path)
+        headers: dict[str, str] = {}
+        if resume_offset > 0:
+            headers["Range"] = f"bytes={resume_offset}-"
+
+        logger.info(
+            "Downloading %s | %sattempt=%d/%d | resuming=%s",
+            label,
+            context,
+            attempt,
+            max_retries,
+            _format_bytes(resume_offset),
+        )
+
+        response: requests.Response | None = None
         try:
-            with session.get(url, stream=True, timeout=(10, 120)) as response:
-                response.raise_for_status()
-                total_size = int(response.headers.get("Content-Length", 0))
-                progress = tqdm(
-                    total=total_size if total_size > 0 else None,
-                    unit="B",
-                    unit_scale=True,
-                    unit_divisor=1024,
-                    desc=dest.name,
-                    leave=False,
+            response = session.get(
+                url,
+                stream=True,
+                timeout=(CONNECT_TIMEOUT, READ_TIMEOUT),
+                headers=headers,
+            )
+
+            if response.status_code == 416:
+                if (
+                    resume_offset > 0
+                    and part_path.exists()
+                    and part_path.stat().st_size == resume_offset
+                ):
+                    logger.info(
+                        "Download already complete (HTTP 416); finalizing %s",
+                        label,
+                    )
+                    _finalize_download(part_path, dest)
+                    _log_download_complete(label, context, dest, download_start)
+                    return True
+                logger.warning(
+                    "Range not satisfiable for %s; deleting partial and retrying",
+                    label,
+                )
+                part_path.unlink(missing_ok=True)
+                response.close()
+                response = None
+                if attempt == max_retries:
+                    logger.error(
+                        "Failed to download %s after %d attempt(s): HTTP 416 Range Not Satisfiable",
+                        label,
+                        attempt,
+                    )
+                    return False
+                sleep_seconds = _backoff_seconds(attempt)
+                logger.warning(
+                    "Retrying %s | %sreason=HTTP416 | waiting=%.1fs | resume=0 B",
+                    label,
+                    context,
+                    sleep_seconds,
+                )
+                time.sleep(sleep_seconds)
+                continue
+
+            if response.status_code == 200 and resume_offset > 0:
+                logger.warning(
+                    "Server ignored Range header for %s; restarting from byte 0",
+                    label,
+                )
+                response.close()
+                part_path.unlink(missing_ok=True)
+                resume_offset = 0
+                response = session.get(
+                    url,
+                    stream=True,
+                    timeout=(CONNECT_TIMEOUT, READ_TIMEOUT),
                 )
 
-                with temp_path.open("wb") as file_handle:
-                    for chunk in response.iter_content(chunk_size=chunk_size):
-                        if chunk:
-                            file_handle.write(chunk)
-                            progress.update(len(chunk))
+            response.raise_for_status()
 
-                progress.close()
+            current_resume = _existing_resume_offset(part_path)
+            if response.status_code == 206:
+                file_mode = "ab" if current_resume > 0 else "wb"
+            else:
+                file_mode = "wb"
+                current_resume = 0
 
-            temp_path.replace(dest)
+            expected_total = _parse_total_size(
+                response.headers,
+                current_resume,
+                response.status_code,
+            )
+
+            _stream_response_to_part(
+                response,
+                part_path,
+                file_mode=file_mode,
+                resume_offset=current_resume,
+                expected_total=expected_total,
+                chunk_size=chunk_size,
+                label=label,
+                context=context,
+            )
+            response.close()
+            response = None
+
+            if expected_total is not None and not _verify_file_size(
+                part_path, expected_total
+            ):
+                actual_size = part_path.stat().st_size
+                logger.error(
+                    "Size mismatch for %s | got=%s expected=%s | deleting .part",
+                    label,
+                    _format_bytes(actual_size),
+                    _format_bytes(expected_total),
+                )
+                part_path.unlink(missing_ok=True)
+                if attempt == max_retries:
+                    logger.error(
+                        "Failed to download %s after %d attempt(s): integrity check failed",
+                        label,
+                        attempt,
+                    )
+                    return False
+                sleep_seconds = _backoff_seconds(attempt)
+                logger.warning(
+                    "Retrying %s | %sreason=integrity_mismatch | waiting=%.1fs | resume=0 B",
+                    label,
+                    context,
+                    sleep_seconds,
+                )
+                time.sleep(sleep_seconds)
+                continue
+
+            _finalize_download(part_path, dest)
+            _log_download_complete(label, context, dest, download_start)
             return True
 
-        except (
-            requests.exceptions.Timeout,
-            requests.exceptions.ConnectionError,
-            requests.exceptions.HTTPError,
-        ) as exc:
-            status_code = (
-                exc.response.status_code
-                if isinstance(exc, requests.exceptions.HTTPError)
-                and exc.response is not None
-                else None
-            )
-            retryable = (
-                status_code is None or status_code in RETRYABLE_STATUS_CODES
-            )
+        except OSError as exc:
+            if response is not None:
+                response.close()
 
-            if temp_path.exists():
-                temp_path.unlink(missing_ok=True)
+            if is_transient_download_error(exc):
+                if attempt == max_retries:
+                    resume_after = _existing_resume_offset(part_path)
+                    logger.error(
+                        "Failed to download %s after %d attempt(s): %s | partial kept at %s (%s)",
+                        label,
+                        attempt,
+                        exc,
+                        part_path,
+                        _format_bytes(resume_after),
+                    )
+                    return False
 
-            if not retryable or attempt == max_retries:
+                resume_after = _existing_resume_offset(part_path)
+                sleep_seconds = _backoff_seconds(attempt)
+                logger.warning(
+                    "Retrying %s | %sreason=%s | waiting=%.1fs | resume=%s",
+                    label,
+                    context,
+                    type(exc).__name__,
+                    sleep_seconds,
+                    _format_bytes(resume_after),
+                )
+                time.sleep(sleep_seconds)
+                continue
+
+            logger.error(
+                "File system error while downloading %s | %s%s",
+                label,
+                context,
+                exc,
+            )
+            return False
+
+        except Exception as exc:
+            if response is not None:
+                response.close()
+
+            if not is_transient_download_error(exc):
                 logger.error(
-                    "Failed to download %s after %d attempt(s): %s",
-                    dest.name,
-                    attempt,
+                    "Non-retryable error downloading %s | %s%s",
+                    label,
+                    context,
                     exc,
                 )
                 return False
 
-            sleep_seconds = 2 ** attempt
+            if attempt == max_retries:
+                resume_after = _existing_resume_offset(part_path)
+                logger.error(
+                    "Failed to download %s after %d attempt(s): %s | partial kept at %s (%s)",
+                    label,
+                    attempt,
+                    exc,
+                    part_path,
+                    _format_bytes(resume_after),
+                )
+                return False
+
+            resume_after = _existing_resume_offset(part_path)
+            sleep_seconds = _backoff_seconds(attempt)
             logger.warning(
-                "Download attempt %d/%d failed for %s (%s). Retrying in %ds.",
-                attempt,
-                max_retries,
-                dest.name,
-                exc,
+                "Retrying %s | %sreason=%s | waiting=%.1fs | resume=%s",
+                label,
+                context,
+                type(exc).__name__,
                 sleep_seconds,
+                _format_bytes(resume_after),
             )
             time.sleep(sleep_seconds)
-
-        except OSError as exc:
-            if temp_path.exists():
-                temp_path.unlink(missing_ok=True)
-            logger.error("File system error while downloading %s: %s", dest.name, exc)
-            return False
 
     return False
 
@@ -362,6 +791,8 @@ def download_scene_assets(
             dest=dest_path,
             session=session,
             max_retries=max_retries,
+            scene_id=item.id,
+            asset_name=logical_name,
         )
         if success:
             downloaded += 1
