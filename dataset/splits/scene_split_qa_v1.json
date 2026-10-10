@@ -1,0 +1,105 @@
+{
+  "split_type": "scene_level",
+  "label": "qa_v1 diversity-stratified scene-level split",
+  "seed": null,
+  "roles": {
+    "train": [
+      "LC09_L2SP_143050_20240327_02_T1",
+      "LC09_L2SP_150041_20250416_02_T1",
+      "LC09_L2SP_144041_20231213_02_T1",
+      "LC08_L2SP_146039_20241119_02_T1"
+    ],
+    "validation": [
+      "LC08_L2SP_144053_20250225_02_T1"
+    ],
+    "test": [
+      "LC08_L2SP_144048_20240427_02_T1",
+      "LC09_L2SP_137042_20230110_02_T1"
+    ]
+  },
+  "dataset_root": "dataset\\processed_qa",
+  "processing_version": "qa_v1",
+  "rationale": "Manual diversity-stratified split (no random seed). Train spans the thermal extremes (hot desert, snowy mountains), a winter plain and the original reference scene, which a preliminary checkpoint has already seen and therefore must not be in validation or test. Validation is one humid coastal scene. Test holds one climate close to training (semi-arid Deccan) and one farther away (humid Assam floodplain, different UTM zone), and mixes Landsat 8 and 9. No scene footprints overlap.",
+  "rejected_alternatives": {
+    "hard_ood": "train=Reference,Thar,IGP,Assam; val=Deccan; test=Kerala,Himalaya. Harsher test, but training would contain no mountain terrain or snow.",
+    "seeded_hash_seed42": "dataset_loader.split.split_scenes_deterministic(seed=42): train=Thar,IGP,Reference,Assam; val=Himalaya; test=Kerala,Deccan. Train is all Landsat 9 and val/test all Landsat 8, confounding sensor with partition."
+  },
+  "scenes": {
+    "LC09_L2SP_143050_20240327_02_T1": {
+      "role": "train",
+      "region": "Southern Andhra Pradesh (original reference scene)",
+      "climate_season": "dry tropical plains/coast, March",
+      "sensor": "Landsat 9",
+      "wrs_path_row": "143/050",
+      "acquisition_date": "20240327",
+      "patches": 2318,
+      "crs": "EPSG:32644"
+    },
+    "LC09_L2SP_150041_20250416_02_T1": {
+      "role": "train",
+      "region": "Thar Desert, Rajasthan",
+      "climate_season": "hot arid desert, April",
+      "sensor": "Landsat 9",
+      "wrs_path_row": "150/041",
+      "acquisition_date": "20250416",
+      "patches": 2327,
+      "crs": "EPSG:32642"
+    },
+    "LC09_L2SP_144041_20231213_02_T1": {
+      "role": "train",
+      "region": "Indo-Gangetic Plain, Uttar Pradesh",
+      "climate_season": "winter irrigated cropland and cities, December",
+      "sensor": "Landsat 9",
+      "wrs_path_row": "144/041",
+      "acquisition_date": "20231213",
+      "patches": 2325,
+      "crs": "EPSG:32644"
+    },
+    "LC08_L2SP_146039_20241119_02_T1": {
+      "role": "train",
+      "region": "Himalayan foothills, Uttarakhand",
+      "climate_season": "mountain terrain with snow/ice, November",
+      "sensor": "Landsat 8",
+      "wrs_path_row": "146/039",
+      "acquisition_date": "20241119",
+      "patches": 2161,
+      "crs": "EPSG:32644"
+    },
+    "LC08_L2SP_144053_20250225_02_T1": {
+      "role": "validation",
+      "region": "Kerala coast / Western Ghats",
+      "climate_season": "humid tropical coast and forest, February",
+      "sensor": "Landsat 8",
+      "wrs_path_row": "144/053",
+      "acquisition_date": "20250225",
+      "patches": 2202,
+      "crs": "EPSG:32643"
+    },
+    "LC08_L2SP_144048_20240427_02_T1": {
+      "role": "test",
+      "region": "Deccan Plateau, Telangana",
+      "climate_season": "semi-arid plateau and city, April",
+      "sensor": "Landsat 8",
+      "wrs_path_row": "144/048",
+      "acquisition_date": "20240427",
+      "patches": 2322,
+      "crs": "EPSG:32644"
+    },
+    "LC09_L2SP_137042_20230110_02_T1": {
+      "role": "test",
+      "region": "Brahmaputra valley, Assam",
+      "climate_season": "humid winter floodplain, January (UTM 46N)",
+      "sensor": "Landsat 9",
+      "wrs_path_row": "137/042",
+      "acquisition_date": "20230110",
+      "patches": 2330,
+      "crs": "EPSG:32646"
+    }
+  },
+  "rules": [
+    "All patches of a scene belong to exactly one role.",
+    "Test scenes are locked: never used for model selection, early stopping or tuning.",
+    "Normalization statistics are per scene and never pooled across roles.",
+    "Random patch splits must not be used for generalization claims."
+  ]
+}

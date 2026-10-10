@@ -1,0 +1,134 @@
+{
+  "audit": {
+    "id": "project_forensic_audit_v1",
+    "date_local": "2026-10-10",
+    "git_head": "0542cd2b13ae184d8eeb6487d00d71180f5b14d9",
+    "manuscript_pdf": "NOT_FOUND",
+    "frozen_artifacts_modified": false
+  },
+  "split": {
+    "path": "dataset/splits/scene_split_qa_v1.json",
+    "sha256": "12bd1ff703b60732d23b7337c2d86d4eefabfd1542114d7c0ef33de2c6f40f7e",
+    "status": "verified_hash_from_final_audit_v1_and_eval_json"
+  },
+  "checkpoints": {
+    "official_swinir_s_x2": {
+      "path": "pretrained/swinir/002_lightweightSR_DIV2K_s64w8_SwinIR-S_x2.pth",
+      "sha256": "193b229909ca89cd8b55de9c9e7fce146ae759d59dfcd78d8feb9dd1d6fa0fd7",
+      "size_bytes": 17147989,
+      "role": "all_frozen_evals",
+      "status": "verified"
+    },
+    "prelim_finetune_best": {
+      "path": "outputs/models/swinir/best.pt",
+      "sha256": "f97a5fff48268bd129c5291274b06f13d240b2c612272221351f190b8dba6e1d",
+      "size_bytes": 24613323,
+      "role": "sr_baseline_only_NOT_locked_test",
+      "status": "verified_hash_not_a_converged_finetune"
+    },
+    "prelim_finetune_latest": {
+      "path": "outputs/models/swinir/latest.pt",
+      "sha256": "0ed5c87a1d29b7f9222596db495ead6f7b95e4321f8131817cd0b3d3dee9d9ff",
+      "size_bytes": 24616175,
+      "status": "verified_hash"
+    },
+    "custom_scratch_best": {
+      "path": "outputs/models/swinir_custom_scratch/best.pt",
+      "sha256": "7d2890a22e8f64fe20741e2ea5aabd3bec283ae015c5e77d98c86787ad87971a",
+      "size_bytes": 11568013,
+      "status": "verified_hash_superseded"
+    }
+  },
+  "frozen_eval_json": {
+    "multiscene_validation": {
+      "path": "outputs/evaluation/multiscene_qa_v1/validation/results.json",
+      "sha256": "e938aad6f34ae27431416cd73eb0b761ed8346945606029921efd438b725405c"
+    },
+    "multiscene_test_locked": {
+      "path": "outputs/evaluation/multiscene_qa_v1/test_locked/results.json",
+      "sha256": "a03409721504fa1085f5b1898a6d5b228ce8e7efb1995a3dfaf9b5ea7878e23d"
+    },
+    "physics_validation": {
+      "path": "outputs/evaluation/physics_refinement_v1/validation/results.json",
+      "sha256": "9a90a6b4c6514a08ff366f0b0c945fc67d129a4424dd0245104d3b20dcf5ddab"
+    },
+    "physics_test_locked": {
+      "path": "outputs/evaluation/physics_refinement_v1/test_locked/results.json",
+      "sha256": "a6d014825e66324301fe90137f277a904fd5adcbc991f14c4f36e690cad166ab"
+    }
+  },
+  "locked_test_metrics": {
+    "source": "outputs/evaluation/physics_refinement_v1/test_locked/results.json",
+    "patch_key_sha256": "b62dc6c4a55b1499139556fd5e19bc5e0358e20793817cee2ad2dac6e2f1d134",
+    "n_patches": 1165,
+    "aggregation": {
+      "mae_rmse_kelvin": "pooled_over_valid_pixels",
+      "psnr_ssim": "mean_over_patches_recalculated_from_scene_means_times_counts"
+    },
+    "bicubic": {
+      "pooled_mae_kelvin": 0.21261992282362593,
+      "pooled_rmse_kelvin": 0.3177517477284618,
+      "psnr_patch_mean_recalc": 35.72931676142287,
+      "ssim_patch_mean_recalc": 0.869354215801619,
+      "verification": "extracted_pooled_from_json;_psnr_ssim_recalculated"
+    },
+    "swinir_pretrained": {
+      "pooled_mae_kelvin": 0.20910086632598093,
+      "pooled_rmse_kelvin": 0.3084911955789906,
+      "psnr_patch_mean_recalc": 35.92224655913354,
+      "ssim_patch_mean_recalc": 0.871713561826588,
+      "identical_to_multiscene_locked": true
+    },
+    "swinir_consistency_refined": {
+      "pooled_mae_kelvin": 0.15911003642633656,
+      "pooled_rmse_kelvin": 0.24044104016591353,
+      "psnr_patch_mean_recalc": 38.00351603728931,
+      "ssim_patch_mean_recalc": 0.910353213147686,
+      "base_model": "pretrained_not_finetuned"
+    }
+  },
+  "radiometry": {
+    "source": "preprocessing/radiometric.py",
+    "lst_kelvin": "DN * 0.00341802 + 149.0",
+    "reflectance": "DN * 0.0000275 + (-0.2)"
+  },
+  "degradation": {
+    "source": "sr_data/metadata.py",
+    "scale": 2,
+    "blur_sigma_hr_pixels": 1.2,
+    "noise_std_kelvin": 0.05,
+    "downsample": "area",
+    "base_seed": 42
+  },
+  "refinement": {
+    "source": "sr_data/consistency_refinement.py",
+    "method_spec": "outputs/evaluation/physics_refinement_v1/METHOD.txt",
+    "beta": 1.0,
+    "name": "synthetic_forward_consistency_refinement",
+    "radiative_transfer": false,
+    "uses_hr_for_prediction": false
+  },
+  "dataset_counts": {
+    "source": "outputs/dataset_expansion/qa_dataset_report.txt",
+    "qa_v1_scenes": 7,
+    "qa_v1_patches": 15985,
+    "processed_v0_reference_patches": 2330,
+    "qa_v1_reference_scene_patches": 2318
+  },
+  "website": {
+    "backend": "backend/main.py",
+    "frontend_routes": "frontend/src/App.tsx",
+    "ui_jobs": [
+      "outputs/ui_runs/20261009T180617_d954f91f/",
+      "outputs/ui_runs/20261009T181637_82c7872d/"
+    ],
+    "status": "real_api_and_jobs_not_mock_only"
+  },
+  "missing": [
+    "ThermalSR_IEEE.pdf",
+    "converged_thermal_finetune_checkpoint_eval_on_locked_test",
+    "ASTER_or_native_15m_benchmark",
+    "inference_peak_memory",
+    "GPU_eval_logs"
+  ]
+}

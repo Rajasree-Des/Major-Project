@@ -1,0 +1,2488 @@
+{
+  "root": "dataset\\processed_qa",
+  "scene_count": 7,
+  "manifest_scene_count": 7,
+  "total_patches": 15985,
+  "reader_backend": "tifffile",
+  "scenes": [
+    {
+      "scene_id": "LC08_L2SP_144048_20240427_02_T1",
+      "platform": "landsat-8",
+      "structure": {
+        "patches_generated": 2322,
+        "manifest_patches": 2322,
+        "thermal_files": 2322,
+        "rgb_files": 2322,
+        "thermal_rgb_names_match": true,
+        "patch_ids_unique": true,
+        "coordinates_unique": true,
+        "passed": true
+      },
+      "thermal_normalization": {
+        "stored_mean": 324.4971008300781,
+        "stored_std": 4.974270343780518,
+        "recomputed_mean_float64": 324.4971098764895,
+        "recomputed_std_float64": 4.974270455514054,
+        "abs_diff_mean_k": 9.04641137822182e-06,
+        "abs_diff_std_k": 1.1173353620108628e-07,
+        "valid_pixels_used": 40555969,
+        "passed": true
+      },
+      "patch_value_spot_check": {
+        "patches_checked": 20,
+        "max_abs_kelvin_error_vs_raw": 1.5763139117552782e-05,
+        "finite_vs_valid_mismatches": 0,
+        "passed": true,
+        "note": "patch*std+mean compared with raw DN*0.00341802+149 at the same pixels (float32 rounding expected)"
+      },
+      "qa": {
+        "distinct_values": 12,
+        "top_values": [
+          {
+            "value": 21824,
+            "count": 40107265,
+            "set_bits": [
+              6,
+              8,
+              10,
+              12,
+              14
+            ]
+          },
+          {
+            "value": 1,
+            "count": 19581799,
+            "set_bits": [
+              0
+            ]
+          },
+          {
+            "value": 21952,
+            "count": 448726,
+            "set_bits": [
+              6,
+              7,
+              8,
+              10,
+              12,
+              14
+            ]
+          },
+          {
+            "value": 22280,
+            "count": 4396,
+            "set_bits": [
+              3,
+              8,
+              9,
+              10,
+              12,
+              14
+            ]
+          },
+          {
+            "value": 23888,
+            "count": 3385,
+            "set_bits": [
+              4,
+              6,
+              8,
+              10,
+              11,
+              12,
+              14
+            ]
+          },
+          {
+            "value": 23826,
+            "count": 2112,
+            "set_bits": [
+              1,
+              4,
+              8,
+              10,
+              11,
+              12,
+              14
+            ]
+          },
+          {
+            "value": 21890,
+            "count": 2080,
+            "set_bits": [
+              1,
+              7,
+              8,
+              10,
+              12,
+              14
+            ]
+          },
+          {
+            "value": 21762,
+            "count": 141,
+            "set_bits": [
+              1,
+              8,
+              10,
+              12,
+              14
+            ]
+          },
+          {
+            "value": 54596,
+            "count": 3,
+            "set_bits": [
+              2,
+              6,
+              8,
+              10,
+              12,
+              14,
+              15
+            ]
+          },
+          {
+            "value": 22208,
+            "count": 2,
+            "set_bits": [
+              6,
+              7,
+              9,
+              10,
+              12,
+              14
+            ]
+          }
+        ],
+        "flag_counts_all_pixels": {
+          "fill": 19581799,
+          "dilated_cloud": 4335,
+          "cirrus": 3,
+          "cloud": 4396,
+          "cloud_shadow": 5498,
+          "snow": 0
+        },
+        "fill_pixels": 19581799,
+        "band_nodata_or_nonfinite_pixels": 19581823,
+        "fill_equals_band_nodata": false,
+        "fill_and_not_nodata": 0,
+        "nodata_and_not_fill": 24,
+        "stac_eo_cloud_cover": 0.01,
+        "stac_cloud_cover_land": 0.01,
+        "metadata_matches_recount": {
+          "fill": true,
+          "dilated_cloud": true,
+          "cirrus": true,
+          "cloud": true,
+          "cloud_shadow": true,
+          "snow": true
+        },
+        "cloud_related_fraction_of_image_pixels": 0.0003508174104824006
+      },
+      "reader_cross_checks": {
+        "reader_backend": "tifffile",
+        "stac_proj_grid": {
+          "ST_B10": {
+            "stac_transform_gdal_order": [
+              88785.0,
+              30.0,
+              0.0,
+              2037015.0,
+              0.0,
+              -30.0
+            ],
+            "reader_transform": [
+              88785.0,
+              30.0,
+              0.0,
+              2037015.0,
+              0.0,
+              -30.0
+            ],
+            "transform_equal": true,
+            "shape_equal": true,
+            "epsg_equal": true,
+            "passed": true
+          },
+          "SR_B2": {
+            "stac_transform_gdal_order": [
+              88785.0,
+              30.0,
+              0.0,
+              2037015.0,
+              0.0,
+              -30.0
+            ],
+            "reader_transform": [
+              88785.0,
+              30.0,
+              0.0,
+              2037015.0,
+              0.0,
+              -30.0
+            ],
+            "transform_equal": true,
+            "shape_equal": true,
+            "epsg_equal": true,
+            "passed": true
+          },
+          "SR_B3": {
+            "stac_transform_gdal_order": [
+              88785.0,
+              30.0,
+              0.0,
+              2037015.0,
+              0.0,
+              -30.0
+            ],
+            "reader_transform": [
+              88785.0,
+              30.0,
+              0.0,
+              2037015.0,
+              0.0,
+              -30.0
+            ],
+            "transform_equal": true,
+            "shape_equal": true,
+            "epsg_equal": true,
+            "passed": true
+          },
+          "SR_B4": {
+            "stac_transform_gdal_order": [
+              88785.0,
+              30.0,
+              0.0,
+              2037015.0,
+              0.0,
+              -30.0
+            ],
+            "reader_transform": [
+              88785.0,
+              30.0,
+              0.0,
+              2037015.0,
+              0.0,
+              -30.0
+            ],
+            "transform_equal": true,
+            "shape_equal": true,
+            "epsg_equal": true,
+            "passed": true
+          },
+          "QA_PIXEL": {
+            "stac_transform_gdal_order": [
+              88785.0,
+              30.0,
+              0.0,
+              2037015.0,
+              0.0,
+              -30.0
+            ],
+            "reader_transform": [
+              88785.0,
+              30.0,
+              0.0,
+              2037015.0,
+              0.0,
+              -30.0
+            ],
+            "transform_equal": true,
+            "shape_equal": true,
+            "epsg_equal": true,
+            "passed": true
+          }
+        },
+        "stac_proj_grid_performed": true,
+        "stac_proj_grid_passed": true,
+        "stac_scaling": {
+          "lwir11": {
+            "stac_scale": 0.00341802,
+            "stac_offset": 149,
+            "pipeline_mult": 0.00341802,
+            "pipeline_add": 149.0,
+            "equal": true
+          },
+          "blue": {
+            "stac_scale": 2.75e-05,
+            "stac_offset": -0.2,
+            "pipeline_mult": 2.75e-05,
+            "pipeline_add": -0.2,
+            "equal": true
+          },
+          "green": {
+            "stac_scale": 2.75e-05,
+            "stac_offset": -0.2,
+            "pipeline_mult": 2.75e-05,
+            "pipeline_add": -0.2,
+            "equal": true
+          },
+          "red": {
+            "stac_scale": 2.75e-05,
+            "stac_offset": -0.2,
+            "pipeline_mult": 2.75e-05,
+            "pipeline_add": -0.2,
+            "equal": true
+          },
+          "passed": true
+        },
+        "pillow_vs_tifffile_pixels": {
+          "ST_B10": {
+            "pillow_mode_dtype": "uint16",
+            "shape_equal": true,
+            "pixels_identical": true
+          },
+          "SR_B2": {
+            "pillow_mode_dtype": "uint16",
+            "shape_equal": true,
+            "pixels_identical": true
+          },
+          "SR_B3": {
+            "pillow_mode_dtype": "uint16",
+            "shape_equal": true,
+            "pixels_identical": true
+          },
+          "SR_B4": {
+            "pillow_mode_dtype": "uint16",
+            "shape_equal": true,
+            "pixels_identical": true
+          },
+          "QA_PIXEL": {
+            "pillow_mode_dtype": "uint16",
+            "shape_equal": true,
+            "pixels_identical": true
+          }
+        },
+        "pillow_decode_performed": true,
+        "pillow_decode_passed": true,
+        "rasterio_vs_tifffile_performed": false
+      },
+      "normalization_effects": {
+        "thermal_std_k": 4.974270343780518,
+        "synthetic_noise_0.05K_in_z_units": 0.010051725488245032,
+        "z_error_to_kelvin_factor": 4.974270343780518
+      }
+    },
+    {
+      "scene_id": "LC08_L2SP_144053_20250225_02_T1",
+      "platform": "landsat-8",
+      "structure": {
+        "patches_generated": 2202,
+        "manifest_patches": 2202,
+        "thermal_files": 2202,
+        "rgb_files": 2202,
+        "thermal_rgb_names_match": true,
+        "patch_ids_unique": true,
+        "coordinates_unique": true,
+        "passed": true
+      },
+      "thermal_normalization": {
+        "stored_mean": 306.74456787109375,
+        "stored_std": 4.894908428192139,
+        "recomputed_mean_float64": 306.7445386637722,
+        "recomputed_std_float64": 4.8949091348049025,
+        "abs_diff_mean_k": 2.920732157463135e-05,
+        "abs_diff_std_k": 7.0661276385664e-07,
+        "valid_pixels_used": 39807563,
+        "passed": true
+      },
+      "patch_value_spot_check": {
+        "patches_checked": 20,
+        "max_abs_kelvin_error_vs_raw": 1.6345067251677392e-05,
+        "finite_vs_valid_mismatches": 0,
+        "passed": true,
+        "note": "patch*std+mean compared with raw DN*0.00341802+149 at the same pixels (float32 rounding expected)"
+      },
+      "qa": {
+        "distinct_values": 16,
+        "top_values": [
+          {
+            "value": 21824,
+            "count": 31452144,
+            "set_bits": [
+              6,
+              8,
+              10,
+              12,
+              14
+            ]
+          },
+          {
+            "value": 1,
+            "count": 17856035,
+            "set_bits": [
+              0
+            ]
+          },
+          {
+            "value": 21952,
+            "count": 8462117,
+            "set_bits": [
+              6,
+              7,
+              8,
+              10,
+              12,
+              14
+            ]
+          },
+          {
+            "value": 23888,
+            "count": 198848,
+            "set_bits": [
+              4,
+              6,
+              8,
+              10,
+              11,
+              12,
+              14
+            ]
+          },
+          {
+            "value": 22280,
+            "count": 189894,
+            "set_bits": [
+              3,
+              8,
+              9,
+              10,
+              12,
+              14
+            ]
+          },
+          {
+            "value": 23826,
+            "count": 85972,
+            "set_bits": [
+              1,
+              4,
+              8,
+              10,
+              11,
+              12,
+              14
+            ]
+          },
+          {
+            "value": 21762,
+            "count": 83055,
+            "set_bits": [
+              1,
+              8,
+              10,
+              12,
+              14
+            ]
+          },
+          {
+            "value": 21890,
+            "count": 25121,
+            "set_bits": [
+              1,
+              7,
+              8,
+              10,
+              12,
+              14
+            ]
+          },
+          {
+            "value": 24082,
+            "count": 10350,
+            "set_bits": [
+              1,
+              4,
+              9,
+              10,
+              11,
+              12,
+              14
+            ]
+          },
+          {
+            "value": 22018,
+            "count": 6056,
+            "set_bits": [
+              1,
+              9,
+              10,
+              12,
+              14
+            ]
+          }
+        ],
+        "flag_counts_all_pixels": {
+          "fill": 17856035,
+          "dilated_cloud": 213387,
+          "cirrus": 1163,
+          "cloud": 191056,
+          "cloud_shadow": 295950,
+          "snow": 0
+        },
+        "fill_pixels": 17856035,
+        "band_nodata_or_nonfinite_pixels": 18060201,
+        "fill_equals_band_nodata": false,
+        "fill_and_not_nodata": 0,
+        "nodata_and_not_fill": 204166,
+        "stac_eo_cloud_cover": 0.47,
+        "stac_cloud_cover_land": 0.4,
+        "metadata_matches_recount": {
+          "fill": true,
+          "dilated_cloud": true,
+          "cirrus": true,
+          "cloud": true,
+          "cloud_shadow": true,
+          "snow": true
+        },
+        "cloud_related_fraction_of_image_pixels": 0.01731277524560092
+      },
+      "reader_cross_checks": {
+        "reader_backend": "tifffile",
+        "stac_proj_grid": {
+          "ST_B10": {
+            "stac_transform_gdal_order": [
+              566685.0,
+              30.0,
+              0.0,
+              1234815.0,
+              0.0,
+              -30.0
+            ],
+            "reader_transform": [
+              566685.0,
+              30.0,
+              0.0,
+              1234815.0,
+              0.0,
+              -30.0
+            ],
+            "transform_equal": true,
+            "shape_equal": true,
+            "epsg_equal": true,
+            "passed": true
+          },
+          "SR_B2": {
+            "stac_transform_gdal_order": [
+              566685.0,
+              30.0,
+              0.0,
+              1234815.0,
+              0.0,
+              -30.0
+            ],
+            "reader_transform": [
+              566685.0,
+              30.0,
+              0.0,
+              1234815.0,
+              0.0,
+              -30.0
+            ],
+            "transform_equal": true,
+            "shape_equal": true,
+            "epsg_equal": true,
+            "passed": true
+          },
+          "SR_B3": {
+            "stac_transform_gdal_order": [
+              566685.0,
+              30.0,
+              0.0,
+              1234815.0,
+              0.0,
+              -30.0
+            ],
+            "reader_transform": [
+              566685.0,
+              30.0,
+              0.0,
+              1234815.0,
+              0.0,
+              -30.0
+            ],
+            "transform_equal": true,
+            "shape_equal": true,
+            "epsg_equal": true,
+            "passed": true
+          },
+          "SR_B4": {
+            "stac_transform_gdal_order": [
+              566685.0,
+              30.0,
+              0.0,
+              1234815.0,
+              0.0,
+              -30.0
+            ],
+            "reader_transform": [
+              566685.0,
+              30.0,
+              0.0,
+              1234815.0,
+              0.0,
+              -30.0
+            ],
+            "transform_equal": true,
+            "shape_equal": true,
+            "epsg_equal": true,
+            "passed": true
+          },
+          "QA_PIXEL": {
+            "stac_transform_gdal_order": [
+              566685.0,
+              30.0,
+              0.0,
+              1234815.0,
+              0.0,
+              -30.0
+            ],
+            "reader_transform": [
+              566685.0,
+              30.0,
+              0.0,
+              1234815.0,
+              0.0,
+              -30.0
+            ],
+            "transform_equal": true,
+            "shape_equal": true,
+            "epsg_equal": true,
+            "passed": true
+          }
+        },
+        "stac_proj_grid_performed": true,
+        "stac_proj_grid_passed": true,
+        "stac_scaling": {
+          "lwir11": {
+            "stac_scale": 0.00341802,
+            "stac_offset": 149,
+            "pipeline_mult": 0.00341802,
+            "pipeline_add": 149.0,
+            "equal": true
+          },
+          "blue": {
+            "stac_scale": 2.75e-05,
+            "stac_offset": -0.2,
+            "pipeline_mult": 2.75e-05,
+            "pipeline_add": -0.2,
+            "equal": true
+          },
+          "green": {
+            "stac_scale": 2.75e-05,
+            "stac_offset": -0.2,
+            "pipeline_mult": 2.75e-05,
+            "pipeline_add": -0.2,
+            "equal": true
+          },
+          "red": {
+            "stac_scale": 2.75e-05,
+            "stac_offset": -0.2,
+            "pipeline_mult": 2.75e-05,
+            "pipeline_add": -0.2,
+            "equal": true
+          },
+          "passed": true
+        },
+        "pillow_vs_tifffile_pixels": {
+          "ST_B10": {
+            "pillow_mode_dtype": "uint16",
+            "shape_equal": true,
+            "pixels_identical": true
+          },
+          "SR_B2": {
+            "pillow_mode_dtype": "uint16",
+            "shape_equal": true,
+            "pixels_identical": true
+          },
+          "SR_B3": {
+            "pillow_mode_dtype": "uint16",
+            "shape_equal": true,
+            "pixels_identical": true
+          },
+          "SR_B4": {
+            "pillow_mode_dtype": "uint16",
+            "shape_equal": true,
+            "pixels_identical": true
+          },
+          "QA_PIXEL": {
+            "pillow_mode_dtype": "uint16",
+            "shape_equal": true,
+            "pixels_identical": true
+          }
+        },
+        "pillow_decode_performed": true,
+        "pillow_decode_passed": true,
+        "rasterio_vs_tifffile_performed": false
+      },
+      "normalization_effects": {
+        "thermal_std_k": 4.894908428192139,
+        "synthetic_noise_0.05K_in_z_units": 0.010214695685015452,
+        "z_error_to_kelvin_factor": 4.894908428192139
+      }
+    },
+    {
+      "scene_id": "LC08_L2SP_146039_20241119_02_T1",
+      "platform": "landsat-8",
+      "structure": {
+        "patches_generated": 2161,
+        "manifest_patches": 2161,
+        "thermal_files": 2161,
+        "rgb_files": 2161,
+        "thermal_rgb_names_match": true,
+        "patch_ids_unique": true,
+        "coordinates_unique": true,
+        "passed": true
+      },
+      "thermal_normalization": {
+        "stored_mean": 291.89312744140625,
+        "stored_std": 5.959814071655273,
+        "recomputed_mean_float64": 291.89313449265063,
+        "recomputed_std_float64": 5.959814058446568,
+        "abs_diff_mean_k": 7.051244381273136e-06,
+        "abs_diff_std_k": 1.3208705240685958e-08,
+        "valid_pixels_used": 38598715,
+        "passed": true
+      },
+      "patch_value_spot_check": {
+        "patches_checked": 20,
+        "max_abs_kelvin_error_vs_raw": 1.5800202731952595e-05,
+        "finite_vs_valid_mismatches": 0,
+        "passed": true,
+        "note": "patch*std+mean compared with raw DN*0.00341802+149 at the same pixels (float32 rounding expected)"
+      },
+      "qa": {
+        "distinct_values": 26,
+        "top_values": [
+          {
+            "value": 21824,
+            "count": 37689676,
+            "set_bits": [
+              6,
+              8,
+              10,
+              12,
+              14
+            ]
+          },
+          {
+            "value": 1,
+            "count": 21111221,
+            "set_bits": [
+              0
+            ]
+          },
+          {
+            "value": 21952,
+            "count": 889604,
+            "set_bits": [
+              6,
+              7,
+              8,
+              10,
+              12,
+              14
+            ]
+          },
+          {
+            "value": 23888,
+            "count": 562201,
+            "set_bits": [
+              4,
+              6,
+              8,
+              10,
+              11,
+              12,
+              14
+            ]
+          },
+          {
+            "value": 22280,
+            "count": 434388,
+            "set_bits": [
+              3,
+              8,
+              9,
+              10,
+              12,
+              14
+            ]
+          },
+          {
+            "value": 23826,
+            "count": 314482,
+            "set_bits": [
+              1,
+              4,
+              8,
+              10,
+              11,
+              12,
+              14
+            ]
+          },
+          {
+            "value": 30048,
+            "count": 202794,
+            "set_bits": [
+              5,
+              6,
+              8,
+              10,
+              12,
+              13,
+              14
+            ]
+          },
+          {
+            "value": 21762,
+            "count": 161946,
+            "set_bits": [
+              1,
+              8,
+              10,
+              12,
+              14
+            ]
+          },
+          {
+            "value": 29986,
+            "count": 120809,
+            "set_bits": [
+              1,
+              5,
+              8,
+              10,
+              12,
+              13,
+              14
+            ]
+          },
+          {
+            "value": 21890,
+            "count": 52737,
+            "set_bits": [
+              1,
+              7,
+              8,
+              10,
+              12,
+              14
+            ]
+          }
+        ],
+        "flag_counts_all_pixels": {
+          "fill": 21111221,
+          "dilated_cloud": 684185,
+          "cirrus": 22566,
+          "cloud": 434495,
+          "cloud_shadow": 895268,
+          "snow": 340278
+        },
+        "fill_pixels": 21111221,
+        "band_nodata_or_nonfinite_pixels": 21169871,
+        "fill_equals_band_nodata": false,
+        "fill_and_not_nodata": 0,
+        "nodata_and_not_fill": 58650,
+        "stac_eo_cloud_cover": 1.07,
+        "stac_cloud_cover_land": 1.07,
+        "metadata_matches_recount": {
+          "fill": true,
+          "dilated_cloud": true,
+          "cirrus": true,
+          "cloud": true,
+          "cloud_shadow": true,
+          "snow": true
+        },
+        "cloud_related_fraction_of_image_pixels": 0.05025689698060909
+      },
+      "reader_cross_checks": {
+        "reader_backend": "tifffile",
+        "stac_proj_grid": {
+          "ST_B10": {
+            "stac_transform_gdal_order": [
+              121485.0,
+              30.0,
+              0.0,
+              3474315.0,
+              0.0,
+              -30.0
+            ],
+            "reader_transform": [
+              121485.0,
+              30.0,
+              0.0,
+              3474315.0,
+              0.0,
+              -30.0
+            ],
+            "transform_equal": true,
+            "shape_equal": true,
+            "epsg_equal": true,
+            "passed": true
+          },
+          "SR_B2": {
+            "stac_transform_gdal_order": [
+              121485.0,
+              30.0,
+              0.0,
+              3474315.0,
+              0.0,
+              -30.0
+            ],
+            "reader_transform": [
+              121485.0,
+              30.0,
+              0.0,
+              3474315.0,
+              0.0,
+              -30.0
+            ],
+            "transform_equal": true,
+            "shape_equal": true,
+            "epsg_equal": true,
+            "passed": true
+          },
+          "SR_B3": {
+            "stac_transform_gdal_order": [
+              121485.0,
+              30.0,
+              0.0,
+              3474315.0,
+              0.0,
+              -30.0
+            ],
+            "reader_transform": [
+              121485.0,
+              30.0,
+              0.0,
+              3474315.0,
+              0.0,
+              -30.0
+            ],
+            "transform_equal": true,
+            "shape_equal": true,
+            "epsg_equal": true,
+            "passed": true
+          },
+          "SR_B4": {
+            "stac_transform_gdal_order": [
+              121485.0,
+              30.0,
+              0.0,
+              3474315.0,
+              0.0,
+              -30.0
+            ],
+            "reader_transform": [
+              121485.0,
+              30.0,
+              0.0,
+              3474315.0,
+              0.0,
+              -30.0
+            ],
+            "transform_equal": true,
+            "shape_equal": true,
+            "epsg_equal": true,
+            "passed": true
+          },
+          "QA_PIXEL": {
+            "stac_transform_gdal_order": [
+              121485.0,
+              30.0,
+              0.0,
+              3474315.0,
+              0.0,
+              -30.0
+            ],
+            "reader_transform": [
+              121485.0,
+              30.0,
+              0.0,
+              3474315.0,
+              0.0,
+              -30.0
+            ],
+            "transform_equal": true,
+            "shape_equal": true,
+            "epsg_equal": true,
+            "passed": true
+          }
+        },
+        "stac_proj_grid_performed": true,
+        "stac_proj_grid_passed": true,
+        "stac_scaling": {
+          "lwir11": {
+            "stac_scale": 0.00341802,
+            "stac_offset": 149,
+            "pipeline_mult": 0.00341802,
+            "pipeline_add": 149.0,
+            "equal": true
+          },
+          "blue": {
+            "stac_scale": 2.75e-05,
+            "stac_offset": -0.2,
+            "pipeline_mult": 2.75e-05,
+            "pipeline_add": -0.2,
+            "equal": true
+          },
+          "green": {
+            "stac_scale": 2.75e-05,
+            "stac_offset": -0.2,
+            "pipeline_mult": 2.75e-05,
+            "pipeline_add": -0.2,
+            "equal": true
+          },
+          "red": {
+            "stac_scale": 2.75e-05,
+            "stac_offset": -0.2,
+            "pipeline_mult": 2.75e-05,
+            "pipeline_add": -0.2,
+            "equal": true
+          },
+          "passed": true
+        },
+        "pillow_vs_tifffile_pixels": {
+          "ST_B10": {
+            "pillow_mode_dtype": "uint16",
+            "shape_equal": true,
+            "pixels_identical": true
+          },
+          "SR_B2": {
+            "pillow_mode_dtype": "uint16",
+            "shape_equal": true,
+            "pixels_identical": true
+          },
+          "SR_B3": {
+            "pillow_mode_dtype": "uint16",
+            "shape_equal": true,
+            "pixels_identical": true
+          },
+          "SR_B4": {
+            "pillow_mode_dtype": "uint16",
+            "shape_equal": true,
+            "pixels_identical": true
+          },
+          "QA_PIXEL": {
+            "pillow_mode_dtype": "uint16",
+            "shape_equal": true,
+            "pixels_identical": true
+          }
+        },
+        "pillow_decode_performed": true,
+        "pillow_decode_passed": true,
+        "rasterio_vs_tifffile_performed": false
+      },
+      "normalization_effects": {
+        "thermal_std_k": 5.959814071655273,
+        "synthetic_noise_0.05K_in_z_units": 0.008389523464800479,
+        "z_error_to_kelvin_factor": 5.959814071655273
+      }
+    },
+    {
+      "scene_id": "LC09_L2SP_137042_20230110_02_T1",
+      "platform": "landsat-9",
+      "structure": {
+        "patches_generated": 2330,
+        "manifest_patches": 2330,
+        "thermal_files": 2330,
+        "rgb_files": 2330,
+        "thermal_rgb_names_match": true,
+        "patch_ids_unique": true,
+        "coordinates_unique": true,
+        "passed": true
+      },
+      "thermal_normalization": {
+        "stored_mean": 296.2490234375,
+        "stored_std": 2.86836314201355,
+        "recomputed_mean_float64": 296.24901433933934,
+        "recomputed_std_float64": 2.8683632489351556,
+        "abs_diff_mean_k": 9.098160660414578e-06,
+        "abs_diff_std_k": 1.0692160579139909e-07,
+        "valid_pixels_used": 40628270,
+        "passed": true
+      },
+      "patch_value_spot_check": {
+        "patches_checked": 20,
+        "max_abs_kelvin_error_vs_raw": 1.5534281885720702e-05,
+        "finite_vs_valid_mismatches": 0,
+        "passed": true,
+        "note": "patch*std+mean compared with raw DN*0.00341802+149 at the same pixels (float32 rounding expected)"
+      },
+      "qa": {
+        "distinct_values": 14,
+        "top_values": [
+          {
+            "value": 21824,
+            "count": 39660738,
+            "set_bits": [
+              6,
+              8,
+              10,
+              12,
+              14
+            ]
+          },
+          {
+            "value": 1,
+            "count": 19782605,
+            "set_bits": [
+              0
+            ]
+          },
+          {
+            "value": 21952,
+            "count": 921506,
+            "set_bits": [
+              6,
+              7,
+              8,
+              10,
+              12,
+              14
+            ]
+          },
+          {
+            "value": 22080,
+            "count": 42868,
+            "set_bits": [
+              6,
+              9,
+              10,
+              12,
+              14
+            ]
+          },
+          {
+            "value": 23888,
+            "count": 17190,
+            "set_bits": [
+              4,
+              6,
+              8,
+              10,
+              11,
+              12,
+              14
+            ]
+          },
+          {
+            "value": 22280,
+            "count": 9363,
+            "set_bits": [
+              3,
+              8,
+              9,
+              10,
+              12,
+              14
+            ]
+          },
+          {
+            "value": 21890,
+            "count": 6805,
+            "set_bits": [
+              1,
+              7,
+              8,
+              10,
+              12,
+              14
+            ]
+          },
+          {
+            "value": 22208,
+            "count": 6245,
+            "set_bits": [
+              6,
+              7,
+              9,
+              10,
+              12,
+              14
+            ]
+          },
+          {
+            "value": 21762,
+            "count": 5962,
+            "set_bits": [
+              1,
+              8,
+              10,
+              12,
+              14
+            ]
+          },
+          {
+            "value": 23826,
+            "count": 4520,
+            "set_bits": [
+              1,
+              4,
+              8,
+              10,
+              11,
+              12,
+              14
+            ]
+          }
+        ],
+        "flag_counts_all_pixels": {
+          "fill": 19782605,
+          "dilated_cloud": 20498,
+          "cirrus": 0,
+          "cloud": 9363,
+          "cloud_shadow": 23417,
+          "snow": 0
+        },
+        "fill_pixels": 19782605,
+        "band_nodata_or_nonfinite_pixels": 19785692,
+        "fill_equals_band_nodata": false,
+        "fill_and_not_nodata": 0,
+        "nodata_and_not_fill": 3087,
+        "stac_eo_cloud_cover": 0.02,
+        "stac_cloud_cover_land": 0.02,
+        "metadata_matches_recount": {
+          "fill": true,
+          "dilated_cloud": true,
+          "cirrus": true,
+          "cloud": true,
+          "cloud_shadow": true,
+          "snow": true
+        },
+        "cloud_related_fraction_of_image_pixels": 0.0013097064048178159
+      },
+      "reader_cross_checks": {
+        "reader_backend": "tifffile",
+        "stac_proj_grid": {
+          "ST_B10": {
+            "stac_transform_gdal_order": [
+              191985.0,
+              30.0,
+              0.0,
+              2993415.0,
+              0.0,
+              -30.0
+            ],
+            "reader_transform": [
+              191985.0,
+              30.0,
+              0.0,
+              2993415.0,
+              0.0,
+              -30.0
+            ],
+            "transform_equal": true,
+            "shape_equal": true,
+            "epsg_equal": true,
+            "passed": true
+          },
+          "SR_B2": {
+            "stac_transform_gdal_order": [
+              191985.0,
+              30.0,
+              0.0,
+              2993415.0,
+              0.0,
+              -30.0
+            ],
+            "reader_transform": [
+              191985.0,
+              30.0,
+              0.0,
+              2993415.0,
+              0.0,
+              -30.0
+            ],
+            "transform_equal": true,
+            "shape_equal": true,
+            "epsg_equal": true,
+            "passed": true
+          },
+          "SR_B3": {
+            "stac_transform_gdal_order": [
+              191985.0,
+              30.0,
+              0.0,
+              2993415.0,
+              0.0,
+              -30.0
+            ],
+            "reader_transform": [
+              191985.0,
+              30.0,
+              0.0,
+              2993415.0,
+              0.0,
+              -30.0
+            ],
+            "transform_equal": true,
+            "shape_equal": true,
+            "epsg_equal": true,
+            "passed": true
+          },
+          "SR_B4": {
+            "stac_transform_gdal_order": [
+              191985.0,
+              30.0,
+              0.0,
+              2993415.0,
+              0.0,
+              -30.0
+            ],
+            "reader_transform": [
+              191985.0,
+              30.0,
+              0.0,
+              2993415.0,
+              0.0,
+              -30.0
+            ],
+            "transform_equal": true,
+            "shape_equal": true,
+            "epsg_equal": true,
+            "passed": true
+          },
+          "QA_PIXEL": {
+            "stac_transform_gdal_order": [
+              191985.0,
+              30.0,
+              0.0,
+              2993415.0,
+              0.0,
+              -30.0
+            ],
+            "reader_transform": [
+              191985.0,
+              30.0,
+              0.0,
+              2993415.0,
+              0.0,
+              -30.0
+            ],
+            "transform_equal": true,
+            "shape_equal": true,
+            "epsg_equal": true,
+            "passed": true
+          }
+        },
+        "stac_proj_grid_performed": true,
+        "stac_proj_grid_passed": true,
+        "stac_scaling": {
+          "lwir11": {
+            "stac_scale": 0.00341802,
+            "stac_offset": 149,
+            "pipeline_mult": 0.00341802,
+            "pipeline_add": 149.0,
+            "equal": true
+          },
+          "blue": {
+            "stac_scale": 2.75e-05,
+            "stac_offset": -0.2,
+            "pipeline_mult": 2.75e-05,
+            "pipeline_add": -0.2,
+            "equal": true
+          },
+          "green": {
+            "stac_scale": 2.75e-05,
+            "stac_offset": -0.2,
+            "pipeline_mult": 2.75e-05,
+            "pipeline_add": -0.2,
+            "equal": true
+          },
+          "red": {
+            "stac_scale": 2.75e-05,
+            "stac_offset": -0.2,
+            "pipeline_mult": 2.75e-05,
+            "pipeline_add": -0.2,
+            "equal": true
+          },
+          "passed": true
+        },
+        "pillow_vs_tifffile_pixels": {
+          "ST_B10": {
+            "pillow_mode_dtype": "uint16",
+            "shape_equal": true,
+            "pixels_identical": true
+          },
+          "SR_B2": {
+            "pillow_mode_dtype": "uint16",
+            "shape_equal": true,
+            "pixels_identical": true
+          },
+          "SR_B3": {
+            "pillow_mode_dtype": "uint16",
+            "shape_equal": true,
+            "pixels_identical": true
+          },
+          "SR_B4": {
+            "pillow_mode_dtype": "uint16",
+            "shape_equal": true,
+            "pixels_identical": true
+          },
+          "QA_PIXEL": {
+            "pillow_mode_dtype": "uint16",
+            "shape_equal": true,
+            "pixels_identical": true
+          }
+        },
+        "pillow_decode_performed": true,
+        "pillow_decode_passed": true,
+        "rasterio_vs_tifffile_performed": false
+      },
+      "normalization_effects": {
+        "thermal_std_k": 2.86836314201355,
+        "synthetic_noise_0.05K_in_z_units": 0.01743154458640154,
+        "z_error_to_kelvin_factor": 2.86836314201355
+      }
+    },
+    {
+      "scene_id": "LC09_L2SP_143050_20240327_02_T1",
+      "platform": "landsat-9",
+      "structure": {
+        "patches_generated": 2318,
+        "manifest_patches": 2318,
+        "thermal_files": 2318,
+        "rgb_files": 2318,
+        "thermal_rgb_names_match": true,
+        "patch_ids_unique": true,
+        "coordinates_unique": true,
+        "passed": true
+      },
+      "thermal_normalization": {
+        "stored_mean": 316.8553771972656,
+        "stored_std": 4.809076309204102,
+        "recomputed_mean_float64": 316.8553710239747,
+        "recomputed_std_float64": 4.809076360075178,
+        "abs_diff_mean_k": 6.173290898914274e-06,
+        "abs_diff_std_k": 5.087107624035525e-08,
+        "valid_pixels_used": 40455868,
+        "passed": true
+      },
+      "patch_value_spot_check": {
+        "patches_checked": 20,
+        "max_abs_kelvin_error_vs_raw": 1.5810514696568134e-05,
+        "finite_vs_valid_mismatches": 0,
+        "passed": true,
+        "note": "patch*std+mean compared with raw DN*0.00341802+149 at the same pixels (float32 rounding expected)"
+      },
+      "qa": {
+        "distinct_values": 15,
+        "top_values": [
+          {
+            "value": 21824,
+            "count": 40062796,
+            "set_bits": [
+              6,
+              8,
+              10,
+              12,
+              14
+            ]
+          },
+          {
+            "value": 1,
+            "count": 18791128,
+            "set_bits": [
+              0
+            ]
+          },
+          {
+            "value": 21952,
+            "count": 391749,
+            "set_bits": [
+              6,
+              7,
+              8,
+              10,
+              12,
+              14
+            ]
+          },
+          {
+            "value": 22280,
+            "count": 156635,
+            "set_bits": [
+              3,
+              8,
+              9,
+              10,
+              12,
+              14
+            ]
+          },
+          {
+            "value": 24082,
+            "count": 20308,
+            "set_bits": [
+              1,
+              4,
+              9,
+              10,
+              11,
+              12,
+              14
+            ]
+          },
+          {
+            "value": 23888,
+            "count": 14925,
+            "set_bits": [
+              4,
+              6,
+              8,
+              10,
+              11,
+              12,
+              14
+            ]
+          },
+          {
+            "value": 21762,
+            "count": 6879,
+            "set_bits": [
+              1,
+              8,
+              10,
+              12,
+              14
+            ]
+          },
+          {
+            "value": 23826,
+            "count": 4167,
+            "set_bits": [
+              1,
+              4,
+              8,
+              10,
+              11,
+              12,
+              14
+            ]
+          },
+          {
+            "value": 22208,
+            "count": 2805,
+            "set_bits": [
+              6,
+              7,
+              9,
+              10,
+              12,
+              14
+            ]
+          },
+          {
+            "value": 24144,
+            "count": 2223,
+            "set_bits": [
+              4,
+              6,
+              9,
+              10,
+              11,
+              12,
+              14
+            ]
+          }
+        ],
+        "flag_counts_all_pixels": {
+          "fill": 18791128,
+          "dilated_cloud": 32341,
+          "cirrus": 9,
+          "cloud": 156635,
+          "cloud_shadow": 41623,
+          "snow": 0
+        },
+        "fill_pixels": 18791128,
+        "band_nodata_or_nonfinite_pixels": 18792620,
+        "fill_equals_band_nodata": false,
+        "fill_and_not_nodata": 0,
+        "nodata_and_not_fill": 1492,
+        "stac_eo_cloud_cover": 0.39,
+        "stac_cloud_cover_land": 0.02,
+        "metadata_matches_recount": {
+          "fill": true,
+          "dilated_cloud": true,
+          "cirrus": true,
+          "cloud": true,
+          "cloud_shadow": true,
+          "snow": true
+        },
+        "cloud_related_fraction_of_image_pixels": 0.005671131105239779
+      },
+      "reader_cross_checks": {
+        "reader_backend": "tifffile",
+        "stac_proj_grid": {
+          "ST_B10": {
+            "stac_transform_gdal_order": [
+              180285.0,
+              30.0,
+              0.0,
+              1715415.0,
+              0.0,
+              -30.0
+            ],
+            "reader_transform": [
+              180285.0,
+              30.0,
+              0.0,
+              1715415.0,
+              0.0,
+              -30.0
+            ],
+            "transform_equal": true,
+            "shape_equal": true,
+            "epsg_equal": true,
+            "passed": true
+          },
+          "SR_B2": {
+            "stac_transform_gdal_order": [
+              180285.0,
+              30.0,
+              0.0,
+              1715415.0,
+              0.0,
+              -30.0
+            ],
+            "reader_transform": [
+              180285.0,
+              30.0,
+              0.0,
+              1715415.0,
+              0.0,
+              -30.0
+            ],
+            "transform_equal": true,
+            "shape_equal": true,
+            "epsg_equal": true,
+            "passed": true
+          },
+          "SR_B3": {
+            "stac_transform_gdal_order": [
+              180285.0,
+              30.0,
+              0.0,
+              1715415.0,
+              0.0,
+              -30.0
+            ],
+            "reader_transform": [
+              180285.0,
+              30.0,
+              0.0,
+              1715415.0,
+              0.0,
+              -30.0
+            ],
+            "transform_equal": true,
+            "shape_equal": true,
+            "epsg_equal": true,
+            "passed": true
+          },
+          "SR_B4": {
+            "stac_transform_gdal_order": [
+              180285.0,
+              30.0,
+              0.0,
+              1715415.0,
+              0.0,
+              -30.0
+            ],
+            "reader_transform": [
+              180285.0,
+              30.0,
+              0.0,
+              1715415.0,
+              0.0,
+              -30.0
+            ],
+            "transform_equal": true,
+            "shape_equal": true,
+            "epsg_equal": true,
+            "passed": true
+          },
+          "QA_PIXEL": {
+            "stac_transform_gdal_order": [
+              180285.0,
+              30.0,
+              0.0,
+              1715415.0,
+              0.0,
+              -30.0
+            ],
+            "reader_transform": [
+              180285.0,
+              30.0,
+              0.0,
+              1715415.0,
+              0.0,
+              -30.0
+            ],
+            "transform_equal": true,
+            "shape_equal": true,
+            "epsg_equal": true,
+            "passed": true
+          }
+        },
+        "stac_proj_grid_performed": true,
+        "stac_proj_grid_passed": true,
+        "stac_scaling": {
+          "lwir11": {
+            "stac_scale": 0.00341802,
+            "stac_offset": 149,
+            "pipeline_mult": 0.00341802,
+            "pipeline_add": 149.0,
+            "equal": true
+          },
+          "blue": {
+            "stac_scale": 2.75e-05,
+            "stac_offset": -0.2,
+            "pipeline_mult": 2.75e-05,
+            "pipeline_add": -0.2,
+            "equal": true
+          },
+          "green": {
+            "stac_scale": 2.75e-05,
+            "stac_offset": -0.2,
+            "pipeline_mult": 2.75e-05,
+            "pipeline_add": -0.2,
+            "equal": true
+          },
+          "red": {
+            "stac_scale": 2.75e-05,
+            "stac_offset": -0.2,
+            "pipeline_mult": 2.75e-05,
+            "pipeline_add": -0.2,
+            "equal": true
+          },
+          "passed": true
+        },
+        "pillow_vs_tifffile_pixels": {
+          "ST_B10": {
+            "pillow_mode_dtype": "uint16",
+            "shape_equal": true,
+            "pixels_identical": true
+          },
+          "SR_B2": {
+            "pillow_mode_dtype": "uint16",
+            "shape_equal": true,
+            "pixels_identical": true
+          },
+          "SR_B3": {
+            "pillow_mode_dtype": "uint16",
+            "shape_equal": true,
+            "pixels_identical": true
+          },
+          "SR_B4": {
+            "pillow_mode_dtype": "uint16",
+            "shape_equal": true,
+            "pixels_identical": true
+          },
+          "QA_PIXEL": {
+            "pillow_mode_dtype": "uint16",
+            "shape_equal": true,
+            "pixels_identical": true
+          }
+        },
+        "pillow_decode_performed": true,
+        "pillow_decode_passed": true,
+        "rasterio_vs_tifffile_performed": false
+      },
+      "normalization_effects": {
+        "thermal_std_k": 4.809076309204102,
+        "synthetic_noise_0.05K_in_z_units": 0.010397006989534538,
+        "z_error_to_kelvin_factor": 4.809076309204102
+      }
+    },
+    {
+      "scene_id": "LC09_L2SP_144041_20231213_02_T1",
+      "platform": "landsat-9",
+      "structure": {
+        "patches_generated": 2325,
+        "manifest_patches": 2325,
+        "thermal_files": 2325,
+        "rgb_files": 2325,
+        "thermal_rgb_names_match": true,
+        "patch_ids_unique": true,
+        "coordinates_unique": true,
+        "passed": true
+      },
+      "thermal_normalization": {
+        "stored_mean": 294.9273986816406,
+        "stored_std": 1.6160457134246826,
+        "recomputed_mean_float64": 294.92738217470276,
+        "recomputed_std_float64": 1.6160456203423217,
+        "abs_diff_mean_k": 1.6506937868143723e-05,
+        "abs_diff_std_k": 9.308236093019673e-08,
+        "valid_pixels_used": 40629545,
+        "passed": true
+      },
+      "patch_value_spot_check": {
+        "patches_checked": 20,
+        "max_abs_kelvin_error_vs_raw": 1.5411328149639303e-05,
+        "finite_vs_valid_mismatches": 0,
+        "passed": true,
+        "note": "patch*std+mean compared with raw DN*0.00341802+149 at the same pixels (float32 rounding expected)"
+      },
+      "qa": {
+        "distinct_values": 15,
+        "top_values": [
+          {
+            "value": 21824,
+            "count": 40344677,
+            "set_bits": [
+              6,
+              8,
+              10,
+              12,
+              14
+            ]
+          },
+          {
+            "value": 1,
+            "count": 19019755,
+            "set_bits": [
+              0
+            ]
+          },
+          {
+            "value": 21952,
+            "count": 176255,
+            "set_bits": [
+              6,
+              7,
+              8,
+              10,
+              12,
+              14
+            ]
+          },
+          {
+            "value": 22080,
+            "count": 108554,
+            "set_bits": [
+              6,
+              9,
+              10,
+              12,
+              14
+            ]
+          },
+          {
+            "value": 23888,
+            "count": 10057,
+            "set_bits": [
+              4,
+              6,
+              8,
+              10,
+              11,
+              12,
+              14
+            ]
+          },
+          {
+            "value": 22280,
+            "count": 7293,
+            "set_bits": [
+              3,
+              8,
+              9,
+              10,
+              12,
+              14
+            ]
+          },
+          {
+            "value": 21762,
+            "count": 4753,
+            "set_bits": [
+              1,
+              8,
+              10,
+              12,
+              14
+            ]
+          },
+          {
+            "value": 22018,
+            "count": 4551,
+            "set_bits": [
+              1,
+              9,
+              10,
+              12,
+              14
+            ]
+          },
+          {
+            "value": 24144,
+            "count": 2816,
+            "set_bits": [
+              4,
+              6,
+              9,
+              10,
+              11,
+              12,
+              14
+            ]
+          },
+          {
+            "value": 21890,
+            "count": 2716,
+            "set_bits": [
+              1,
+              7,
+              8,
+              10,
+              12,
+              14
+            ]
+          }
+        ],
+        "flag_counts_all_pixels": {
+          "fill": 19019755,
+          "dilated_cloud": 16623,
+          "cirrus": 5,
+          "cloud": 7293,
+          "cloud_shadow": 17346,
+          "snow": 0
+        },
+        "fill_pixels": 19019755,
+        "band_nodata_or_nonfinite_pixels": 19020513,
+        "fill_equals_band_nodata": false,
+        "fill_and_not_nodata": 0,
+        "nodata_and_not_fill": 758,
+        "stac_eo_cloud_cover": 0.02,
+        "stac_cloud_cover_land": 0.02,
+        "metadata_matches_recount": {
+          "fill": true,
+          "dilated_cloud": true,
+          "cirrus": true,
+          "cloud": true,
+          "cloud_shadow": true,
+          "snow": true
+        },
+        "cloud_related_fraction_of_image_pixels": 0.0010147515819669052
+      },
+      "reader_cross_checks": {
+        "reader_backend": "tifffile",
+        "stac_proj_grid": {
+          "ST_B10": {
+            "stac_transform_gdal_order": [
+              347685.0,
+              30.0,
+              0.0,
+              3150615.0,
+              0.0,
+              -30.0
+            ],
+            "reader_transform": [
+              347685.0,
+              30.0,
+              0.0,
+              3150615.0,
+              0.0,
+              -30.0
+            ],
+            "transform_equal": true,
+            "shape_equal": true,
+            "epsg_equal": true,
+            "passed": true
+          },
+          "SR_B2": {
+            "stac_transform_gdal_order": [
+              347685.0,
+              30.0,
+              0.0,
+              3150615.0,
+              0.0,
+              -30.0
+            ],
+            "reader_transform": [
+              347685.0,
+              30.0,
+              0.0,
+              3150615.0,
+              0.0,
+              -30.0
+            ],
+            "transform_equal": true,
+            "shape_equal": true,
+            "epsg_equal": true,
+            "passed": true
+          },
+          "SR_B3": {
+            "stac_transform_gdal_order": [
+              347685.0,
+              30.0,
+              0.0,
+              3150615.0,
+              0.0,
+              -30.0
+            ],
+            "reader_transform": [
+              347685.0,
+              30.0,
+              0.0,
+              3150615.0,
+              0.0,
+              -30.0
+            ],
+            "transform_equal": true,
+            "shape_equal": true,
+            "epsg_equal": true,
+            "passed": true
+          },
+          "SR_B4": {
+            "stac_transform_gdal_order": [
+              347685.0,
+              30.0,
+              0.0,
+              3150615.0,
+              0.0,
+              -30.0
+            ],
+            "reader_transform": [
+              347685.0,
+              30.0,
+              0.0,
+              3150615.0,
+              0.0,
+              -30.0
+            ],
+            "transform_equal": true,
+            "shape_equal": true,
+            "epsg_equal": true,
+            "passed": true
+          },
+          "QA_PIXEL": {
+            "stac_transform_gdal_order": [
+              347685.0,
+              30.0,
+              0.0,
+              3150615.0,
+              0.0,
+              -30.0
+            ],
+            "reader_transform": [
+              347685.0,
+              30.0,
+              0.0,
+              3150615.0,
+              0.0,
+              -30.0
+            ],
+            "transform_equal": true,
+            "shape_equal": true,
+            "epsg_equal": true,
+            "passed": true
+          }
+        },
+        "stac_proj_grid_performed": true,
+        "stac_proj_grid_passed": true,
+        "stac_scaling": {
+          "lwir11": {
+            "stac_scale": 0.00341802,
+            "stac_offset": 149,
+            "pipeline_mult": 0.00341802,
+            "pipeline_add": 149.0,
+            "equal": true
+          },
+          "blue": {
+            "stac_scale": 2.75e-05,
+            "stac_offset": -0.2,
+            "pipeline_mult": 2.75e-05,
+            "pipeline_add": -0.2,
+            "equal": true
+          },
+          "green": {
+            "stac_scale": 2.75e-05,
+            "stac_offset": -0.2,
+            "pipeline_mult": 2.75e-05,
+            "pipeline_add": -0.2,
+            "equal": true
+          },
+          "red": {
+            "stac_scale": 2.75e-05,
+            "stac_offset": -0.2,
+            "pipeline_mult": 2.75e-05,
+            "pipeline_add": -0.2,
+            "equal": true
+          },
+          "passed": true
+        },
+        "pillow_vs_tifffile_pixels": {
+          "ST_B10": {
+            "pillow_mode_dtype": "uint16",
+            "shape_equal": true,
+            "pixels_identical": true
+          },
+          "SR_B2": {
+            "pillow_mode_dtype": "uint16",
+            "shape_equal": true,
+            "pixels_identical": true
+          },
+          "SR_B3": {
+            "pillow_mode_dtype": "uint16",
+            "shape_equal": true,
+            "pixels_identical": true
+          },
+          "SR_B4": {
+            "pillow_mode_dtype": "uint16",
+            "shape_equal": true,
+            "pixels_identical": true
+          },
+          "QA_PIXEL": {
+            "pillow_mode_dtype": "uint16",
+            "shape_equal": true,
+            "pixels_identical": true
+          }
+        },
+        "pillow_decode_performed": true,
+        "pillow_decode_passed": true,
+        "rasterio_vs_tifffile_performed": false
+      },
+      "normalization_effects": {
+        "thermal_std_k": 1.6160457134246826,
+        "synthetic_noise_0.05K_in_z_units": 0.030939718836320098,
+        "z_error_to_kelvin_factor": 1.6160457134246826
+      }
+    },
+    {
+      "scene_id": "LC09_L2SP_150041_20250416_02_T1",
+      "platform": "landsat-9",
+      "structure": {
+        "patches_generated": 2327,
+        "manifest_patches": 2327,
+        "thermal_files": 2327,
+        "rgb_files": 2327,
+        "thermal_rgb_names_match": true,
+        "patch_ids_unique": true,
+        "coordinates_unique": true,
+        "passed": true
+      },
+      "thermal_normalization": {
+        "stored_mean": 331.248291015625,
+        "stored_std": 2.0065441131591797,
+        "recomputed_mean_float64": 331.24830809378483,
+        "recomputed_std_float64": 2.006543899791917,
+        "abs_diff_mean_k": 1.7078159828542994e-05,
+        "abs_diff_std_k": 2.1336726252485505e-07,
+        "valid_pixels_used": 40716492,
+        "passed": true
+      },
+      "patch_value_spot_check": {
+        "patches_checked": 20,
+        "max_abs_kelvin_error_vs_raw": 1.6048081533881486e-05,
+        "finite_vs_valid_mismatches": 0,
+        "passed": true,
+        "note": "patch*std+mean compared with raw DN*0.00341802+149 at the same pixels (float32 rounding expected)"
+      },
+      "qa": {
+        "distinct_values": 3,
+        "top_values": [
+          {
+            "value": 21824,
+            "count": 40680115,
+            "set_bits": [
+              6,
+              8,
+              10,
+              12,
+              14
+            ]
+          },
+          {
+            "value": 1,
+            "count": 17358249,
+            "set_bits": [
+              0
+            ]
+          },
+          {
+            "value": 21952,
+            "count": 36377,
+            "set_bits": [
+              6,
+              7,
+              8,
+              10,
+              12,
+              14
+            ]
+          }
+        ],
+        "flag_counts_all_pixels": {
+          "fill": 17358249,
+          "dilated_cloud": 0,
+          "cirrus": 0,
+          "cloud": 0,
+          "cloud_shadow": 0,
+          "snow": 0
+        },
+        "fill_pixels": 17358249,
+        "band_nodata_or_nonfinite_pixels": 17358249,
+        "fill_equals_band_nodata": true,
+        "fill_and_not_nodata": 0,
+        "nodata_and_not_fill": 0,
+        "stac_eo_cloud_cover": 0.0,
+        "stac_cloud_cover_land": 0.0,
+        "metadata_matches_recount": {
+          "fill": true,
+          "dilated_cloud": true,
+          "cirrus": true,
+          "cloud": true,
+          "cloud_shadow": true,
+          "snow": true
+        },
+        "cloud_related_fraction_of_image_pixels": 0.0
+      },
+      "reader_cross_checks": {
+        "reader_backend": "tifffile",
+        "stac_proj_grid": {
+          "ST_B10": {
+            "stac_transform_gdal_order": [
+              616485.0,
+              30.0,
+              0.0,
+              3151215.0,
+              0.0,
+              -30.0
+            ],
+            "reader_transform": [
+              616485.0,
+              30.0,
+              0.0,
+              3151215.0,
+              0.0,
+              -30.0
+            ],
+            "transform_equal": true,
+            "shape_equal": true,
+            "epsg_equal": true,
+            "passed": true
+          },
+          "SR_B2": {
+            "stac_transform_gdal_order": [
+              616485.0,
+              30.0,
+              0.0,
+              3151215.0,
+              0.0,
+              -30.0
+            ],
+            "reader_transform": [
+              616485.0,
+              30.0,
+              0.0,
+              3151215.0,
+              0.0,
+              -30.0
+            ],
+            "transform_equal": true,
+            "shape_equal": true,
+            "epsg_equal": true,
+            "passed": true
+          },
+          "SR_B3": {
+            "stac_transform_gdal_order": [
+              616485.0,
+              30.0,
+              0.0,
+              3151215.0,
+              0.0,
+              -30.0
+            ],
+            "reader_transform": [
+              616485.0,
+              30.0,
+              0.0,
+              3151215.0,
+              0.0,
+              -30.0
+            ],
+            "transform_equal": true,
+            "shape_equal": true,
+            "epsg_equal": true,
+            "passed": true
+          },
+          "SR_B4": {
+            "stac_transform_gdal_order": [
+              616485.0,
+              30.0,
+              0.0,
+              3151215.0,
+              0.0,
+              -30.0
+            ],
+            "reader_transform": [
+              616485.0,
+              30.0,
+              0.0,
+              3151215.0,
+              0.0,
+              -30.0
+            ],
+            "transform_equal": true,
+            "shape_equal": true,
+            "epsg_equal": true,
+            "passed": true
+          },
+          "QA_PIXEL": {
+            "stac_transform_gdal_order": [
+              616485.0,
+              30.0,
+              0.0,
+              3151215.0,
+              0.0,
+              -30.0
+            ],
+            "reader_transform": [
+              616485.0,
+              30.0,
+              0.0,
+              3151215.0,
+              0.0,
+              -30.0
+            ],
+            "transform_equal": true,
+            "shape_equal": true,
+            "epsg_equal": true,
+            "passed": true
+          }
+        },
+        "stac_proj_grid_performed": true,
+        "stac_proj_grid_passed": true,
+        "stac_scaling": {
+          "lwir11": {
+            "stac_scale": 0.00341802,
+            "stac_offset": 149,
+            "pipeline_mult": 0.00341802,
+            "pipeline_add": 149.0,
+            "equal": true
+          },
+          "blue": {
+            "stac_scale": 2.75e-05,
+            "stac_offset": -0.2,
+            "pipeline_mult": 2.75e-05,
+            "pipeline_add": -0.2,
+            "equal": true
+          },
+          "green": {
+            "stac_scale": 2.75e-05,
+            "stac_offset": -0.2,
+            "pipeline_mult": 2.75e-05,
+            "pipeline_add": -0.2,
+            "equal": true
+          },
+          "red": {
+            "stac_scale": 2.75e-05,
+            "stac_offset": -0.2,
+            "pipeline_mult": 2.75e-05,
+            "pipeline_add": -0.2,
+            "equal": true
+          },
+          "passed": true
+        },
+        "pillow_vs_tifffile_pixels": {
+          "ST_B10": {
+            "pillow_mode_dtype": "uint16",
+            "shape_equal": true,
+            "pixels_identical": true
+          },
+          "SR_B2": {
+            "pillow_mode_dtype": "uint16",
+            "shape_equal": true,
+            "pixels_identical": true
+          },
+          "SR_B3": {
+            "pillow_mode_dtype": "uint16",
+            "shape_equal": true,
+            "pixels_identical": true
+          },
+          "SR_B4": {
+            "pillow_mode_dtype": "uint16",
+            "shape_equal": true,
+            "pixels_identical": true
+          },
+          "QA_PIXEL": {
+            "pillow_mode_dtype": "uint16",
+            "shape_equal": true,
+            "pixels_identical": true
+          }
+        },
+        "pillow_decode_performed": true,
+        "pillow_decode_passed": true,
+        "rasterio_vs_tifffile_performed": false
+      },
+      "normalization_effects": {
+        "thermal_std_k": 2.0065441131591797,
+        "synthetic_noise_0.05K_in_z_units": 0.02491846537142814,
+        "z_error_to_kelvin_factor": 2.0065441131591797
+      }
+    }
+  ],
+  "dev_patch_split": {
+    "total_patches": 15985,
+    "scenes_per_partition": {
+      "train": 7,
+      "validation": 7,
+      "test": 7
+    },
+    "patches_per_scene_per_partition": {
+      "train": {
+        "LC09_L2SP_137042_20230110_02_T1": 1873,
+        "LC08_L2SP_146039_20241119_02_T1": 1737,
+        "LC09_L2SP_150041_20250416_02_T1": 1840,
+        "LC08_L2SP_144053_20250225_02_T1": 1761,
+        "LC09_L2SP_144041_20231213_02_T1": 1837,
+        "LC08_L2SP_144048_20240427_02_T1": 1869,
+        "LC09_L2SP_143050_20240327_02_T1": 1871
+      },
+      "validation": {
+        "LC09_L2SP_150041_20250416_02_T1": 219,
+        "LC09_L2SP_143050_20240327_02_T1": 231,
+        "LC09_L2SP_144041_20231213_02_T1": 238,
+        "LC09_L2SP_137042_20230110_02_T1": 242,
+        "LC08_L2SP_144053_20250225_02_T1": 230,
+        "LC08_L2SP_144048_20240427_02_T1": 222,
+        "LC08_L2SP_146039_20241119_02_T1": 216
+      },
+      "test": {
+        "LC09_L2SP_143050_20240327_02_T1": 216,
+        "LC08_L2SP_144053_20250225_02_T1": 211,
+        "LC09_L2SP_137042_20230110_02_T1": 215,
+        "LC09_L2SP_144041_20231213_02_T1": 250,
+        "LC08_L2SP_146039_20241119_02_T1": 208,
+        "LC09_L2SP_150041_20250416_02_T1": 268,
+        "LC08_L2SP_144048_20240427_02_T1": 231
+      }
+    },
+    "scenes_present_in_more_than_one_partition": [
+      "LC08_L2SP_144048_20240427_02_T1",
+      "LC08_L2SP_144053_20250225_02_T1",
+      "LC08_L2SP_146039_20241119_02_T1",
+      "LC09_L2SP_137042_20230110_02_T1",
+      "LC09_L2SP_143050_20240327_02_T1",
+      "LC09_L2SP_144041_20231213_02_T1",
+      "LC09_L2SP_150041_20250416_02_T1"
+    ],
+    "mixes_scenes": true,
+    "conclusion": "development_patch_split is NOT scene-safe on a multi-scene root; use the scene split manifest"
+  },
+  "mask_check_passed": true,
+  "rasterio_equivalence_evidence": "only LC09_L2SP_143050_20240327_02_T1: original pipeline re-run with tifffile reproduced dataset/processed (produced earlier with rasterio) byte-identically, passed=True",
+  "findings": [
+    "training/train_swinir.py build_datasets uses development_patch_split on the whole root (mixes scenes) and its Kelvin metrics use the first scene's normalization stats; guarded in this task.",
+    "Degradation noise RNG is keyed by seed and scene-local patch_id only, so equal patch IDs in different scenes receive identical noise fields (not changed; same inputs for every method).",
+    "Normalized-space MAE/RMSE equal Kelvin error divided by each scene's thermal std, so they are not comparable across scenes; Kelvin metrics are. Per-patch PSNR (patch-range) is invariant to the linear normalization; SSIM constants are fixed in z-units, so SSIM depends on scene std.",
+    "Kelvin reconstruction value_K = z*std+mean is exact (up to float32 rounding) only with the patch's own scene statistics; never with pooled or another scene's statistics."
+  ]
+}

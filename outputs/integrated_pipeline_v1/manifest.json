@@ -1,0 +1,536 @@
+{
+  "pipeline_version": "integrated_pipeline_v1",
+  "colorization_version": "guided_colorization_v1",
+  "git_commit": "0542cd2b13ae184d8eeb6487d00d71180f5b14d9",
+  "command": "py -m scripts.run_integrated_pipeline_v1",
+  "eval_seed": 42,
+  "refinement_beta": 1.0,
+  "method_spec": "C:\\Users\\HP\\Downloads\\ISRO project\\Major-Project\\outputs\\evaluation\\physics_refinement_v1\\METHOD.txt",
+  "degradation": {
+    "scale": 2,
+    "blur_sigma_hr_pixels": 1.2,
+    "noise_std_kelvin": 0.05,
+    "downsample_method": "area",
+    "interpolation_note": "Masked area averaging after Gaussian low-pass in Kelvin",
+    "base_seed": 42
+  },
+  "colormap": {
+    "vmin_kelvin": 295.0,
+    "vmax_kelvin": 320.0,
+    "cmap_name": "inferno",
+    "invalid_color": [
+      200,
+      200,
+      200,
+      0
+    ]
+  },
+  "guided_params": {
+    "radius": 8,
+    "eps": 0.02,
+    "edge_mix": 0.35,
+    "rgb_reflectance_display_max": 0.25
+  },
+  "overlay_params": {
+    "thermal_weight": 0.55,
+    "rgb_reflectance_display_max": 0.25
+  },
+  "model": {
+    "variant": "lightweight_x2",
+    "config": {
+      "upscale": 2,
+      "in_channels": 1,
+      "out_channels": 1,
+      "img_size": 64,
+      "window_size": 8,
+      "img_range": 1.0,
+      "depths": [
+        6,
+        6,
+        6,
+        6
+      ],
+      "embed_dim": 60,
+      "num_heads": [
+        6,
+        6,
+        6,
+        6
+      ],
+      "mlp_ratio": 2.0,
+      "upsampler": "pixelshuffledirect",
+      "resi_connection": "1conv",
+      "input_scale": 0.125,
+      "variant": "lightweight_x2"
+    },
+    "parameters": 904744,
+    "pretrained_checkpoint": {
+      "checkpoint_path": "C:\\Users\\HP\\Downloads\\ISRO project\\Major-Project\\pretrained\\swinir\\002_lightweightSR_DIV2K_s64w8_SwinIR-S_x2.pth",
+      "source_url": "https://github.com/JingyunLiang/SwinIR/releases/download/v0.0/002_lightweightSR_DIV2K_s64w8_SwinIR-S_x2.pth",
+      "sha256": "193b229909ca89cd8b55de9c9e7fce146ae759d59dfcd78d8feb9dd1d6fa0fd7",
+      "state_key": "params",
+      "matched_tensors": 327,
+      "matched_parameters": 902040,
+      "adapted_tensors": [
+        "conv_first.weight",
+        "upsample.0.weight",
+        "upsample.0.bias"
+      ],
+      "adapted_parameters": 2704,
+      "newly_initialized_tensors": [],
+      "newly_initialized_parameters": 0,
+      "unexpected_tensors": [],
+      "regenerated_buffers": 36
+    }
+  },
+  "patches": [
+    {
+      "scene_id": "LC08_L2SP_144053_20250225_02_T1",
+      "patch_id": "000096",
+      "thermal_dataset_index": 95,
+      "sr_dataset_index": 95,
+      "valid_pixels": 64720,
+      "thermal_kelvin_file": "patches\\LC08_L2SP_144053_20250225_02_T1\\patch_000096\\thermal_kelvin_refined.npy",
+      "valid_mask_file": "patches\\LC08_L2SP_144053_20250225_02_T1\\patch_000096\\valid_mask.npy",
+      "colorization_outputs": {
+        "A_standard_colormap": "patches\\LC08_L2SP_144053_20250225_02_T1\\patch_000096\\A_standard_colormap.png",
+        "B_rgb_guided": "patches\\LC08_L2SP_144053_20250225_02_T1\\patch_000096\\B_rgb_guided.png",
+        "C_rgb_overlay": "patches\\LC08_L2SP_144053_20250225_02_T1\\patch_000096\\C_rgb_overlay.png"
+      },
+      "audit": {
+        "scene_id": "LC08_L2SP_144053_20250225_02_T1",
+        "patch_size": 256,
+        "spatial_alignment": "thermal and RGB exported on the same 30 m Landsat grid per patch (H\u00d7W match)",
+        "thermal_resolution_note": "Patch thermal arrays are the 30 m HR reference grid used for synthetic SR; SR outputs are presented on this same grid. RGB (SR_B2/B3/B4) is native 30 m reflectance, not independent 15 m thermal information.",
+        "thermal_representation": "z_score_normalized_kelvin",
+        "rgb_representation": "z_score_normalized_reflectance",
+        "thermal_physical_units": "kelvin (after inverse z-score)",
+        "rgb_physical_units": "unitless_surface_reflectance (after inverse z-score)",
+        "rgb_display_note": "Reflectance is clipped/scaled to [0,1] for visualization using a fixed reflectance ceiling; not display-ready sRGB out of the box.",
+        "valid_pixel_fraction": 0.987548828125,
+        "valid_pixels": 64720,
+        "thermal_mean_k": 306.74456787109375,
+        "thermal_std_k": 4.894908428192139
+      },
+      "runtime_s": 3.877254899998661,
+      "thermal_source": "swinir_pretrained + synthetic_forward_consistency_refinement",
+      "thermal_not_hr_reference": true,
+      "normalization": {
+        "thermal": {
+          "mean": 306.74456787109375,
+          "std": 4.894908428192139,
+          "method": "z_score_valid_pixels"
+        },
+        "rgb": [
+          {
+            "mean": 0.02672131359577179,
+            "std": 0.015948185697197914,
+            "method": "z_score_valid_pixels"
+          },
+          {
+            "mean": 0.045817725360393524,
+            "std": 0.024416401982307434,
+            "method": "z_score_valid_pixels"
+          },
+          {
+            "mean": 0.042532388120889664,
+            "std": 0.03548070788383484,
+            "method": "z_score_valid_pixels"
+          }
+        ]
+      },
+      "model": {
+        "variant": "lightweight_x2",
+        "config": {
+          "upscale": 2,
+          "in_channels": 1,
+          "out_channels": 1,
+          "img_size": 64,
+          "window_size": 8,
+          "img_range": 1.0,
+          "depths": [
+            6,
+            6,
+            6,
+            6
+          ],
+          "embed_dim": 60,
+          "num_heads": [
+            6,
+            6,
+            6,
+            6
+          ],
+          "mlp_ratio": 2.0,
+          "upsampler": "pixelshuffledirect",
+          "resi_connection": "1conv",
+          "input_scale": 0.125,
+          "variant": "lightweight_x2"
+        },
+        "parameters": 904744,
+        "pretrained_checkpoint": {
+          "checkpoint_path": "C:\\Users\\HP\\Downloads\\ISRO project\\Major-Project\\pretrained\\swinir\\002_lightweightSR_DIV2K_s64w8_SwinIR-S_x2.pth",
+          "source_url": "https://github.com/JingyunLiang/SwinIR/releases/download/v0.0/002_lightweightSR_DIV2K_s64w8_SwinIR-S_x2.pth",
+          "sha256": "193b229909ca89cd8b55de9c9e7fce146ae759d59dfcd78d8feb9dd1d6fa0fd7",
+          "state_key": "params",
+          "matched_tensors": 327,
+          "matched_parameters": 902040,
+          "adapted_tensors": [
+            "conv_first.weight",
+            "upsample.0.weight",
+            "upsample.0.bias"
+          ],
+          "adapted_parameters": 2704,
+          "newly_initialized_tensors": [],
+          "newly_initialized_parameters": 0,
+          "unexpected_tensors": [],
+          "regenerated_buffers": 36
+        }
+      }
+    },
+    {
+      "scene_id": "LC08_L2SP_144053_20250225_02_T1",
+      "patch_id": "000448",
+      "thermal_dataset_index": 447,
+      "sr_dataset_index": 447,
+      "valid_pixels": 65536,
+      "thermal_kelvin_file": "patches\\LC08_L2SP_144053_20250225_02_T1\\patch_000448\\thermal_kelvin_refined.npy",
+      "valid_mask_file": "patches\\LC08_L2SP_144053_20250225_02_T1\\patch_000448\\valid_mask.npy",
+      "colorization_outputs": {
+        "A_standard_colormap": "patches\\LC08_L2SP_144053_20250225_02_T1\\patch_000448\\A_standard_colormap.png",
+        "B_rgb_guided": "patches\\LC08_L2SP_144053_20250225_02_T1\\patch_000448\\B_rgb_guided.png",
+        "C_rgb_overlay": "patches\\LC08_L2SP_144053_20250225_02_T1\\patch_000448\\C_rgb_overlay.png"
+      },
+      "audit": {
+        "scene_id": "LC08_L2SP_144053_20250225_02_T1",
+        "patch_size": 256,
+        "spatial_alignment": "thermal and RGB exported on the same 30 m Landsat grid per patch (H\u00d7W match)",
+        "thermal_resolution_note": "Patch thermal arrays are the 30 m HR reference grid used for synthetic SR; SR outputs are presented on this same grid. RGB (SR_B2/B3/B4) is native 30 m reflectance, not independent 15 m thermal information.",
+        "thermal_representation": "z_score_normalized_kelvin",
+        "rgb_representation": "z_score_normalized_reflectance",
+        "thermal_physical_units": "kelvin (after inverse z-score)",
+        "rgb_physical_units": "unitless_surface_reflectance (after inverse z-score)",
+        "rgb_display_note": "Reflectance is clipped/scaled to [0,1] for visualization using a fixed reflectance ceiling; not display-ready sRGB out of the box.",
+        "valid_pixel_fraction": 1.0,
+        "valid_pixels": 65536,
+        "thermal_mean_k": 306.74456787109375,
+        "thermal_std_k": 4.894908428192139
+      },
+      "runtime_s": 3.7282594999996945,
+      "thermal_source": "swinir_pretrained + synthetic_forward_consistency_refinement",
+      "thermal_not_hr_reference": true,
+      "normalization": {
+        "thermal": {
+          "mean": 306.74456787109375,
+          "std": 4.894908428192139,
+          "method": "z_score_valid_pixels"
+        },
+        "rgb": [
+          {
+            "mean": 0.02672131359577179,
+            "std": 0.015948185697197914,
+            "method": "z_score_valid_pixels"
+          },
+          {
+            "mean": 0.045817725360393524,
+            "std": 0.024416401982307434,
+            "method": "z_score_valid_pixels"
+          },
+          {
+            "mean": 0.042532388120889664,
+            "std": 0.03548070788383484,
+            "method": "z_score_valid_pixels"
+          }
+        ]
+      },
+      "model": {
+        "variant": "lightweight_x2",
+        "config": {
+          "upscale": 2,
+          "in_channels": 1,
+          "out_channels": 1,
+          "img_size": 64,
+          "window_size": 8,
+          "img_range": 1.0,
+          "depths": [
+            6,
+            6,
+            6,
+            6
+          ],
+          "embed_dim": 60,
+          "num_heads": [
+            6,
+            6,
+            6,
+            6
+          ],
+          "mlp_ratio": 2.0,
+          "upsampler": "pixelshuffledirect",
+          "resi_connection": "1conv",
+          "input_scale": 0.125,
+          "variant": "lightweight_x2"
+        },
+        "parameters": 904744,
+        "pretrained_checkpoint": {
+          "checkpoint_path": "C:\\Users\\HP\\Downloads\\ISRO project\\Major-Project\\pretrained\\swinir\\002_lightweightSR_DIV2K_s64w8_SwinIR-S_x2.pth",
+          "source_url": "https://github.com/JingyunLiang/SwinIR/releases/download/v0.0/002_lightweightSR_DIV2K_s64w8_SwinIR-S_x2.pth",
+          "sha256": "193b229909ca89cd8b55de9c9e7fce146ae759d59dfcd78d8feb9dd1d6fa0fd7",
+          "state_key": "params",
+          "matched_tensors": 327,
+          "matched_parameters": 902040,
+          "adapted_tensors": [
+            "conv_first.weight",
+            "upsample.0.weight",
+            "upsample.0.bias"
+          ],
+          "adapted_parameters": 2704,
+          "newly_initialized_tensors": [],
+          "newly_initialized_parameters": 0,
+          "unexpected_tensors": [],
+          "regenerated_buffers": 36
+        }
+      }
+    },
+    {
+      "scene_id": "LC08_L2SP_144053_20250225_02_T1",
+      "patch_id": "001006",
+      "thermal_dataset_index": 1005,
+      "sr_dataset_index": 1005,
+      "valid_pixels": 65536,
+      "thermal_kelvin_file": "patches\\LC08_L2SP_144053_20250225_02_T1\\patch_001006\\thermal_kelvin_refined.npy",
+      "valid_mask_file": "patches\\LC08_L2SP_144053_20250225_02_T1\\patch_001006\\valid_mask.npy",
+      "colorization_outputs": {
+        "A_standard_colormap": "patches\\LC08_L2SP_144053_20250225_02_T1\\patch_001006\\A_standard_colormap.png",
+        "B_rgb_guided": "patches\\LC08_L2SP_144053_20250225_02_T1\\patch_001006\\B_rgb_guided.png",
+        "C_rgb_overlay": "patches\\LC08_L2SP_144053_20250225_02_T1\\patch_001006\\C_rgb_overlay.png"
+      },
+      "audit": {
+        "scene_id": "LC08_L2SP_144053_20250225_02_T1",
+        "patch_size": 256,
+        "spatial_alignment": "thermal and RGB exported on the same 30 m Landsat grid per patch (H\u00d7W match)",
+        "thermal_resolution_note": "Patch thermal arrays are the 30 m HR reference grid used for synthetic SR; SR outputs are presented on this same grid. RGB (SR_B2/B3/B4) is native 30 m reflectance, not independent 15 m thermal information.",
+        "thermal_representation": "z_score_normalized_kelvin",
+        "rgb_representation": "z_score_normalized_reflectance",
+        "thermal_physical_units": "kelvin (after inverse z-score)",
+        "rgb_physical_units": "unitless_surface_reflectance (after inverse z-score)",
+        "rgb_display_note": "Reflectance is clipped/scaled to [0,1] for visualization using a fixed reflectance ceiling; not display-ready sRGB out of the box.",
+        "valid_pixel_fraction": 1.0,
+        "valid_pixels": 65536,
+        "thermal_mean_k": 306.74456787109375,
+        "thermal_std_k": 4.894908428192139
+      },
+      "runtime_s": 3.8967978000000585,
+      "thermal_source": "swinir_pretrained + synthetic_forward_consistency_refinement",
+      "thermal_not_hr_reference": true,
+      "normalization": {
+        "thermal": {
+          "mean": 306.74456787109375,
+          "std": 4.894908428192139,
+          "method": "z_score_valid_pixels"
+        },
+        "rgb": [
+          {
+            "mean": 0.02672131359577179,
+            "std": 0.015948185697197914,
+            "method": "z_score_valid_pixels"
+          },
+          {
+            "mean": 0.045817725360393524,
+            "std": 0.024416401982307434,
+            "method": "z_score_valid_pixels"
+          },
+          {
+            "mean": 0.042532388120889664,
+            "std": 0.03548070788383484,
+            "method": "z_score_valid_pixels"
+          }
+        ]
+      },
+      "model": {
+        "variant": "lightweight_x2",
+        "config": {
+          "upscale": 2,
+          "in_channels": 1,
+          "out_channels": 1,
+          "img_size": 64,
+          "window_size": 8,
+          "img_range": 1.0,
+          "depths": [
+            6,
+            6,
+            6,
+            6
+          ],
+          "embed_dim": 60,
+          "num_heads": [
+            6,
+            6,
+            6,
+            6
+          ],
+          "mlp_ratio": 2.0,
+          "upsampler": "pixelshuffledirect",
+          "resi_connection": "1conv",
+          "input_scale": 0.125,
+          "variant": "lightweight_x2"
+        },
+        "parameters": 904744,
+        "pretrained_checkpoint": {
+          "checkpoint_path": "C:\\Users\\HP\\Downloads\\ISRO project\\Major-Project\\pretrained\\swinir\\002_lightweightSR_DIV2K_s64w8_SwinIR-S_x2.pth",
+          "source_url": "https://github.com/JingyunLiang/SwinIR/releases/download/v0.0/002_lightweightSR_DIV2K_s64w8_SwinIR-S_x2.pth",
+          "sha256": "193b229909ca89cd8b55de9c9e7fce146ae759d59dfcd78d8feb9dd1d6fa0fd7",
+          "state_key": "params",
+          "matched_tensors": 327,
+          "matched_parameters": 902040,
+          "adapted_tensors": [
+            "conv_first.weight",
+            "upsample.0.weight",
+            "upsample.0.bias"
+          ],
+          "adapted_parameters": 2704,
+          "newly_initialized_tensors": [],
+          "newly_initialized_parameters": 0,
+          "unexpected_tensors": [],
+          "regenerated_buffers": 36
+        }
+      }
+    },
+    {
+      "scene_id": "LC08_L2SP_144053_20250225_02_T1",
+      "patch_id": "001116",
+      "thermal_dataset_index": 1115,
+      "sr_dataset_index": 1115,
+      "valid_pixels": 65536,
+      "thermal_kelvin_file": "patches\\LC08_L2SP_144053_20250225_02_T1\\patch_001116\\thermal_kelvin_refined.npy",
+      "valid_mask_file": "patches\\LC08_L2SP_144053_20250225_02_T1\\patch_001116\\valid_mask.npy",
+      "colorization_outputs": {
+        "A_standard_colormap": "patches\\LC08_L2SP_144053_20250225_02_T1\\patch_001116\\A_standard_colormap.png",
+        "B_rgb_guided": "patches\\LC08_L2SP_144053_20250225_02_T1\\patch_001116\\B_rgb_guided.png",
+        "C_rgb_overlay": "patches\\LC08_L2SP_144053_20250225_02_T1\\patch_001116\\C_rgb_overlay.png"
+      },
+      "audit": {
+        "scene_id": "LC08_L2SP_144053_20250225_02_T1",
+        "patch_size": 256,
+        "spatial_alignment": "thermal and RGB exported on the same 30 m Landsat grid per patch (H\u00d7W match)",
+        "thermal_resolution_note": "Patch thermal arrays are the 30 m HR reference grid used for synthetic SR; SR outputs are presented on this same grid. RGB (SR_B2/B3/B4) is native 30 m reflectance, not independent 15 m thermal information.",
+        "thermal_representation": "z_score_normalized_kelvin",
+        "rgb_representation": "z_score_normalized_reflectance",
+        "thermal_physical_units": "kelvin (after inverse z-score)",
+        "rgb_physical_units": "unitless_surface_reflectance (after inverse z-score)",
+        "rgb_display_note": "Reflectance is clipped/scaled to [0,1] for visualization using a fixed reflectance ceiling; not display-ready sRGB out of the box.",
+        "valid_pixel_fraction": 1.0,
+        "valid_pixels": 65536,
+        "thermal_mean_k": 306.74456787109375,
+        "thermal_std_k": 4.894908428192139
+      },
+      "runtime_s": 3.525048700015759,
+      "thermal_source": "swinir_pretrained + synthetic_forward_consistency_refinement",
+      "thermal_not_hr_reference": true,
+      "normalization": {
+        "thermal": {
+          "mean": 306.74456787109375,
+          "std": 4.894908428192139,
+          "method": "z_score_valid_pixels"
+        },
+        "rgb": [
+          {
+            "mean": 0.02672131359577179,
+            "std": 0.015948185697197914,
+            "method": "z_score_valid_pixels"
+          },
+          {
+            "mean": 0.045817725360393524,
+            "std": 0.024416401982307434,
+            "method": "z_score_valid_pixels"
+          },
+          {
+            "mean": 0.042532388120889664,
+            "std": 0.03548070788383484,
+            "method": "z_score_valid_pixels"
+          }
+        ]
+      },
+      "model": {
+        "variant": "lightweight_x2",
+        "config": {
+          "upscale": 2,
+          "in_channels": 1,
+          "out_channels": 1,
+          "img_size": 64,
+          "window_size": 8,
+          "img_range": 1.0,
+          "depths": [
+            6,
+            6,
+            6,
+            6
+          ],
+          "embed_dim": 60,
+          "num_heads": [
+            6,
+            6,
+            6,
+            6
+          ],
+          "mlp_ratio": 2.0,
+          "upsampler": "pixelshuffledirect",
+          "resi_connection": "1conv",
+          "input_scale": 0.125,
+          "variant": "lightweight_x2"
+        },
+        "parameters": 904744,
+        "pretrained_checkpoint": {
+          "checkpoint_path": "C:\\Users\\HP\\Downloads\\ISRO project\\Major-Project\\pretrained\\swinir\\002_lightweightSR_DIV2K_s64w8_SwinIR-S_x2.pth",
+          "source_url": "https://github.com/JingyunLiang/SwinIR/releases/download/v0.0/002_lightweightSR_DIV2K_s64w8_SwinIR-S_x2.pth",
+          "sha256": "193b229909ca89cd8b55de9c9e7fce146ae759d59dfcd78d8feb9dd1d6fa0fd7",
+          "state_key": "params",
+          "matched_tensors": 327,
+          "matched_parameters": 902040,
+          "adapted_tensors": [
+            "conv_first.weight",
+            "upsample.0.weight",
+            "upsample.0.bias"
+          ],
+          "adapted_parameters": 2704,
+          "newly_initialized_tensors": [],
+          "newly_initialized_parameters": 0,
+          "unexpected_tensors": [],
+          "regenerated_buffers": 36
+        }
+      }
+    }
+  ],
+  "hr_reference_separation_checks": [
+    {
+      "patch_id": "000096",
+      "mean_abs_diff_kelvin_vs_hr_reference": 0.16605298569258164,
+      "max_abs_diff_kelvin_vs_hr_reference": 10.486405116065384,
+      "note": "HR used only for this audit check; pipeline colorization uses refined prediction."
+    },
+    {
+      "patch_id": "000448",
+      "mean_abs_diff_kelvin_vs_hr_reference": 0.20780957912733988,
+      "max_abs_diff_kelvin_vs_hr_reference": 2.178012770242333,
+      "note": "HR used only for this audit check; pipeline colorization uses refined prediction."
+    },
+    {
+      "patch_id": "001006",
+      "mean_abs_diff_kelvin_vs_hr_reference": 0.10023059612020328,
+      "max_abs_diff_kelvin_vs_hr_reference": 1.8252580057391583,
+      "note": "HR used only for this audit check; pipeline colorization uses refined prediction."
+    },
+    {
+      "patch_id": "001116",
+      "mean_abs_diff_kelvin_vs_hr_reference": 0.1338599570284534,
+      "max_abs_diff_kelvin_vs_hr_reference": 2.136940066112686,
+      "note": "HR used only for this audit check; pipeline colorization uses refined prediction."
+    }
+  ],
+  "limitations": [
+    "Synthetic \u00d72 SR vs 30 m reference; not real 15 m thermal accuracy.",
+    "Consistency refinement is not a validated radiative-transfer model.",
+    "RGB guidance is 30 m reflectance visualization only.",
+    "Kelvin arrays are stored separately from all colorized PNGs."
+  ]
+}

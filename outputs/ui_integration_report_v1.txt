@@ -1,0 +1,34 @@
+ThermaScope Premium Build — integration validation
+==================================================
+Date: 2026-10-09 (post premium upgrade)
+
+Backend (fast):
+  py -m pytest tests/test_api_backend.py -q -m "not slow"
+  Result: 7 passed
+
+Full CPU job + stage artifacts:
+  py -m pytest tests/test_api_backend.py::test_single_patch_job_cpu -q
+  Result: 1 passed (~65s); stages/refined.png verified
+
+Frontend:
+  cd frontend && npm run build
+  Result: success
+
+Launch:
+  Terminal 1: py -m backend
+  Terminal 2: cd frontend && npm run dev
+  URL: http://127.0.0.1:5173/
+
+Implemented (premium plan):
+  - backend/frozen_results.py, stage_outputs.py, artifacts.py
+  - Job stages (validating → … → completed), stage PNGs for single-patch runs
+  - API: /api/results/frozen, /api/history, job logs/artifacts, enhanced health/overview
+  - Dark workstation UI, collapsible sidebar, top bar health polling
+  - Command Center, Processing Studio (tabs + compare), Results Lab (Recharts + frozen JSON)
+  - Colorization Studio, History, Research & About, DemoGuide
+
+Frozen eval artifacts: read-only (unchanged on disk)
+
+Changed files (summary):
+  backend/*.py, frontend/src/** (thermascope features, layout, components, api.ts, index.css)
+  tests/test_api_backend.py, THERMASCOPE_UI.md

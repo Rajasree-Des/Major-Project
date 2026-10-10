@@ -1,0 +1,110 @@
+LANDSAT SCENE CANDIDATES FOR DATASET EXPANSION
+========================================================================
+CANDIDATE REPORT ONLY - nothing downloaded; awaiting approval
+Generated (UTC): 2026-10-09T06:29:48+00:00
+Query: landsat-c2-l2 | landsat-8, landsat-9 | 2023-01-01/2025-06-30 | eo:cloud_cover <= 10.0%
+
+Provenance: [STAC] = Planetary Computer STAC metadata; [HEAD] = server-reported file size via HTTP HEAD (not downloaded); [EST] = estimate.
+
+REFERENCE (existing, unchanged)
+  LC09_L2SP_143050_20240327_02_T1  landsat-9  2024-03-27  path/row 143/050  cloud 0.39% (land 0.02%) [STAC]
+  footprint bbox [78.0669, 13.4071, 80.1402, 15.4959] [STAC]; raw 340 MB, processed 2.28 GB (measured on disk)
+
+SELECTED CANDIDATES
+------------------------------------------------------------------------
+1. Thar Desert, Rajasthan (Jaisalmer)  (target pre-monsoon (Apr-Jun))
+   STAC items 139, eligible 71 (23 in season); rejected {'missing_required_asset': 0, 'aoi_outside_footprint': 68, 'overlaps_reference': 0, 'overlaps_selected': 0}
+   Scene:      LC09_L2SP_150041_20250416_02_T1
+   [STAC]      landsat-9, 2025-04-16, path/row 150/041, category T1, sun elev 62.6 deg
+   [STAC]      cloud 0.0% (land 0.0%), footprint bbox [70.1955, 26.3769, 72.4717, 28.4723]
+   [STAC]      required assets present: True; qa_pixel: True
+   [HEAD]      raw size 321 MB (ST_B10 75 MB, SR_B2 79 MB, SR_B3 82 MB, SR_B4 85 MB)
+   Overlap:    {'reference': 0.0}
+   Reason:     hot arid desert, sand dunes, sparse vegetation; pre-monsoon (Apr-Jun) acquisition; lowest land cloud cover among in-season T1 scenes with all required bands and the AOI 0.31 deg inside the footprint edge
+   Concerns:   cloud cover is USGS STAC metadata only; scene is not verified cloud-free
+   Alternates: LC09_L2SP_150041_20250518_02_T1 (2025-05-18, 0.0%), LC08_L2SP_150041_20230505_02_T1 (2023-05-05, 0.0%)
+
+2. Indo-Gangetic Plain, Uttar Pradesh (Lucknow)  (target winter (Nov-Feb))
+   STAC items 45, eligible 45 (14 in season); rejected {'missing_required_asset': 0, 'aoi_outside_footprint': 0, 'overlaps_reference': 0, 'overlaps_selected': 0}
+   Scene:      LC09_L2SP_144041_20231213_02_T1
+   [STAC]      landsat-9, 2023-12-13, path/row 144/041, category T1, sun elev 35.5 deg
+   [STAC]      cloud 0.02% (land 0.02%), footprint bbox [79.494, 26.3765, 81.7705, 28.4721]
+   [STAC]      required assets present: True; qa_pixel: True
+   [HEAD]      raw size 331 MB (ST_B10 77 MB, SR_B2 83 MB, SR_B3 84 MB, SR_B4 87 MB)
+   Overlap:    {'reference': 0.0, 'LC09_L2SP_150041_20250416_02_T1': 0.0}
+   Reason:     irrigated cropland, dense urban area, rivers; winter (Nov-Feb) acquisition; lowest land cloud cover among in-season T1 scenes with all required bands and the AOI 0.39 deg inside the footprint edge
+   Concerns:   cloud cover is USGS STAC metadata only; scene is not verified cloud-free
+   Alternates: LC08_L2SP_144041_20240223_02_T1 (2024-02-23, 0.03%), LC09_L2SP_144041_20250201_02_T1 (2025-02-01, 0.03%)
+
+3. Deccan Plateau, Telangana (Hyderabad)  (target summer (Mar-May))
+   STAC items 54, eligible 54 (20 in season); rejected {'missing_required_asset': 0, 'aoi_outside_footprint': 0, 'overlaps_reference': 0, 'overlaps_selected': 0}
+   Scene:      LC08_L2SP_144048_20240427_02_T1
+   [STAC]      landsat-8, 2024-04-27, path/row 144/048, category T1, sun elev 66.8 deg
+   [STAC]      cloud 0.01% (land 0.01%), footprint bbox [77.1648, 16.2951, 79.2633, 18.3857]
+   [STAC]      required assets present: True; qa_pixel: True
+   [HEAD]      raw size 340 MB (ST_B10 86 MB, SR_B2 82 MB, SR_B3 84 MB, SR_B4 88 MB)
+   Overlap:    {'reference': 0.0, 'LC09_L2SP_150041_20250416_02_T1': 0.0, 'LC09_L2SP_144041_20231213_02_T1': 0.0}
+   Reason:     semi-arid plateau, large city, exposed rock, reservoirs; summer (Mar-May) acquisition; lowest land cloud cover among in-season T1 scenes with all required bands and the AOI 0.63 deg inside the footprint edge
+   Concerns:   cloud cover is USGS STAC metadata only; scene is not verified cloud-free
+   Alternates: LC08_L2SP_144048_20250313_02_T1 (2025-03-13, 0.04%), LC08_L2SP_144048_20250329_02_T1 (2025-03-29, 0.06%)
+
+4. Kerala coast / Western Ghats (Kochi)  (target dry season (Jan-Mar))
+   STAC items 24, eligible 24 (19 in season); rejected {'missing_required_asset': 0, 'aoi_outside_footprint': 0, 'overlaps_reference': 0, 'overlaps_selected': 0}
+   Scene:      LC08_L2SP_144053_20250225_02_T1
+   [STAC]      landsat-8, 2025-02-25, path/row 144/053, category T1, sun elev 55.6 deg
+   [STAC]      cloud 0.47% (land 0.4%), footprint bbox [75.6249, 9.074, 77.6579, 11.1633]
+   [STAC]      required assets present: True; qa_pixel: True
+   [HEAD]      raw size 312 MB (ST_B10 77 MB, SR_B2 76 MB, SR_B3 78 MB, SR_B4 80 MB)
+   Overlap:    {'reference': 0.0, 'LC09_L2SP_150041_20250416_02_T1': 0.0, 'LC09_L2SP_144041_20231213_02_T1': 0.0, 'LC08_L2SP_144048_20240427_02_T1': 0.0}
+   Reason:     humid tropical coast, backwaters, forested ghats, sea surface; dry season (Jan-Mar) acquisition; lowest land cloud cover among in-season T1 scenes with all required bands and the AOI 0.52 deg inside the footprint edge
+   Concerns:   cloud cover is USGS STAC metadata only; scene is not verified cloud-free
+   Alternates: LC08_L2SP_144053_20240207_02_T1 (2024-02-07, 0.62%), LC09_L2SP_144053_20240114_02_T1 (2024-01-14, 0.69%)
+
+5. Himalayan foothills, Uttarakhand (Dehradun)  (target post-monsoon (Oct-Nov))
+   STAC items 41, eligible 41 (12 in season); rejected {'missing_required_asset': 0, 'aoi_outside_footprint': 0, 'overlaps_reference': 0, 'overlaps_selected': 0}
+   Scene:      LC08_L2SP_146039_20241119_02_T1
+   [STAC]      landsat-8, 2024-11-19, path/row 146/039, category T1, sun elev 37.1 deg
+   [STAC]      cloud 1.07% (land 1.07%), footprint bbox [77.1108, 29.2514, 79.4423, 31.35]
+   [STAC]      required assets present: True; qa_pixel: True
+   [HEAD]      raw size 338 MB (ST_B10 83 MB, SR_B2 83 MB, SR_B3 85 MB, SR_B4 87 MB)
+   Overlap:    {'reference': 0.0, 'LC09_L2SP_150041_20250416_02_T1': 0.0, 'LC09_L2SP_144041_20231213_02_T1': 0.0, 'LC08_L2SP_144048_20240427_02_T1': 0.0, 'LC08_L2SP_144053_20250225_02_T1': 0.0}
+   Reason:     strong elevation gradient, forest, valley city, possible high-altitude snow; post-monsoon (Oct-Nov) acquisition; lowest land cloud cover among in-season T1 scenes with all required bands and the AOI 0.72 deg inside the footprint edge
+   Concerns:   snow/ice possible at high elevations (thermal extremes); cloud cover is USGS STAC metadata only; scene is not verified cloud-free
+   Alternates: LC09_L2SP_146039_20241026_02_T1 (2024-10-26, 1.96%), LC09_L2SP_146039_20231008_02_T1 (2023-10-08, 2.19%)
+
+6. Brahmaputra valley, Assam (Guwahati)  (target winter (Nov-Feb))
+   STAC items 58, eligible 57 (41 in season); rejected {'missing_required_asset': 0, 'aoi_outside_footprint': 1, 'overlaps_reference': 0, 'overlaps_selected': 0}
+   Scene:      LC09_L2SP_137042_20230110_02_T1
+   [STAC]      landsat-9, 2023-01-10, path/row 137/042, category T1, sun elev 36.4 deg
+   [STAC]      cloud 0.02% (land 0.02%), footprint bbox [89.9651, 24.939, 92.211, 27.0329]
+   [STAC]      required assets present: True; qa_pixel: True
+   [HEAD]      raw size 328 MB (ST_B10 79 MB, SR_B2 81 MB, SR_B3 83 MB, SR_B4 85 MB)
+   Overlap:    {'reference': 0.0, 'LC09_L2SP_150041_20250416_02_T1': 0.0, 'LC09_L2SP_144041_20231213_02_T1': 0.0, 'LC08_L2SP_144048_20240427_02_T1': 0.0, 'LC08_L2SP_144053_20250225_02_T1': 0.0, 'LC08_L2SP_146039_20241119_02_T1': 0.0}
+   Reason:     humid floodplain, wide braided river, tea/forest, hills; winter (Nov-Feb) acquisition; lowest land cloud cover among in-season T1 scenes with all required bands and the AOI 0.33 deg inside the footprint edge
+   Concerns:   cloud cover is USGS STAC metadata only; scene is not verified cloud-free
+   Alternates: LC09_L2SP_137042_20231126_02_T1 (2023-11-26, 0.03%), LC09_L2SP_137042_20230126_02_T1 (2023-01-26, 0.07%)
+
+7. Rann of Kutch, Gujarat  (target winter (Dec-Feb))
+   STAC items 129, eligible 129 (40 in season); rejected {'missing_required_asset': 0, 'aoi_outside_footprint': 0, 'overlaps_reference': 0, 'overlaps_selected': 0}
+   Scene:      LC08_L2SP_150044_20230214_02_T1
+   [STAC]      landsat-8, 2023-02-14, path/row 150/044, category T1, sun elev 45.2 deg
+   [STAC]      cloud 1.24% (land 1.4%), footprint bbox [69.1859, 22.0611, 71.3707, 24.1548]
+   [STAC]      required assets present: True; qa_pixel: True
+   [HEAD]      raw size 335 MB (ST_B10 79 MB, SR_B2 83 MB, SR_B3 85 MB, SR_B4 88 MB)
+   Overlap:    {'reference': 0.0, 'LC09_L2SP_150041_20250416_02_T1': 0.0, 'LC09_L2SP_144041_20231213_02_T1': 0.0, 'LC08_L2SP_144048_20240427_02_T1': 0.0, 'LC08_L2SP_144053_20250225_02_T1': 0.0, 'LC08_L2SP_146039_20241119_02_T1': 0.0, 'LC09_L2SP_137042_20230110_02_T1': 0.0}
+   Reason:     salt flats and marsh with strong thermal contrast, coast; winter (Dec-Feb) acquisition; lowest land cloud cover among in-season T1 scenes with all required bands and the AOI 0.18 deg inside the footprint edge
+   Concerns:   AOI point only 0.18 deg from footprint edge; cloud cover is USGS STAC metadata only; scene is not verified cloud-free
+   Alternates: LC09_L2SP_150044_20241225_02_T1 (2024-12-25, 1.6%), LC08_L2SP_150044_20231231_02_T1 (2023-12-31, 2.44%)
+
+SUMMARY
+------------------------------------------------------------------------
+Candidates selected: 7 (total with reference: 8)
+Proposed scene IDs:  LC09_L2SP_150041_20250416_02_T1, LC09_L2SP_144041_20231213_02_T1, LC08_L2SP_144048_20240427_02_T1, LC08_L2SP_144053_20250225_02_T1, LC08_L2SP_146039_20241119_02_T1, LC09_L2SP_137042_20230110_02_T1, LC08_L2SP_150044_20230214_02_T1
+Raw download [HEAD]: 2.25 GB
+Processed patches [EST]: ~15.93 GB (estimate: 7 x measured processed size of LC09_L2SP_143050_20240327_02_T1 (256 px patches, stride 128, float32 thermal+RGB). Actual size scales with each scene's valid-pixel coverage, unknown before download.)
+
+SCIENTIFIC NOTES
+------------------------------------------------------------------------
+- Future SR experiments remain synthetic x2 reconstruction against the 30 m Landsat thermal reference, not 15 m thermal ground truth.
+- Train/validation/test splits must be made at scene level; overlapping patches from one scene must never be treated as geographically independent.
+- Each scene keeps its own metadata, normalization statistics, validity masks and patch IDs.

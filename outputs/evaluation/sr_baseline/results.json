@@ -1,0 +1,249 @@
+{
+  "label": "SINGLE-SCENE DEVELOPMENT EVALUATION \u2014 NOT FINAL SCIENTIFIC EVALUATION",
+  "experiment": "Synthetic x2 super-resolution evaluation: 30 m Landsat thermal reference (256x256) -> synthetic degradation -> 128x128 LR -> reconstruction to 256x256, scored against the 30 m reference. The HR target is NOT true 15 m thermal ground truth, and results from one scene do not establish generalization.",
+  "scientific_limitations": "The 30 m thermal patch is treated as the HR reference for a synthetic SR experiment. This does not provide true higher-resolution thermal ground truth. The degradation operator defines the synthetic LR problem. Performance on synthetic degradation does not automatically prove real-world sub-30-m thermal reconstruction accuracy. Later evaluation should include synthetic benchmark performance and physical/thermal consistency checks.",
+  "split_label": "DEVELOPMENT SPLIT \u2014 NOT FINAL SCIENTIFIC EVALUATION (random patch split within scene; spatial leakage likely)",
+  "timestamp_utc": "2026-10-09T06:03:39+00:00",
+  "scene_ids": [
+    "LC09_L2SP_143050_20240327_02_T1"
+  ],
+  "processed_root": "C:\\Users\\HP\\Downloads\\ISRO project\\Major-Project\\dataset\\processed\\LC09_L2SP_143050_20240327_02_T1",
+  "split": "val",
+  "num_patches": 233,
+  "num_valid_pixels": 15259238,
+  "num_hr_pixels_total": 15269888,
+  "scale": 2,
+  "lr_size": 128,
+  "hr_size": 256,
+  "seed": 42,
+  "degradation": {
+    "scale": 2,
+    "blur_sigma_hr_pixels": 1.2,
+    "noise_std_kelvin": 0.05,
+    "downsample_method": "area",
+    "interpolation_note": "Masked area averaging after Gaussian low-pass in Kelvin",
+    "base_seed": 42
+  },
+  "thermal_normalization": {
+    "mean_kelvin": 316.7840576171875,
+    "std_kelvin": 4.901570796966553,
+    "method": "z_score_valid_pixels"
+  },
+  "model": {
+    "variant": "lightweight_x2",
+    "config": {
+      "upscale": 2,
+      "in_channels": 1,
+      "out_channels": 1,
+      "img_size": 64,
+      "window_size": 8,
+      "img_range": 1.0,
+      "depths": [
+        6,
+        6,
+        6,
+        6
+      ],
+      "embed_dim": 60,
+      "num_heads": [
+        6,
+        6,
+        6,
+        6
+      ],
+      "mlp_ratio": 2.0,
+      "upsampler": "pixelshuffledirect",
+      "resi_connection": "1conv",
+      "input_scale": 0.125,
+      "variant": "lightweight_x2"
+    },
+    "parameters": 904744,
+    "pretrained_checkpoint": {
+      "checkpoint_path": "C:\\Users\\HP\\Downloads\\ISRO project\\Major-Project\\pretrained\\swinir\\002_lightweightSR_DIV2K_s64w8_SwinIR-S_x2.pth",
+      "source_url": "https://github.com/JingyunLiang/SwinIR/releases/download/v0.0/002_lightweightSR_DIV2K_s64w8_SwinIR-S_x2.pth",
+      "sha256": "193b229909ca89cd8b55de9c9e7fce146ae759d59dfcd78d8feb9dd1d6fa0fd7",
+      "state_key": "params",
+      "matched_tensors": 327,
+      "matched_parameters": 902040,
+      "adapted_tensors": [
+        "conv_first.weight",
+        "upsample.0.weight",
+        "upsample.0.bias"
+      ],
+      "adapted_parameters": 2704,
+      "newly_initialized_tensors": [],
+      "newly_initialized_parameters": 0,
+      "unexpected_tensors": [],
+      "regenerated_buffers": 36
+    },
+    "finetuned_checkpoint": {
+      "path": "C:\\Users\\HP\\Downloads\\ISRO project\\Major-Project\\outputs\\models\\swinir\\best.pt",
+      "epoch": 2,
+      "train_loss": 0.04064072668552399,
+      "dev_val_loss_at_save": 0.0425098966807127,
+      "batch_size": 2,
+      "max_train_batches": 3,
+      "freeze_epochs": 2,
+      "resumed_from": "outputs\\models\\swinir\\latest.pt",
+      "note": "PRELIMINARY sanity-check checkpoint from a few CPU optimizer steps; not a converged fine-tune."
+    }
+  },
+  "aggregation": {
+    "mae_rmse": "pooled over all valid HR pixels of the split (not averaged per batch)",
+    "kelvin": "normalized values de-normalized with scene thermal mean/std, then pooled like MAE/RMSE",
+    "psnr_mean_per_patch": "project compute_psnr per patch (data range = patch HR valid range), averaged",
+    "psnr_pooled_global_range": "10*log10(R^2/MSE) with pooled MSE and R = HR valid range over the split",
+    "ssim_mean_per_patch": "project compute_ssim per patch (mask-weighted, 11x11 Gaussian), averaged",
+    "invalid_pixels": "excluded via hr_valid_mask & finite(HR); LR invalid pixels zero-filled for both methods"
+  },
+  "metrics": {
+    "bicubic": {
+      "name": "Bicubic x2",
+      "description": "torch bicubic interpolation (align_corners=False)",
+      "valid_pixels": 15259238,
+      "mae": 0.04492884473616812,
+      "rmse": 0.06454702123448505,
+      "psnr_mean_per_patch": 36.26883259147022,
+      "psnr_pooled_global_range": 45.59334941103894,
+      "ssim_mean_per_patch": 0.8878084807436866,
+      "mae_kelvin": 0.22022191329974508,
+      "rmse_kelvin": 0.31638179431699515,
+      "patches_scored": 233,
+      "nonfinite_output_values": 0,
+      "timing": {
+        "total_forward_s": 0.25205149984685704,
+        "avg_s_per_batch": 0.004272059319438255,
+        "avg_s_per_patch": 0.0010817660937633348
+      }
+    },
+    "swinir_pretrained": {
+      "name": "SwinIR-S x2 pretrained (thermal-adapted)",
+      "description": "Official DIV2K SwinIR-S x2 weights, RGB->1-channel adapted, no fine-tuning",
+      "valid_pixels": 15259238,
+      "mae": 0.04404261426061039,
+      "rmse": 0.06252269800785516,
+      "psnr_mean_per_patch": 36.51236489095401,
+      "psnr_pooled_global_range": 45.87011929674577,
+      "ssim_mean_per_patch": 0.8926521567827642,
+      "mae_kelvin": 0.21587799188238838,
+      "rmse_kelvin": 0.3064594307019372,
+      "patches_scored": 233,
+      "nonfinite_output_values": 0,
+      "timing": {
+        "total_forward_s": 31056.25620279988,
+        "avg_s_per_batch": 526.3772237762691,
+        "avg_s_per_patch": 133.28865323090076
+      }
+    },
+    "swinir_finetuned_preliminary": {
+      "name": "SwinIR-S x2 short CPU fine-tune (PRELIMINARY)",
+      "description": "Existing sanity-check checkpoint; a few optimizer steps only",
+      "valid_pixels": 15259238,
+      "mae": 0.04012283464081633,
+      "rmse": 0.057596066973688714,
+      "psnr_mean_per_patch": 37.248664843677965,
+      "psnr_pooled_global_range": 46.58301694838463,
+      "ssim_mean_per_patch": 0.9056499646456968,
+      "mae_kelvin": 0.196664914565944,
+      "rmse_kelvin": 0.28231119988582626,
+      "patches_scored": 233,
+      "nonfinite_output_values": 0,
+      "timing": {
+        "total_forward_s": 9387.609156900027,
+        "avg_s_per_batch": 159.11201960847504,
+        "avg_s_per_patch": 40.29016805536492
+      }
+    }
+  },
+  "sanity_checks": {
+    "lr_shape_ok": true,
+    "hr_shape_ok": true,
+    "output_shape_ok": true,
+    "masked_but_nonfinite_hr": 0,
+    "lr_invalid_pixels_filled_with_zero": 2553,
+    "hr_invalid_pixels_excluded": 10650,
+    "patches_without_valid_pixels": 0,
+    "identical_samples_all_methods": true,
+    "patch_id_sha256": "7b392b3324bc18e5fa2306509adb86fda585f86989911d037a6b4038cd99fcc2",
+    "valid_pixel_counts_per_method": {
+      "bicubic": 15259238,
+      "swinir_pretrained": 15259238,
+      "swinir_finetuned_preliminary": 15259238
+    },
+    "all_outputs_finite": true,
+    "all_final_metrics_finite": true,
+    "no_gradients_computed": true,
+    "passed": true
+  },
+  "timing": {
+    "device": "cpu",
+    "cpu": "Intel64 Family 6 Model 140 Stepping 1, GenuineIntel",
+    "torch_threads": 4,
+    "torch_version": "2.14.1+cpu",
+    "total_evaluation_s": 40492.66511880001,
+    "data_loading_and_degradation_s": 7.879639699967811,
+    "timing_invalid_due_to_system_suspend": true,
+    "note": "The full run's wall-clock and per-method forward times include an ~11 h period in which the machine was suspended (between batches 1 and 11) and are NOT valid inference timings. Use 'clean_timing_check' (separate 10-batch / 40-patch rerun on the same split, same CPU, uninterrupted). Metrics are unaffected."
+  },
+  "figures": [
+    {
+      "file": "figures\\01_largest_gain_vs_bicubic_patch_001604.png",
+      "reason": "largest_gain_vs_bicubic",
+      "patch_id": "001604",
+      "valid_fraction": 1.0,
+      "mae_gain_vs_bicubic": 0.0027368568899177603
+    },
+    {
+      "file": "figures\\02_median_gain_vs_bicubic_patch_001941.png",
+      "reason": "median_gain_vs_bicubic",
+      "patch_id": "001941",
+      "valid_fraction": 1.0,
+      "mae_gain_vs_bicubic": 0.0008675990978721515
+    },
+    {
+      "file": "figures\\03_smallest_gain_vs_bicubic_patch_001152.png",
+      "reason": "smallest_gain_vs_bicubic",
+      "patch_id": "001152",
+      "valid_fraction": 1.0,
+      "mae_gain_vs_bicubic": -0.00042255353678655183
+    },
+    {
+      "file": "figures\\04_most_textured_hr_patch_000985.png",
+      "reason": "most_textured_hr",
+      "patch_id": "000985",
+      "valid_fraction": 1.0,
+      "mae_gain_vs_bicubic": 0.0006677552167531076
+    },
+    {
+      "file": "figures\\05_partially_invalid_mask_patch_002241.png",
+      "reason": "partially_invalid_mask",
+      "patch_id": "002241",
+      "valid_fraction": 0.9112396240234375,
+      "mae_gain_vs_bicubic": 0.0012597905507738955
+    }
+  ],
+  "training_performed": false,
+  "clean_timing_check": {
+    "file": "timing_check_10_batches.json",
+    "patches": 40,
+    "batch_size": 4,
+    "total_wall_clock_s": 109.41393570002401,
+    "per_method": {
+      "bicubic": {
+        "total_forward_s": 0.03264120002859272,
+        "avg_s_per_batch": 0.003264120002859272,
+        "avg_s_per_patch": 0.000816030000714818
+      },
+      "swinir_pretrained": {
+        "total_forward_s": 52.73719270006404,
+        "avg_s_per_batch": 5.273719270006405,
+        "avg_s_per_patch": 1.3184298175016012
+      },
+      "swinir_finetuned_preliminary": {
+        "total_forward_s": 53.099361699976726,
+        "avg_s_per_batch": 5.309936169997672,
+        "avg_s_per_patch": 1.327484042499418
+      }
+    }
+  }
+}

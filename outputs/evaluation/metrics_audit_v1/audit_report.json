@@ -1,0 +1,128 @@
+{
+  "baseline_root": "C:\\Users\\HP\\Downloads\\ISRO project\\Major-Project\\outputs\\evaluation\\multiscene_qa_v1",
+  "roles": [
+    {
+      "role_dir": "C:\\Users\\HP\\Downloads\\ISRO project\\Major-Project\\outputs\\evaluation\\multiscene_qa_v1\\validation",
+      "checks": [
+        {
+          "scene_id": "LC08_L2SP_144053_20250225_02_T1",
+          "method": "bicubic",
+          "mae_kelvin_match": true,
+          "rmse_kelvin_match": true,
+          "mae_z_match": true,
+          "kelvin_linear_check": true,
+          "reported_mae_kelvin": 0.1853387290383792,
+          "csv_pooled_mae_kelvin": 0.18533872903837914,
+          "thermal_std_k": 4.894908428192139
+        },
+        {
+          "scene_id": "LC08_L2SP_144053_20250225_02_T1",
+          "method": "swinir_pretrained",
+          "mae_kelvin_match": true,
+          "rmse_kelvin_match": true,
+          "mae_z_match": true,
+          "kelvin_linear_check": true,
+          "reported_mae_kelvin": 0.18280849745029557,
+          "csv_pooled_mae_kelvin": 0.1828084974502953,
+          "thermal_std_k": 4.894908428192139
+        },
+        {
+          "method": "bicubic",
+          "aggregate_pooled_rmse_matches_csv": true,
+          "aggregate_pooled_mae_matches_csv": true
+        },
+        {
+          "method": "bicubic",
+          "macro_rmse_mean_over_scenes": true
+        },
+        {
+          "method": "swinir_pretrained",
+          "aggregate_pooled_rmse_matches_csv": true,
+          "aggregate_pooled_mae_matches_csv": true
+        },
+        {
+          "method": "swinir_pretrained",
+          "macro_rmse_mean_over_scenes": true
+        }
+      ],
+      "passed": true,
+      "methods": [
+        "bicubic",
+        "swinir_pretrained"
+      ]
+    },
+    {
+      "role_dir": "C:\\Users\\HP\\Downloads\\ISRO project\\Major-Project\\outputs\\evaluation\\multiscene_qa_v1\\test_locked",
+      "checks": [
+        {
+          "scene_id": "LC08_L2SP_144048_20240427_02_T1",
+          "method": "bicubic",
+          "mae_kelvin_match": true,
+          "rmse_kelvin_match": true,
+          "mae_z_match": true,
+          "kelvin_linear_check": true,
+          "reported_mae_kelvin": 0.27168218343040584,
+          "csv_pooled_mae_kelvin": 0.2716821834304059,
+          "thermal_std_k": 4.974270343780518
+        },
+        {
+          "scene_id": "LC08_L2SP_144048_20240427_02_T1",
+          "method": "swinir_pretrained",
+          "mae_kelvin_match": true,
+          "rmse_kelvin_match": true,
+          "mae_z_match": true,
+          "kelvin_linear_check": true,
+          "reported_mae_kelvin": 0.26562620254498504,
+          "csv_pooled_mae_kelvin": 0.26562620254498515,
+          "thermal_std_k": 4.974270343780518
+        },
+        {
+          "scene_id": "LC09_L2SP_137042_20230110_02_T1",
+          "method": "bicubic",
+          "mae_kelvin_match": true,
+          "rmse_kelvin_match": true,
+          "mae_z_match": true,
+          "kelvin_linear_check": true,
+          "reported_mae_kelvin": 0.15360948302539376,
+          "csv_pooled_mae_kelvin": 0.1536094830253936,
+          "thermal_std_k": 2.86836314201355
+        },
+        {
+          "scene_id": "LC09_L2SP_137042_20230110_02_T1",
+          "method": "swinir_pretrained",
+          "mae_kelvin_match": true,
+          "rmse_kelvin_match": true,
+          "mae_z_match": true,
+          "kelvin_linear_check": true,
+          "reported_mae_kelvin": 0.15262512503606024,
+          "csv_pooled_mae_kelvin": 0.15262512503606018,
+          "thermal_std_k": 2.86836314201355
+        },
+        {
+          "method": "bicubic",
+          "aggregate_pooled_rmse_matches_csv": true,
+          "aggregate_pooled_mae_matches_csv": true
+        },
+        {
+          "method": "bicubic",
+          "macro_rmse_mean_over_scenes": true
+        },
+        {
+          "method": "swinir_pretrained",
+          "aggregate_pooled_rmse_matches_csv": true,
+          "aggregate_pooled_mae_matches_csv": true
+        },
+        {
+          "method": "swinir_pretrained",
+          "macro_rmse_mean_over_scenes": true
+        }
+      ],
+      "passed": true,
+      "methods": [
+        "bicubic",
+        "swinir_pretrained"
+      ]
+    }
+  ],
+  "passed": true
+}

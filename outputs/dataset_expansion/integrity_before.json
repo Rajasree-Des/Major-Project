@@ -1,0 +1,161 @@
+{
+  "hashed_files": {
+    "dataset/raw/LC09_L2SP_143050_20240327_02_T1/SR_B2.tif": {
+      "size": 86026912,
+      "mtime_ns": 1785766615858726800,
+      "sha256": "8aabec9b77fc8811031d636bcd6cc898c2071eb0dfcb0d86a0c285bf3483d1a3"
+    },
+    "dataset/raw/LC09_L2SP_143050_20240327_02_T1/SR_B3.tif": {
+      "size": 88447305,
+      "mtime_ns": 1785766907106287100,
+      "sha256": "6771c24c0538cbe927cbcac8070f2171bf52a017d83f9e39d2b5605d6bd961b9"
+    },
+    "dataset/raw/LC09_L2SP_143050_20240327_02_T1/SR_B4.tif": {
+      "size": 93095615,
+      "mtime_ns": 1785767157132206200,
+      "sha256": "4b84df694bc8342f1a03ecc5265800ce4dd37d1103227021f4ca13483cd67d03"
+    },
+    "dataset/raw/LC09_L2SP_143050_20240327_02_T1/ST_B10.tif": {
+      "size": 88705063,
+      "mtime_ns": 1785766263840006200,
+      "sha256": "c81a2ce4d03a725cd789c727f1487e0690edee6ae73924c821c8c0b3c242bc96"
+    },
+    "dataset/raw/LC09_L2SP_143051_20240327_02_T1/SR_B2.tif": {
+      "size": 88550814,
+      "mtime_ns": 1785765606207983200,
+      "sha256": "bbd1d34095b4056db6d51f1f53d5eea225b8a387aebf2428685a04a75b3eded4"
+    },
+    "dataset/raw/LC09_L2SP_143051_20240327_02_T1/SR_B3.tif": {
+      "size": 91005429,
+      "mtime_ns": 1785765839207158300,
+      "sha256": "467b953a78b955c081a98708240e376512d954acdb8936acab9fa8a0b0bac9f0"
+    },
+    "dataset/raw/LC09_L2SP_143051_20240327_02_T1/SR_B4.tif": {
+      "size": 94698760,
+      "mtime_ns": 1785766057774892700,
+      "sha256": "3a32ad8e046718527450f8892d67a5b2aaf450f0fc4ec9c5741d93993326be24"
+    },
+    "dataset/raw/LC09_L2SP_143051_20240327_02_T1/ST_B10.tif": {
+      "size": 89712140,
+      "mtime_ns": 1785765409847438800,
+      "sha256": "ed56ed236736bce05145fc171db488ba4c81c425e08a2d343b7261167163bcbf"
+    },
+    "dataset/raw/LC09_L2SP_144051_20241215_02_T1/ST_B10.tif.part": {
+      "size": 5832704,
+      "mtime_ns": 1785752913228084500,
+      "sha256": "d535ba5eab310a27e150e46349979dd7905148b4a4e1714a0079bfc0d2eee22e"
+    },
+    "dataset/raw/LC09_L2SP_144051_20241231_02_T1/ST_B10.tif": {
+      "size": 84422575,
+      "mtime_ns": 1785752076793865100,
+      "sha256": "a2493f426a17a5086da0d51742ee310ed760f8b577f511ebe482ceb82917d9a9"
+    },
+    "outputs/models/swinir/best.pt": {
+      "size": 24613323,
+      "mtime_ns": 1791364424785773200,
+      "sha256": "f97a5fff48268bd129c5291274b06f13d240b2c612272221351f190b8dba6e1d"
+    },
+    "outputs/models/swinir/figures/epoch_001.png": {
+      "size": 800391,
+      "mtime_ns": 1791364365116723200,
+      "sha256": "230982de0d3de787718cef8c957bcdcdd27867881ada00e6ba78c375216741ce"
+    },
+    "outputs/models/swinir/figures/epoch_002.png": {
+      "size": 798308,
+      "mtime_ns": 1791364421489026100,
+      "sha256": "3baa7c066eb53c0db5fb2a1e18907cde8c99f4955e26d3da0a43bf5dd29d951d"
+    },
+    "outputs/models/swinir/history.json": {
+      "size": 1841,
+      "mtime_ns": 1791364424793793600,
+      "sha256": "e485126e1e45053459492ef3182d34f1cd89c2ccc29ffffbf0a35dc8a5644a0e"
+    },
+    "outputs/models/swinir/latest.pt": {
+      "size": 24616175,
+      "mtime_ns": 1791364424704640700,
+      "sha256": "0ed5c87a1d29b7f9222596db495ead6f7b95e4321f8131817cd0b3d3dee9d9ff"
+    },
+    "outputs/models/swinir_custom_scratch/best.pt": {
+      "size": 11568013,
+      "mtime_ns": 1791202858206408900,
+      "sha256": "7d2890a22e8f64fe20741e2ea5aabd3bec283ae015c5e77d98c86787ad87971a"
+    },
+    "outputs/models/swinir_custom_scratch/figures/epoch_001.png": {
+      "size": 758295,
+      "mtime_ns": 1791202270859112100,
+      "sha256": "6393244c59f34cc06a9b5427516aea4b7249eb5ae16f70b01cb91b5abcda2999"
+    },
+    "outputs/models/swinir_custom_scratch/figures/epoch_002.png": {
+      "size": 723437,
+      "mtime_ns": 1791202797842592300,
+      "sha256": "18311a8e1ccd1329e1609344f15673c2a453b0a4eb7fd5ca47e588a32bc934f8"
+    },
+    "outputs/models/swinir_custom_scratch/history.json": {
+      "size": 1243,
+      "mtime_ns": 1791202858208409200,
+      "sha256": "cf5c89fa4542217382183654dfc0e8ad508113396ec0b5aa5e65712090833fe8"
+    },
+    "outputs/models/swinir_custom_scratch/latest.pt": {
+      "size": 11578649,
+      "mtime_ns": 1791202858164937200,
+      "sha256": "3798716625f39539684a377a4e7294603788d6b2966d280bf28cc4750e392a18"
+    },
+    "outputs/evaluation/sr_baseline/figures/01_largest_gain_vs_bicubic_patch_001604.png": {
+      "size": 1284025,
+      "mtime_ns": 1791525803463746400,
+      "sha256": "629484b28a1ac0ea2121ec1c2091ac3acd95c8748cd5d8599868b05f8504cc2e"
+    },
+    "outputs/evaluation/sr_baseline/figures/02_median_gain_vs_bicubic_patch_001941.png": {
+      "size": 1330922,
+      "mtime_ns": 1791525807467803800,
+      "sha256": "5969c43d40050a17d166292265eac4756fa34cc4d848631c5b3cb543639d37f0"
+    },
+    "outputs/evaluation/sr_baseline/figures/03_smallest_gain_vs_bicubic_patch_001152.png": {
+      "size": 1025914,
+      "mtime_ns": 1791525811517478500,
+      "sha256": "1b1bccff97bd2490dee4c4251d276ba18e1d8b7f8c702273e7a2706d7e4cb606"
+    },
+    "outputs/evaluation/sr_baseline/figures/04_most_textured_hr_patch_000985.png": {
+      "size": 1228668,
+      "mtime_ns": 1791525815329257300,
+      "sha256": "d468fa98a163338bce3d702297677e0ad288cb36783703aa7240a8dfb1425312"
+    },
+    "outputs/evaluation/sr_baseline/figures/05_partially_invalid_mask_patch_002241.png": {
+      "size": 1309378,
+      "mtime_ns": 1791525819237385800,
+      "sha256": "e76c37dfec409b949001892e200a9bd0674b4aff3d95d7b1584ea5be2b5622b2"
+    },
+    "outputs/evaluation/sr_baseline/per_patch_metrics.csv": {
+      "size": 85055,
+      "mtime_ns": 1791525819284392300,
+      "sha256": "9d743c4dc0d647ceb22c65b2f77b487d0a3ce20e6fae18ba81809dff4f5a0c63"
+    },
+    "outputs/evaluation/sr_baseline/report.txt": {
+      "size": 5308,
+      "mtime_ns": 1791525984296822600,
+      "sha256": "39e53a28776437c25f91de7fcd69179d316db3acdad4be2f9c18f197f7b7b36d"
+    },
+    "outputs/evaluation/sr_baseline/results.json": {
+      "size": 10051,
+      "mtime_ns": 1791525984295828500,
+      "sha256": "31971f5817c59e768daa3d106a7b486729962b86237d634591d7f147f73e2e24"
+    },
+    "outputs/evaluation/sr_baseline/timing_check_10_batches.json": {
+      "size": 7705,
+      "mtime_ns": 1791525947663424500,
+      "sha256": "4185f94604515ac44788b771e78afb91d7fdfe577490ed1b0e1ce98f95ea63ce"
+    },
+    "pretrained/swinir/002_lightweightSR_DIV2K_s64w8_SwinIR-S_x2.pth": {
+      "size": 17147989,
+      "mtime_ns": 1791364149754072600,
+      "sha256": "193b229909ca89cd8b55de9c9e7fce146ae759d59dfcd78d8feb9dd1d6fa0fd7"
+    }
+  },
+  "directory_summaries": {
+    "dataset/processed/LC09_L2SP_143050_20240327_02_T1": {
+      "file_count": 4661,
+      "total_size": 2444041455,
+      "newest_mtime_ns": 1791199829084540100
+    }
+  }
+}

@@ -1,0 +1,40 @@
+ M .gitignore
+ D dataset/Processed
+ D docs
+ D evaluation
+ D models
+ M outputs/previews/LC09_L2SP_143050_20240327_02_T1/report.json
+ D preprocessing
+ M requirements.txt
+ M scripts/download_dataset.py
+ M scripts/preview_scene.py
+ D training
+?? colorization/
+?? dataset/processed/
+?? dataset/processed_qa/
+?? dataset/raw_supplement/
+?? dataset/splits/
+?? dataset_loader/
+?? outputs/benchmarks/
+?? outputs/colorization/
+?? outputs/dataset_expansion/
+?? outputs/evaluation/
+?? outputs/final_audit_v1/
+?? outputs/integrated_pipeline_v1/
+?? outputs/models/
+?? outputs/sr_debug/
+?? pipeline/
+?? scripts/audit_multiscene_metrics.py
+?? scripts/audit_qa_dataset.py
+?? scripts/check_scene_coverage.py
+?? scripts/final_audit_v1.py
+?? scripts/find_scene_candidates.py
+?? scripts/integrity_snapshot.py
+?? scripts/make_scene_split.py
+?? scripts/report_qa_dataset.py
+?? scripts/run_guided_colorization_v1.py
+?? scripts/run_integrated_pipeline_v1.py
+?? scripts/verify_qa_patches.py
+?? scripts/verify_reader_equivalence.py
+?? sr_data/
+?? tests/

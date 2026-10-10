@@ -1,0 +1,14 @@
+MULTISCENE METRIC AUDIT
+============================================================
+Kelvin: per-pixel (pred_z*std+mean - hr_z*std+mean), pooled by valid pixel count.
+Scene mae_kelvin/rmse_kelvin must match valid-pixel-weighted means from per_patch_metrics.csv.
+Overall passed: True
+
+--- C:\Users\HP\Downloads\ISRO project\Major-Project\outputs\evaluation\multiscene_qa_v1\validation passed=True ---
+  LC08_L2SP_144053_20250225_02_T1/bicubic: mae_k=True rmse_k=True z=True linear~=True
+  LC08_L2SP_144053_20250225_02_T1/swinir_pretrained: mae_k=True rmse_k=True z=True linear~=True
+--- C:\Users\HP\Downloads\ISRO project\Major-Project\outputs\evaluation\multiscene_qa_v1\test_locked passed=True ---
+  LC08_L2SP_144048_20240427_02_T1/bicubic: mae_k=True rmse_k=True z=True linear~=True
+  LC08_L2SP_144048_20240427_02_T1/swinir_pretrained: mae_k=True rmse_k=True z=True linear~=True
+  LC09_L2SP_137042_20230110_02_T1/bicubic: mae_k=True rmse_k=True z=True linear~=True
+  LC09_L2SP_137042_20230110_02_T1/swinir_pretrained: mae_k=True rmse_k=True z=True linear~=True

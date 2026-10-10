@@ -39,10 +39,9 @@ RGB_COMPOSITE_BANDS = ("SR_B4", "SR_B3", "SR_B2")
 THERMAL_BAND = "ST_B10"
 RGB_BANDS = ("SR_B2", "SR_B3", "SR_B4")
 
-EXPECTED_THERMAL_RES_M = 100.0
-EXPECTED_RGB_RES_M = 30.0
-EXPECTED_RES_RATIO = EXPECTED_THERMAL_RES_M / EXPECTED_RGB_RES_M
-RATIO_TOLERANCE = 0.15
+# Tolerances for comparing georeferencing across bands on the same grid (e.g. L2SP 30 m).
+RESOLUTION_REL_TOLERANCE = 1e-3
+BOUNDS_ABS_TOLERANCE_M = 0.01
 OVERLAP_FAIL_THRESHOLD = 0.80
 MAX_PREVIEW_DIMENSION = 2048
 
@@ -308,18 +307,28 @@ def _bounds_intersection_area(
     return (right - left) * (top - bottom)
 
 
-def _within_tolerance(value: float, expected: float, tolerance: float) -> bool:
-    """Return True if value is within relative tolerance of expected."""
-    if expected == 0:
-        return value == 0
-    return abs(value - expected) / abs(expected) <= tolerance
+def _approx_equal(a: float, b: float, *, rel: float = 1e-3, abs_tol: float = 1e-6) -> bool:
+    """Return True if two scalars are equal within relative or absolute tolerance."""
+    if math.isclose(a, b, rel_tol=rel, abs_tol=abs_tol):
+        return True
+    scale = max(abs(a), abs(b), 1.0)
+    return abs(a - b) / scale <= rel
+
+
+def _bounds_match(
+    a: tuple[float, float, float, float],
+    b: tuple[float, float, float, float],
+    abs_tol: float = BOUNDS_ABS_TOLERANCE_M,
+) -> bool:
+    """Return True if two bounds tuples match within absolute tolerance."""
+    return all(_approx_equal(x, y, abs_tol=abs_tol) for x, y in zip(a, b))
 
 
 def check_thermal_rgb_alignment(
     thermal: BandMetadata,
     rgb_metas: dict[str, BandMetadata],
 ) -> AlignmentReport:
-    """Assess geospatial alignment between thermal and RGB bands."""
+    """Assess geospatial consistency between thermal and RGB bands on the same grid."""
     messages: list[str] = []
     rgb_list = [rgb_metas[b] for b in RGB_BANDS if b in rgb_metas]
     if not rgb_list:
@@ -336,13 +345,15 @@ def check_thermal_rgb_alignment(
         )
 
     reference_rgb = rgb_list[0]
-    crs_match = all(meta.crs == thermal.crs for meta in rgb_list)
-    messages.append(
-        f"CRS consistent across all bands ({thermal.crs})."
-        if crs_match
-        else f"CRS mismatch detected: "
-        f"{ {m.name: m.crs for m in [thermal, *rgb_list]} }"
-    )
+    all_metas = [thermal, *rgb_list]
+
+    crs_match = all(meta.crs == thermal.crs for meta in all_metas)
+    if crs_match:
+        messages.append(f"CRS consistent across all bands ({thermal.crs}).")
+    else:
+        messages.append(
+            f"CRS mismatch detected: { {m.name: m.crs for m in all_metas} }"
+        )
 
     rgb_area = _bounds_area(reference_rgb.bounds)
     overlap_ratio = (
@@ -352,50 +363,79 @@ def check_thermal_rgb_alignment(
     )
     messages.append(f"Thermal/RGB bounds overlap ratio: {overlap_ratio:.3f}")
 
-    thermal_res = (thermal.resolution_x + thermal.resolution_y) / 2.0
-    rgb_res = (reference_rgb.resolution_x + reference_rgb.resolution_y) / 2.0
+    bounds_aligned = all(
+        _bounds_match(thermal.bounds, meta.bounds) for meta in rgb_list
+    )
+    if bounds_aligned:
+        messages.append("Bounds aligned across thermal and RGB bands.")
+    else:
+        messages.append("Bounds differ between thermal and one or more RGB bands.")
+
+    thermal_res = (abs(thermal.resolution_x) + abs(thermal.resolution_y)) / 2.0
+    rgb_res = (abs(reference_rgb.resolution_x) + abs(reference_rgb.resolution_y)) / 2.0
     resolution_ratio = thermal_res / rgb_res if rgb_res > 0 else None
+
+    resolution_consistent = resolution_ratio is not None and _approx_equal(
+        resolution_ratio, 1.0, rel=RESOLUTION_REL_TOLERANCE
+    )
+    for meta in rgb_list:
+        res = (abs(meta.resolution_x) + abs(meta.resolution_y)) / 2.0
+        if not _approx_equal(res, thermal_res, rel=RESOLUTION_REL_TOLERANCE):
+            resolution_consistent = False
+            break
+
+    if resolution_consistent:
+        messages.append(
+            f"Thermal and RGB resolutions consistent ({thermal_res:.2f} m average)."
+        )
+    elif resolution_ratio is not None:
+        messages.append(
+            f"Resolution ratio thermal/RGB: {resolution_ratio:.3f} (expected ~1.0 on same grid)."
+        )
+
     shape_ratio_height = (
         thermal.height / reference_rgb.height if reference_rgb.height else None
     )
     shape_ratio_width = (
         thermal.width / reference_rgb.width if reference_rgb.width else None
     )
-    expected_shape_ratio = 1.0 / EXPECTED_RES_RATIO
 
-    if resolution_ratio is not None:
-        messages.append(
-            f"Resolution ratio thermal/RGB: {resolution_ratio:.3f} "
-            f"(expected ~{EXPECTED_RES_RATIO:.2f})"
+    shape_consistent = (
+        thermal.width == reference_rgb.width
+        and thermal.height == reference_rgb.height
+        and all(
+            meta.width == thermal.width and meta.height == thermal.height
+            for meta in rgb_list
         )
-    if shape_ratio_height is not None and shape_ratio_width is not None:
+    )
+    if shape_consistent:
+        messages.append(
+            f"Thermal and RGB shapes consistent ({thermal.width}×{thermal.height})."
+        )
+    elif shape_ratio_height is not None and shape_ratio_width is not None:
         messages.append(
             f"Shape ratio H×W thermal/RGB: {shape_ratio_height:.3f} × "
-            f"{shape_ratio_width:.3f} (expected ~{expected_shape_ratio:.3f})"
+            f"{shape_ratio_width:.3f} (expected 1.0×1.0 on same grid)."
         )
 
-    if not crs_match or overlap_ratio < OVERLAP_FAIL_THRESHOLD:
+    failures: list[str] = []
+    if not crs_match:
+        failures.append("CRS mismatch")
+    if overlap_ratio < OVERLAP_FAIL_THRESHOLD:
+        failures.append(f"bounds overlap below {OVERLAP_FAIL_THRESHOLD:.2f}")
+    if not bounds_aligned:
+        failures.append("bounds not aligned")
+    if not resolution_consistent:
+        failures.append("resolution mismatch")
+    if not shape_consistent:
+        failures.append("shape/dimension mismatch")
+
+    if failures:
         status: Literal["pass", "warn", "fail"] = "fail"
-        if not crs_match:
-            messages.append("FAIL: CRS mismatch.")
-        if overlap_ratio < OVERLAP_FAIL_THRESHOLD:
-            messages.append(f"FAIL: overlap ratio below {OVERLAP_FAIL_THRESHOLD:.2f}.")
+        messages.append(f"FAIL: {', '.join(failures)}.")
     else:
-        ratio_ok = resolution_ratio is not None and _within_tolerance(
-            resolution_ratio, EXPECTED_RES_RATIO, RATIO_TOLERANCE
-        )
-        shape_ok = (
-            shape_ratio_height is not None
-            and shape_ratio_width is not None
-            and _within_tolerance(shape_ratio_height, expected_shape_ratio, RATIO_TOLERANCE)
-            and _within_tolerance(shape_ratio_width, expected_shape_ratio, RATIO_TOLERANCE)
-        )
-        if ratio_ok and shape_ok:
-            status = "pass"
-            messages.append("PASS: thermal and RGB bands appear aligned.")
-        else:
-            status = "warn"
-            messages.append("WARN: resolution or shape ratio outside ±15% tolerance.")
+        status = "pass"
+        messages.append("PASS: thermal and RGB bands are geospatially consistent.")
 
     return AlignmentReport(
         crs_match=crs_match,

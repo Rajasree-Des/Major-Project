@@ -132,13 +132,14 @@
     "resolution_ratio": 1.0,
     "shape_ratio_height": 1.0,
     "shape_ratio_width": 1.0,
-    "status": "warn",
+    "status": "pass",
     "messages": [
       "CRS consistent across all bands (EPSG:32644).",
       "Thermal/RGB bounds overlap ratio: 1.000",
-      "Resolution ratio thermal/RGB: 1.000 (expected ~3.33)",
-      "Shape ratio H\u00d7W thermal/RGB: 1.000 \u00d7 1.000 (expected ~0.300)",
-      "WARN: resolution or shape ratio outside \u00b115% tolerance."
+      "Bounds aligned across thermal and RGB bands.",
+      "Thermal and RGB resolutions consistent (30.00 m average).",
+      "Thermal and RGB shapes consistent (7641\u00d77781).",
+      "PASS: thermal and RGB bands are geospatially consistent."
     ]
   },
   "outputs": {
@@ -146,5 +147,5 @@
     "rgb_composite": "C:\\Users\\HP\\Downloads\\ISRO project\\Major-Project\\outputs\\previews\\LC09_L2SP_143050_20240327_02_T1\\rgb_composite.png",
     "histograms": "C:\\Users\\HP\\Downloads\\ISRO project\\Major-Project\\outputs\\previews\\LC09_L2SP_143050_20240327_02_T1\\histograms.png"
   },
-  "generated_at": "2026-08-08T08:15:38Z"
+  "generated_at": "2026-10-05T11:28:48Z"
 }

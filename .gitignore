@@ -1,4 +1,12 @@
 dataset/raw/
+dataset/processed/
+dataset/processed_qa/
 __pycache__/
 *.pyc
 .env
+pretrained/
+outputs/ui_cache/
+outputs/ui_runs/
+frontend/node_modules/
+frontend/dist/
+.pytest_cache/

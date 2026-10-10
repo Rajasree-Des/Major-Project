@@ -1,4 +1,24 @@
-# React + TypeScript + Vite
+# ThermaScope UI (React + Vite)
+
+**ThermaScope** is the major-project dashboard for thermal super-resolution and guided colorization.
+
+Full startup instructions (API + frontend): see [`../THERMASCOPE_UI.md`](../THERMASCOPE_UI.md) at the repository root.
+
+Quick start:
+
+```powershell
+# Terminal 1 (repo root)
+py -m backend
+
+# Terminal 2
+npm run dev
+```
+
+Open http://127.0.0.1:5173/
+
+---
+
+## React + TypeScript + Vite (tooling)
 
 This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
 

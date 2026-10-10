@@ -1,0 +1,186 @@
+{
+  "status": "COVERAGE CHECK ONLY - nothing downloaded",
+  "target": {
+    "name": "Rann of Kutch, Gujarat",
+    "point_lon_lat": [
+      70.2,
+      23.85
+    ],
+    "extents_note": "approximate hand-drawn extents; coverage fractions are estimates from STAC footprint geometry (planar lon/lat)",
+    "edge_margin_threshold_deg": 0.3
+  },
+  "scene": {
+    "scene_id": "LC08_L2SP_150044_20230214_02_T1",
+    "date": "2023-02-14",
+    "path_row": "150/044",
+    "eo_cloud_cover": 1.24,
+    "cloud_cover_land": 1.4,
+    "footprint_bbox": [
+      69.1859,
+      22.0611,
+      71.3707,
+      24.1548
+    ],
+    "point_inside_footprint": true,
+    "point_edge_margin_deg": 0.177,
+    "extent_fraction_covered_estimate": {
+      "great_rann_approx": 0.29,
+      "little_rann_approx": 0.45
+    }
+  },
+  "marginal": true,
+  "in_season_alternatives_by_edge_margin": [
+    {
+      "scene_id": "LC09_L2SP_150044_20230121_02_T1",
+      "date": "2023-01-21",
+      "path_row": "150/044",
+      "eo_cloud_cover": 4.04,
+      "cloud_cover_land": 4.51,
+      "footprint_bbox": [
+        69.2364,
+        22.0605,
+        71.4278,
+        24.1529
+      ],
+      "point_inside_footprint": true,
+      "point_edge_margin_deg": 0.186,
+      "extent_fraction_covered_estimate": {
+        "great_rann_approx": 0.284,
+        "little_rann_approx": 0.507
+      }
+    },
+    {
+      "scene_id": "LC08_L2SP_150044_20241217_02_T1",
+      "date": "2024-12-17",
+      "path_row": "150/044",
+      "eo_cloud_cover": 4.61,
+      "cloud_cover_land": 5.04,
+      "footprint_bbox": [
+        69.2265,
+        22.0609,
+        71.4119,
+        24.1549
+      ],
+      "point_inside_footprint": true,
+      "point_edge_margin_deg": 0.185,
+      "extent_fraction_covered_estimate": {
+        "great_rann_approx": 0.286,
+        "little_rann_approx": 0.491
+      }
+    },
+    {
+      "scene_id": "LC09_L2SP_150044_20241209_02_T1",
+      "date": "2024-12-09",
+      "path_row": "150/044",
+      "eo_cloud_cover": 3.15,
+      "cloud_cover_land": 3.53,
+      "footprint_bbox": [
+        69.2267,
+        22.0603,
+        71.4183,
+        24.153
+      ],
+      "point_inside_footprint": true,
+      "point_edge_margin_deg": 0.184,
+      "extent_fraction_covered_estimate": {
+        "great_rann_approx": 0.285,
+        "little_rann_approx": 0.497
+      }
+    },
+    {
+      "scene_id": "LC08_L2SP_150044_20230113_02_T1",
+      "date": "2023-01-13",
+      "path_row": "150/044",
+      "eo_cloud_cover": 4.34,
+      "cloud_cover_land": 4.45,
+      "footprint_bbox": [
+        69.2171,
+        22.0616,
+        71.4022,
+        24.1554
+      ],
+      "point_inside_footprint": true,
+      "point_edge_margin_deg": 0.184,
+      "extent_fraction_covered_estimate": {
+        "great_rann_approx": 0.287,
+        "little_rann_approx": 0.481
+      }
+    },
+    {
+      "scene_id": "LC09_L2SP_150044_20231207_02_T1",
+      "date": "2023-12-07",
+      "path_row": "150/044",
+      "eo_cloud_cover": 3.79,
+      "cloud_cover_land": 4.26,
+      "footprint_bbox": [
+        69.2215,
+        22.0601,
+        71.413,
+        24.153
+      ],
+      "point_inside_footprint": true,
+      "point_edge_margin_deg": 0.183,
+      "extent_fraction_covered_estimate": {
+        "great_rann_approx": 0.286,
+        "little_rann_approx": 0.492
+      }
+    },
+    {
+      "scene_id": "LC08_L2SP_150044_20231231_02_T1",
+      "date": "2023-12-31",
+      "path_row": "150/044",
+      "eo_cloud_cover": 2.44,
+      "cloud_cover_land": 2.72,
+      "footprint_bbox": [
+        69.2154,
+        22.0605,
+        71.4004,
+        24.1544
+      ],
+      "point_inside_footprint": true,
+      "point_edge_margin_deg": 0.182,
+      "extent_fraction_covered_estimate": {
+        "great_rann_approx": 0.287,
+        "little_rann_approx": 0.479
+      }
+    },
+    {
+      "scene_id": "LC09_L2SP_150044_20240225_02_T1",
+      "date": "2024-02-25",
+      "path_row": "150/044",
+      "eo_cloud_cover": 3.33,
+      "cloud_cover_land": 3.71,
+      "footprint_bbox": [
+        69.2145,
+        22.0605,
+        71.4051,
+        24.153
+      ],
+      "point_inside_footprint": true,
+      "point_edge_margin_deg": 0.182,
+      "extent_fraction_covered_estimate": {
+        "great_rann_approx": 0.286,
+        "little_rann_approx": 0.484
+      }
+    },
+    {
+      "scene_id": "LC09_L2SP_150044_20240124_02_T1",
+      "date": "2024-01-24",
+      "path_row": "150/044",
+      "eo_cloud_cover": 3.8,
+      "cloud_cover_land": 4.27,
+      "footprint_bbox": [
+        69.2186,
+        22.0601,
+        71.4101,
+        24.1527
+      ],
+      "point_inside_footprint": true,
+      "point_edge_margin_deg": 0.182,
+      "extent_fraction_covered_estimate": {
+        "great_rann_approx": 0.286,
+        "little_rann_approx": 0.489
+      }
+    }
+  ]
+}

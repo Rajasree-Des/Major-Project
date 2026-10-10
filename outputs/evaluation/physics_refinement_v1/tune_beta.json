@@ -1,0 +1,14 @@
+{
+  "best_beta": 1.0,
+  "tune_patch_count": 137,
+  "tune_fraction": 0.25,
+  "tune_seed": 42,
+  "records": [
+    {"beta": 0.0, "tune_rmse_kelvin": 0.32752, "tune_valid_pixels": 8943832},
+    {"beta": 0.25, "tune_rmse_kelvin": 0.31025, "tune_valid_pixels": 8943832},
+    {"beta": 0.5, "tune_rmse_kelvin": 0.29522, "tune_valid_pixels": 8943832},
+    {"beta": 0.75, "tune_rmse_kelvin": 0.2828, "tune_valid_pixels": 8943832},
+    {"beta": 1.0, "tune_rmse_kelvin": 0.27334, "tune_valid_pixels": 8943832}
+  ],
+  "eval_note": "Held-out 414 validation patches scored in validation/results.json (beta frozen at 1.0)."
+}

@@ -1,0 +1,1560 @@
+{
+  "generated_utc": "2026-10-09T06:29:48+00:00",
+  "status": "CANDIDATE REPORT ONLY - nothing downloaded; awaiting approval",
+  "query": {
+    "stac_api": "https://planetarycomputer.microsoft.com/api/stac/v1",
+    "collection": "landsat-c2-l2",
+    "platforms": [
+      "landsat-8",
+      "landsat-9"
+    ],
+    "date_range": "2023-01-01/2025-06-30",
+    "max_eo_cloud_cover_pct": 10.0,
+    "aoi_buffer_deg": 0.05,
+    "required_assets": [
+      "ST_B10",
+      "SR_B2",
+      "SR_B3",
+      "SR_B4"
+    ],
+    "selection_rules": [
+      "all four required assets resolvable (ST_B10/lwir11, SR_B2/blue, SR_B3/green, SR_B4/red)",
+      "AOI point inside footprint",
+      "different WRS path/row from the reference and zero footprint overlap with the reference and previously selected scenes (scene-level independence)",
+      "prefer target-season months, then T1, then AOI >= 0.3 deg inside the footprint edge, then lowest landsat:cloud_cover_land, then eo:cloud_cover, then largest AOI edge margin"
+    ]
+  },
+  "reference_scene": {
+    "scene_id": "LC09_L2SP_143050_20240327_02_T1",
+    "source": "stac",
+    "platform": "landsat-9",
+    "acquisition_datetime_utc": "2024-03-27T05:04:20.371689Z",
+    "wrs_path": "143",
+    "wrs_row": "050",
+    "collection_category": "T1",
+    "eo_cloud_cover_pct": 0.39,
+    "cloud_cover_land_pct": 0.02,
+    "sun_elevation_deg": 61.69188148,
+    "footprint_bbox": [
+      78.0669,
+      13.4071,
+      80.1402,
+      15.4959
+    ],
+    "footprint_centroid": [
+      79.0999,
+      14.452
+    ],
+    "role": "existing scene (unchanged)",
+    "raw_size_bytes_on_disk": 356274895,
+    "processed_size_bytes_on_disk": 2444041455
+  },
+  "regions": [
+    {
+      "region": "Thar Desert, Rajasthan (Jaisalmer)",
+      "aoi_point_lon_lat": [
+        70.91,
+        26.92
+      ],
+      "target_season": "pre-monsoon (Apr-Jun)",
+      "character": "hot arid desert, sand dunes, sparse vegetation",
+      "stac_items_returned": 139,
+      "eligible_after_filters": 71,
+      "eligible_in_target_season": 23,
+      "rejected_counts": {
+        "missing_required_asset": 0,
+        "aoi_outside_footprint": 68,
+        "overlaps_reference": 0,
+        "overlaps_selected": 0
+      },
+      "selected": {
+        "scene_id": "LC09_L2SP_150041_20250416_02_T1",
+        "source": "stac",
+        "platform": "landsat-9",
+        "acquisition_datetime_utc": "2025-04-16T05:43:49.818316Z",
+        "wrs_path": "150",
+        "wrs_row": "041",
+        "collection_category": "T1",
+        "eo_cloud_cover_pct": 0.0,
+        "cloud_cover_land_pct": 0.0,
+        "sun_elevation_deg": 62.59518229,
+        "footprint_bbox": [
+          70.1955,
+          26.3769,
+          72.4717,
+          28.4723
+        ],
+        "footprint_centroid": [
+          71.3262,
+          27.4249
+        ],
+        "required_assets": {
+          "ST_B10": {
+            "stac_asset_key": "lwir11",
+            "present": true,
+            "size_bytes": 78803333,
+            "size_source": "http_head (server-reported Content-Length, not downloaded)"
+          },
+          "SR_B2": {
+            "stac_asset_key": "blue",
+            "present": true,
+            "size_bytes": 82755063,
+            "size_source": "http_head (server-reported Content-Length, not downloaded)"
+          },
+          "SR_B3": {
+            "stac_asset_key": "green",
+            "present": true,
+            "size_bytes": 86234534,
+            "size_source": "http_head (server-reported Content-Length, not downloaded)"
+          },
+          "SR_B4": {
+            "stac_asset_key": "red",
+            "present": true,
+            "size_bytes": 88656963,
+            "size_source": "http_head (server-reported Content-Length, not downloaded)"
+          }
+        },
+        "optional_qa_pixel_available": true,
+        "raw_size_bytes": 336449893,
+        "raw_size_source": "http_head",
+        "overlap_fraction_of_smaller_footprint": {
+          "reference": 0.0
+        },
+        "aoi_edge_margin_deg": 0.313,
+        "region": "Thar Desert, Rajasthan (Jaisalmer)",
+        "reason_for_selection": "hot arid desert, sand dunes, sparse vegetation; pre-monsoon (Apr-Jun) acquisition; lowest land cloud cover among in-season T1 scenes with all required bands and the AOI 0.31 deg inside the footprint edge",
+        "quality_concerns": [
+          "cloud cover is USGS STAC metadata only; scene is not verified cloud-free"
+        ]
+      },
+      "alternates": [
+        {
+          "scene_id": "LC09_L2SP_150041_20250518_02_T1",
+          "source": "stac",
+          "platform": "landsat-9",
+          "acquisition_datetime_utc": "2025-05-18T05:43:30.102393Z",
+          "wrs_path": "150",
+          "wrs_row": "041",
+          "collection_category": "T1",
+          "eo_cloud_cover_pct": 0.0,
+          "cloud_cover_land_pct": 0.0,
+          "sun_elevation_deg": 68.50075329,
+          "footprint_bbox": [
+            70.2103,
+            26.3774,
+            72.486,
+            28.4724
+          ],
+          "footprint_centroid": [
+            71.3407,
+            27.4252
+          ],
+          "required_assets": {
+            "ST_B10": {
+              "stac_asset_key": "lwir11",
+              "present": true,
+              "size_bytes": 80098594,
+              "size_source": "http_head (server-reported Content-Length, not downloaded)"
+            },
+            "SR_B2": {
+              "stac_asset_key": "blue",
+              "present": true,
+              "size_bytes": 83849992,
+              "size_source": "http_head (server-reported Content-Length, not downloaded)"
+            },
+            "SR_B3": {
+              "stac_asset_key": "green",
+              "present": true,
+              "size_bytes": 87283564,
+              "size_source": "http_head (server-reported Content-Length, not downloaded)"
+            },
+            "SR_B4": {
+              "stac_asset_key": "red",
+              "present": true,
+              "size_bytes": 89598186,
+              "size_source": "http_head (server-reported Content-Length, not downloaded)"
+            }
+          },
+          "optional_qa_pixel_available": true,
+          "raw_size_bytes": 340830336,
+          "raw_size_source": "http_head",
+          "overlap_fraction_of_smaller_footprint": {
+            "reference": 0.0
+          },
+          "aoi_edge_margin_deg": 0.31,
+          "region": "Thar Desert, Rajasthan (Jaisalmer)",
+          "reason_for_selection": "hot arid desert, sand dunes, sparse vegetation; pre-monsoon (Apr-Jun) acquisition; lowest land cloud cover among in-season T1 scenes with all required bands and the AOI 0.31 deg inside the footprint edge",
+          "quality_concerns": [
+            "cloud cover is USGS STAC metadata only; scene is not verified cloud-free"
+          ],
+          "same_path_row_as_selected": true
+        },
+        {
+          "scene_id": "LC08_L2SP_150041_20230505_02_T1",
+          "source": "stac",
+          "platform": "landsat-8",
+          "acquisition_datetime_utc": "2023-05-05T05:43:23.746475Z",
+          "wrs_path": "150",
+          "wrs_row": "041",
+          "collection_category": "T1",
+          "eo_cloud_cover_pct": 0.0,
+          "cloud_cover_land_pct": 0.0,
+          "sun_elevation_deg": 66.74155205,
+          "footprint_bbox": [
+            70.2034,
+            26.3788,
+            72.4723,
+            28.4749
+          ],
+          "footprint_centroid": [
+            71.3305,
+            27.427
+          ],
+          "required_assets": {
+            "ST_B10": {
+              "stac_asset_key": "lwir11",
+              "present": true,
+              "size_bytes": 82175434,
+              "size_source": "http_head (server-reported Content-Length, not downloaded)"
+            },
+            "SR_B2": {
+              "stac_asset_key": "blue",
+              "present": true,
+              "size_bytes": 82491547,
+              "size_source": "http_head (server-reported Content-Length, not downloaded)"
+            },
+            "SR_B3": {
+              "stac_asset_key": "green",
+              "present": true,
+              "size_bytes": 86154267,
+              "size_source": "http_head (server-reported Content-Length, not downloaded)"
+            },
+            "SR_B4": {
+              "stac_asset_key": "red",
+              "present": true,
+              "size_bytes": 88552778,
+              "size_source": "http_head (server-reported Content-Length, not downloaded)"
+            }
+          },
+          "optional_qa_pixel_available": true,
+          "raw_size_bytes": 339374026,
+          "raw_size_source": "http_head",
+          "overlap_fraction_of_smaller_footprint": {
+            "reference": 0.0
+          },
+          "aoi_edge_margin_deg": 0.31,
+          "region": "Thar Desert, Rajasthan (Jaisalmer)",
+          "reason_for_selection": "hot arid desert, sand dunes, sparse vegetation; pre-monsoon (Apr-Jun) acquisition; lowest land cloud cover among in-season T1 scenes with all required bands and the AOI 0.31 deg inside the footprint edge",
+          "quality_concerns": [
+            "cloud cover is USGS STAC metadata only; scene is not verified cloud-free"
+          ],
+          "same_path_row_as_selected": true
+        }
+      ]
+    },
+    {
+      "region": "Indo-Gangetic Plain, Uttar Pradesh (Lucknow)",
+      "aoi_point_lon_lat": [
+        80.95,
+        26.85
+      ],
+      "target_season": "winter (Nov-Feb)",
+      "character": "irrigated cropland, dense urban area, rivers",
+      "stac_items_returned": 45,
+      "eligible_after_filters": 45,
+      "eligible_in_target_season": 14,
+      "rejected_counts": {
+        "missing_required_asset": 0,
+        "aoi_outside_footprint": 0,
+        "overlaps_reference": 0,
+        "overlaps_selected": 0
+      },
+      "selected": {
+        "scene_id": "LC09_L2SP_144041_20231213_02_T1",
+        "source": "stac",
+        "platform": "landsat-9",
+        "acquisition_datetime_utc": "2023-12-13T05:07:10.773237Z",
+        "wrs_path": "144",
+        "wrs_row": "041",
+        "collection_category": "T1",
+        "eo_cloud_cover_pct": 0.02,
+        "cloud_cover_land_pct": 0.02,
+        "sun_elevation_deg": 35.50469273,
+        "footprint_bbox": [
+          79.494,
+          26.3765,
+          81.7705,
+          28.4721
+        ],
+        "footprint_centroid": [
+          80.6249,
+          27.4246
+        ],
+        "required_assets": {
+          "ST_B10": {
+            "stac_asset_key": "lwir11",
+            "present": true,
+            "size_bytes": 80872876,
+            "size_source": "http_head (server-reported Content-Length, not downloaded)"
+          },
+          "SR_B2": {
+            "stac_asset_key": "blue",
+            "present": true,
+            "size_bytes": 86710557,
+            "size_source": "http_head (server-reported Content-Length, not downloaded)"
+          },
+          "SR_B3": {
+            "stac_asset_key": "green",
+            "present": true,
+            "size_bytes": 87871128,
+            "size_source": "http_head (server-reported Content-Length, not downloaded)"
+          },
+          "SR_B4": {
+            "stac_asset_key": "red",
+            "present": true,
+            "size_bytes": 91303229,
+            "size_source": "http_head (server-reported Content-Length, not downloaded)"
+          }
+        },
+        "optional_qa_pixel_available": true,
+        "raw_size_bytes": 346757790,
+        "raw_size_source": "http_head",
+        "overlap_fraction_of_smaller_footprint": {
+          "reference": 0.0,
+          "LC09_L2SP_150041_20250416_02_T1": 0.0
+        },
+        "aoi_edge_margin_deg": 0.391,
+        "region": "Indo-Gangetic Plain, Uttar Pradesh (Lucknow)",
+        "reason_for_selection": "irrigated cropland, dense urban area, rivers; winter (Nov-Feb) acquisition; lowest land cloud cover among in-season T1 scenes with all required bands and the AOI 0.39 deg inside the footprint edge",
+        "quality_concerns": [
+          "cloud cover is USGS STAC metadata only; scene is not verified cloud-free"
+        ]
+      },
+      "alternates": [
+        {
+          "scene_id": "LC08_L2SP_144041_20240223_02_T1",
+          "source": "stac",
+          "platform": "landsat-8",
+          "acquisition_datetime_utc": "2024-02-23T05:06:56.348534Z",
+          "wrs_path": "144",
+          "wrs_row": "041",
+          "collection_category": "T1",
+          "eo_cloud_cover_pct": 0.03,
+          "cloud_cover_land_pct": 0.03,
+          "sun_elevation_deg": 44.85181734,
+          "footprint_bbox": [
+            79.4653,
+            26.378,
+            81.7348,
+            28.4743
+          ],
+          "footprint_centroid": [
+            80.5928,
+            27.4264
+          ],
+          "required_assets": {
+            "ST_B10": {
+              "stac_asset_key": "lwir11",
+              "present": true,
+              "size_bytes": 84323170,
+              "size_source": "http_head (server-reported Content-Length, not downloaded)"
+            },
+            "SR_B2": {
+              "stac_asset_key": "blue",
+              "present": true,
+              "size_bytes": 87387554,
+              "size_source": "http_head (server-reported Content-Length, not downloaded)"
+            },
+            "SR_B3": {
+              "stac_asset_key": "green",
+              "present": true,
+              "size_bytes": 88929214,
+              "size_source": "http_head (server-reported Content-Length, not downloaded)"
+            },
+            "SR_B4": {
+              "stac_asset_key": "red",
+              "present": true,
+              "size_bytes": 91725552,
+              "size_source": "http_head (server-reported Content-Length, not downloaded)"
+            }
+          },
+          "optional_qa_pixel_available": true,
+          "raw_size_bytes": 352365490,
+          "raw_size_source": "http_head",
+          "overlap_fraction_of_smaller_footprint": {
+            "reference": 0.0,
+            "LC09_L2SP_150041_20250416_02_T1": 0.0
+          },
+          "aoi_edge_margin_deg": 0.396,
+          "region": "Indo-Gangetic Plain, Uttar Pradesh (Lucknow)",
+          "reason_for_selection": "irrigated cropland, dense urban area, rivers; winter (Nov-Feb) acquisition; lowest land cloud cover among in-season T1 scenes with all required bands and the AOI 0.40 deg inside the footprint edge",
+          "quality_concerns": [
+            "cloud cover is USGS STAC metadata only; scene is not verified cloud-free"
+          ],
+          "same_path_row_as_selected": true
+        },
+        {
+          "scene_id": "LC09_L2SP_144041_20250201_02_T1",
+          "source": "stac",
+          "platform": "landsat-9",
+          "acquisition_datetime_utc": "2025-02-01T05:06:59.965495Z",
+          "wrs_path": "144",
+          "wrs_row": "041",
+          "collection_category": "T1",
+          "eo_cloud_cover_pct": 0.03,
+          "cloud_cover_land_pct": 0.03,
+          "sun_elevation_deg": 38.88754621,
+          "footprint_bbox": [
+            79.5024,
+            26.3771,
+            81.7791,
+            28.4725
+          ],
+          "footprint_centroid": [
+            80.6334,
+            27.425
+          ],
+          "required_assets": {
+            "ST_B10": {
+              "stac_asset_key": "lwir11",
+              "present": true,
+              "size_bytes": 82278220,
+              "size_source": "http_head (server-reported Content-Length, not downloaded)"
+            },
+            "SR_B2": {
+              "stac_asset_key": "blue",
+              "present": true,
+              "size_bytes": 85868650,
+              "size_source": "http_head (server-reported Content-Length, not downloaded)"
+            },
+            "SR_B3": {
+              "stac_asset_key": "green",
+              "present": true,
+              "size_bytes": 86945988,
+              "size_source": "http_head (server-reported Content-Length, not downloaded)"
+            },
+            "SR_B4": {
+              "stac_asset_key": "red",
+              "present": true,
+              "size_bytes": 90215869,
+              "size_source": "http_head (server-reported Content-Length, not downloaded)"
+            }
+          },
+          "optional_qa_pixel_available": true,
+          "raw_size_bytes": 345308727,
+          "raw_size_source": "http_head",
+          "overlap_fraction_of_smaller_footprint": {
+            "reference": 0.0,
+            "LC09_L2SP_150041_20250416_02_T1": 0.0
+          },
+          "aoi_edge_margin_deg": 0.389,
+          "region": "Indo-Gangetic Plain, Uttar Pradesh (Lucknow)",
+          "reason_for_selection": "irrigated cropland, dense urban area, rivers; winter (Nov-Feb) acquisition; lowest land cloud cover among in-season T1 scenes with all required bands and the AOI 0.39 deg inside the footprint edge",
+          "quality_concerns": [
+            "cloud cover is USGS STAC metadata only; scene is not verified cloud-free"
+          ],
+          "same_path_row_as_selected": true
+        }
+      ]
+    },
+    {
+      "region": "Deccan Plateau, Telangana (Hyderabad)",
+      "aoi_point_lon_lat": [
+        78.47,
+        17.39
+      ],
+      "target_season": "summer (Mar-May)",
+      "character": "semi-arid plateau, large city, exposed rock, reservoirs",
+      "stac_items_returned": 54,
+      "eligible_after_filters": 54,
+      "eligible_in_target_season": 20,
+      "rejected_counts": {
+        "missing_required_asset": 0,
+        "aoi_outside_footprint": 0,
+        "overlaps_reference": 0,
+        "overlaps_selected": 0
+      },
+      "selected": {
+        "scene_id": "LC08_L2SP_144048_20240427_02_T1",
+        "source": "stac",
+        "platform": "landsat-8",
+        "acquisition_datetime_utc": "2024-04-27T05:09:05.806815Z",
+        "wrs_path": "144",
+        "wrs_row": "048",
+        "collection_category": "T1",
+        "eo_cloud_cover_pct": 0.01,
+        "cloud_cover_land_pct": 0.01,
+        "sun_elevation_deg": 66.75137285,
+        "footprint_bbox": [
+          77.1648,
+          16.2951,
+          79.2633,
+          18.3857
+        ],
+        "footprint_centroid": [
+          78.2098,
+          17.3409
+        ],
+        "required_assets": {
+          "ST_B10": {
+            "stac_asset_key": "lwir11",
+            "present": true,
+            "size_bytes": 89736014,
+            "size_source": "http_head (server-reported Content-Length, not downloaded)"
+          },
+          "SR_B2": {
+            "stac_asset_key": "blue",
+            "present": true,
+            "size_bytes": 86235687,
+            "size_source": "http_head (server-reported Content-Length, not downloaded)"
+          },
+          "SR_B3": {
+            "stac_asset_key": "green",
+            "present": true,
+            "size_bytes": 88208844,
+            "size_source": "http_head (server-reported Content-Length, not downloaded)"
+          },
+          "SR_B4": {
+            "stac_asset_key": "red",
+            "present": true,
+            "size_bytes": 92583720,
+            "size_source": "http_head (server-reported Content-Length, not downloaded)"
+          }
+        },
+        "optional_qa_pixel_available": true,
+        "raw_size_bytes": 356764265,
+        "raw_size_source": "http_head",
+        "overlap_fraction_of_smaller_footprint": {
+          "reference": 0.0,
+          "LC09_L2SP_150041_20250416_02_T1": 0.0,
+          "LC09_L2SP_144041_20231213_02_T1": 0.0
+        },
+        "aoi_edge_margin_deg": 0.629,
+        "region": "Deccan Plateau, Telangana (Hyderabad)",
+        "reason_for_selection": "semi-arid plateau, large city, exposed rock, reservoirs; summer (Mar-May) acquisition; lowest land cloud cover among in-season T1 scenes with all required bands and the AOI 0.63 deg inside the footprint edge",
+        "quality_concerns": [
+          "cloud cover is USGS STAC metadata only; scene is not verified cloud-free"
+        ]
+      },
+      "alternates": [
+        {
+          "scene_id": "LC08_L2SP_144048_20250313_02_T1",
+          "source": "stac",
+          "platform": "landsat-8",
+          "acquisition_datetime_utc": "2025-03-13T05:09:29.587605Z",
+          "wrs_path": "144",
+          "wrs_row": "048",
+          "collection_category": "T1",
+          "eo_cloud_cover_pct": 0.04,
+          "cloud_cover_land_pct": 0.04,
+          "sun_elevation_deg": 56.77355451,
+          "footprint_bbox": [
+            77.178,
+            16.2942,
+            79.2772,
+            18.3848
+          ],
+          "footprint_centroid": [
+            78.2234,
+            17.34
+          ],
+          "required_assets": {
+            "ST_B10": {
+              "stac_asset_key": "lwir11",
+              "present": true,
+              "size_bytes": 89505456,
+              "size_source": "http_head (server-reported Content-Length, not downloaded)"
+            },
+            "SR_B2": {
+              "stac_asset_key": "blue",
+              "present": true,
+              "size_bytes": 86083766,
+              "size_source": "http_head (server-reported Content-Length, not downloaded)"
+            },
+            "SR_B3": {
+              "stac_asset_key": "green",
+              "present": true,
+              "size_bytes": 87944444,
+              "size_source": "http_head (server-reported Content-Length, not downloaded)"
+            },
+            "SR_B4": {
+              "stac_asset_key": "red",
+              "present": true,
+              "size_bytes": 92543809,
+              "size_source": "http_head (server-reported Content-Length, not downloaded)"
+            }
+          },
+          "optional_qa_pixel_available": true,
+          "raw_size_bytes": 356077475,
+          "raw_size_source": "http_head",
+          "overlap_fraction_of_smaller_footprint": {
+            "reference": 0.0,
+            "LC09_L2SP_150041_20250416_02_T1": 0.0,
+            "LC09_L2SP_144041_20231213_02_T1": 0.0
+          },
+          "aoi_edge_margin_deg": 0.643,
+          "region": "Deccan Plateau, Telangana (Hyderabad)",
+          "reason_for_selection": "semi-arid plateau, large city, exposed rock, reservoirs; summer (Mar-May) acquisition; lowest land cloud cover among in-season T1 scenes with all required bands and the AOI 0.64 deg inside the footprint edge",
+          "quality_concerns": [
+            "cloud cover is USGS STAC metadata only; scene is not verified cloud-free"
+          ],
+          "same_path_row_as_selected": true
+        },
+        {
+          "scene_id": "LC08_L2SP_144048_20250329_02_T1",
+          "source": "stac",
+          "platform": "landsat-8",
+          "acquisition_datetime_utc": "2025-03-29T05:09:20.003166Z",
+          "wrs_path": "144",
+          "wrs_row": "048",
+          "collection_category": "T1",
+          "eo_cloud_cover_pct": 0.06,
+          "cloud_cover_land_pct": 0.06,
+          "sun_elevation_deg": 61.30298011,
+          "footprint_bbox": [
+            77.1853,
+            16.2945,
+            79.2843,
+            18.3852
+          ],
+          "footprint_centroid": [
+            78.2306,
+            17.3404
+          ],
+          "required_assets": {
+            "ST_B10": {
+              "stac_asset_key": "lwir11",
+              "present": true,
+              "size_bytes": 88973986,
+              "size_source": "http_head (server-reported Content-Length, not downloaded)"
+            },
+            "SR_B2": {
+              "stac_asset_key": "blue",
+              "present": true,
+              "size_bytes": 84846957,
+              "size_source": "http_head (server-reported Content-Length, not downloaded)"
+            },
+            "SR_B3": {
+              "stac_asset_key": "green",
+              "present": true,
+              "size_bytes": 85626945,
+              "size_source": "http_head (server-reported Content-Length, not downloaded)"
+            },
+            "SR_B4": {
+              "stac_asset_key": "red",
+              "present": true,
+              "size_bytes": 90754552,
+              "size_source": "http_head (server-reported Content-Length, not downloaded)"
+            }
+          },
+          "optional_qa_pixel_available": true,
+          "raw_size_bytes": 350202440,
+          "raw_size_source": "http_head",
+          "overlap_fraction_of_smaller_footprint": {
+            "reference": 0.0,
+            "LC09_L2SP_150041_20250416_02_T1": 0.0,
+            "LC09_L2SP_144041_20231213_02_T1": 0.0
+          },
+          "aoi_edge_margin_deg": 0.649,
+          "region": "Deccan Plateau, Telangana (Hyderabad)",
+          "reason_for_selection": "semi-arid plateau, large city, exposed rock, reservoirs; summer (Mar-May) acquisition; lowest land cloud cover among in-season T1 scenes with all required bands and the AOI 0.65 deg inside the footprint edge",
+          "quality_concerns": [
+            "cloud cover is USGS STAC metadata only; scene is not verified cloud-free"
+          ],
+          "same_path_row_as_selected": true
+        }
+      ]
+    },
+    {
+      "region": "Kerala coast / Western Ghats (Kochi)",
+      "aoi_point_lon_lat": [
+        76.27,
+        9.98
+      ],
+      "target_season": "dry season (Jan-Mar)",
+      "character": "humid tropical coast, backwaters, forested ghats, sea surface",
+      "stac_items_returned": 24,
+      "eligible_after_filters": 24,
+      "eligible_in_target_season": 19,
+      "rejected_counts": {
+        "missing_required_asset": 0,
+        "aoi_outside_footprint": 0,
+        "overlaps_reference": 0,
+        "overlaps_selected": 0
+      },
+      "selected": {
+        "scene_id": "LC08_L2SP_144053_20250225_02_T1",
+        "source": "stac",
+        "platform": "landsat-8",
+        "acquisition_datetime_utc": "2025-02-25T05:11:31.850101Z",
+        "wrs_path": "144",
+        "wrs_row": "053",
+        "collection_category": "T1",
+        "eo_cloud_cover_pct": 0.47,
+        "cloud_cover_land_pct": 0.4,
+        "sun_elevation_deg": 55.60414829,
+        "footprint_bbox": [
+          75.6249,
+          9.074,
+          77.6579,
+          11.1633
+        ],
+        "footprint_centroid": [
+          76.6391,
+          10.1192
+        ],
+        "required_assets": {
+          "ST_B10": {
+            "stac_asset_key": "lwir11",
+            "present": true,
+            "size_bytes": 81247557,
+            "size_source": "http_head (server-reported Content-Length, not downloaded)"
+          },
+          "SR_B2": {
+            "stac_asset_key": "blue",
+            "present": true,
+            "size_bytes": 80130992,
+            "size_source": "http_head (server-reported Content-Length, not downloaded)"
+          },
+          "SR_B3": {
+            "stac_asset_key": "green",
+            "present": true,
+            "size_bytes": 81499304,
+            "size_source": "http_head (server-reported Content-Length, not downloaded)"
+          },
+          "SR_B4": {
+            "stac_asset_key": "red",
+            "present": true,
+            "size_bytes": 83979224,
+            "size_source": "http_head (server-reported Content-Length, not downloaded)"
+          }
+        },
+        "optional_qa_pixel_available": true,
+        "raw_size_bytes": 326857077,
+        "raw_size_source": "http_head",
+        "overlap_fraction_of_smaller_footprint": {
+          "reference": 0.0,
+          "LC09_L2SP_150041_20250416_02_T1": 0.0,
+          "LC09_L2SP_144041_20231213_02_T1": 0.0,
+          "LC08_L2SP_144048_20240427_02_T1": 0.0
+        },
+        "aoi_edge_margin_deg": 0.515,
+        "region": "Kerala coast / Western Ghats (Kochi)",
+        "reason_for_selection": "humid tropical coast, backwaters, forested ghats, sea surface; dry season (Jan-Mar) acquisition; lowest land cloud cover among in-season T1 scenes with all required bands and the AOI 0.52 deg inside the footprint edge",
+        "quality_concerns": [
+          "cloud cover is USGS STAC metadata only; scene is not verified cloud-free"
+        ]
+      },
+      "alternates": [
+        {
+          "scene_id": "LC08_L2SP_144053_20240207_02_T1",
+          "source": "stac",
+          "platform": "landsat-8",
+          "acquisition_datetime_utc": "2024-02-07T05:11:46.383058Z",
+          "wrs_path": "144",
+          "wrs_row": "053",
+          "collection_category": "T1",
+          "eo_cloud_cover_pct": 0.62,
+          "cloud_cover_land_pct": 0.47,
+          "sun_elevation_deg": 51.56686705,
+          "footprint_bbox": [
+            75.5943,
+            9.0747,
+            77.6277,
+            11.1639
+          ],
+          "footprint_centroid": [
+            76.6086,
+            10.12
+          ],
+          "required_assets": {
+            "ST_B10": {
+              "stac_asset_key": "lwir11",
+              "present": true,
+              "size_bytes": 79065954,
+              "size_source": "http_head (server-reported Content-Length, not downloaded)"
+            },
+            "SR_B2": {
+              "stac_asset_key": "blue",
+              "present": true,
+              "size_bytes": 80105747,
+              "size_source": "http_head (server-reported Content-Length, not downloaded)"
+            },
+            "SR_B3": {
+              "stac_asset_key": "green",
+              "present": true,
+              "size_bytes": 81639612,
+              "size_source": "http_head (server-reported Content-Length, not downloaded)"
+            },
+            "SR_B4": {
+              "stac_asset_key": "red",
+              "present": true,
+              "size_bytes": 83333047,
+              "size_source": "http_head (server-reported Content-Length, not downloaded)"
+            }
+          },
+          "optional_qa_pixel_available": true,
+          "raw_size_bytes": 324144360,
+          "raw_size_source": "http_head",
+          "overlap_fraction_of_smaller_footprint": {
+            "reference": 0.0,
+            "LC09_L2SP_150041_20250416_02_T1": 0.0,
+            "LC09_L2SP_144041_20231213_02_T1": 0.0,
+            "LC08_L2SP_144048_20240427_02_T1": 0.0
+          },
+          "aoi_edge_margin_deg": 0.545,
+          "region": "Kerala coast / Western Ghats (Kochi)",
+          "reason_for_selection": "humid tropical coast, backwaters, forested ghats, sea surface; dry season (Jan-Mar) acquisition; lowest land cloud cover among in-season T1 scenes with all required bands and the AOI 0.55 deg inside the footprint edge",
+          "quality_concerns": [
+            "cloud cover is USGS STAC metadata only; scene is not verified cloud-free"
+          ],
+          "same_path_row_as_selected": true
+        },
+        {
+          "scene_id": "LC09_L2SP_144053_20240114_02_T1",
+          "source": "stac",
+          "platform": "landsat-9",
+          "acquisition_datetime_utc": "2024-01-14T05:11:57.155969Z",
+          "wrs_path": "144",
+          "wrs_row": "053",
+          "collection_category": "T1",
+          "eo_cloud_cover_pct": 0.69,
+          "cloud_cover_land_pct": 0.52,
+          "sun_elevation_deg": 48.4476925,
+          "footprint_bbox": [
+            75.6085,
+            9.0732,
+            77.6474,
+            11.1614
+          ],
+          "footprint_centroid": [
+            76.6256,
+            10.118
+          ],
+          "required_assets": {
+            "ST_B10": {
+              "stac_asset_key": "lwir11",
+              "present": true,
+              "size_bytes": 81050491,
+              "size_source": "http_head (server-reported Content-Length, not downloaded)"
+            },
+            "SR_B2": {
+              "stac_asset_key": "blue",
+              "present": true,
+              "size_bytes": 78966823,
+              "size_source": "http_head (server-reported Content-Length, not downloaded)"
+            },
+            "SR_B3": {
+              "stac_asset_key": "green",
+              "present": true,
+              "size_bytes": 80549942,
+              "size_source": "http_head (server-reported Content-Length, not downloaded)"
+            },
+            "SR_B4": {
+              "stac_asset_key": "red",
+              "present": true,
+              "size_bytes": 81711129,
+              "size_source": "http_head (server-reported Content-Length, not downloaded)"
+            }
+          },
+          "optional_qa_pixel_available": true,
+          "raw_size_bytes": 322278385,
+          "raw_size_source": "http_head",
+          "overlap_fraction_of_smaller_footprint": {
+            "reference": 0.0,
+            "LC09_L2SP_150041_20250416_02_T1": 0.0,
+            "LC09_L2SP_144041_20231213_02_T1": 0.0,
+            "LC08_L2SP_144048_20240427_02_T1": 0.0
+          },
+          "aoi_edge_margin_deg": 0.531,
+          "region": "Kerala coast / Western Ghats (Kochi)",
+          "reason_for_selection": "humid tropical coast, backwaters, forested ghats, sea surface; dry season (Jan-Mar) acquisition; lowest land cloud cover among in-season T1 scenes with all required bands and the AOI 0.53 deg inside the footprint edge",
+          "quality_concerns": [
+            "cloud cover is USGS STAC metadata only; scene is not verified cloud-free"
+          ],
+          "same_path_row_as_selected": true
+        }
+      ]
+    },
+    {
+      "region": "Himalayan foothills, Uttarakhand (Dehradun)",
+      "aoi_point_lon_lat": [
+        78.03,
+        30.32
+      ],
+      "target_season": "post-monsoon (Oct-Nov)",
+      "character": "strong elevation gradient, forest, valley city, possible high-altitude snow",
+      "stac_items_returned": 41,
+      "eligible_after_filters": 41,
+      "eligible_in_target_season": 12,
+      "rejected_counts": {
+        "missing_required_asset": 0,
+        "aoi_outside_footprint": 0,
+        "overlaps_reference": 0,
+        "overlaps_selected": 0
+      },
+      "selected": {
+        "scene_id": "LC08_L2SP_146039_20241119_02_T1",
+        "source": "stac",
+        "platform": "landsat-8",
+        "acquisition_datetime_utc": "2024-11-19T05:18:32.068436Z",
+        "wrs_path": "146",
+        "wrs_row": "039",
+        "collection_category": "T1",
+        "eo_cloud_cover_pct": 1.07,
+        "cloud_cover_land_pct": 1.07,
+        "sun_elevation_deg": 37.06002428,
+        "footprint_bbox": [
+          77.1108,
+          29.2514,
+          79.4423,
+          31.35
+        ],
+        "footprint_centroid": [
+          78.2706,
+          30.3012
+        ],
+        "required_assets": {
+          "ST_B10": {
+            "stac_asset_key": "lwir11",
+            "present": true,
+            "size_bytes": 87400682,
+            "size_source": "http_head (server-reported Content-Length, not downloaded)"
+          },
+          "SR_B2": {
+            "stac_asset_key": "blue",
+            "present": true,
+            "size_bytes": 86516885,
+            "size_source": "http_head (server-reported Content-Length, not downloaded)"
+          },
+          "SR_B3": {
+            "stac_asset_key": "green",
+            "present": true,
+            "size_bytes": 89091481,
+            "size_source": "http_head (server-reported Content-Length, not downloaded)"
+          },
+          "SR_B4": {
+            "stac_asset_key": "red",
+            "present": true,
+            "size_bytes": 91027100,
+            "size_source": "http_head (server-reported Content-Length, not downloaded)"
+          }
+        },
+        "optional_qa_pixel_available": true,
+        "raw_size_bytes": 354036148,
+        "raw_size_source": "http_head",
+        "overlap_fraction_of_smaller_footprint": {
+          "reference": 0.0,
+          "LC09_L2SP_150041_20250416_02_T1": 0.0,
+          "LC09_L2SP_144041_20231213_02_T1": 0.0,
+          "LC08_L2SP_144048_20240427_02_T1": 0.0,
+          "LC08_L2SP_144053_20250225_02_T1": 0.0
+        },
+        "aoi_edge_margin_deg": 0.72,
+        "region": "Himalayan foothills, Uttarakhand (Dehradun)",
+        "reason_for_selection": "strong elevation gradient, forest, valley city, possible high-altitude snow; post-monsoon (Oct-Nov) acquisition; lowest land cloud cover among in-season T1 scenes with all required bands and the AOI 0.72 deg inside the footprint edge",
+        "quality_concerns": [
+          "snow/ice possible at high elevations (thermal extremes)",
+          "cloud cover is USGS STAC metadata only; scene is not verified cloud-free"
+        ]
+      },
+      "alternates": [
+        {
+          "scene_id": "LC09_L2SP_146039_20241026_02_T1",
+          "source": "stac",
+          "platform": "landsat-9",
+          "acquisition_datetime_utc": "2024-10-26T05:18:37.318791Z",
+          "wrs_path": "146",
+          "wrs_row": "039",
+          "collection_category": "T1",
+          "eo_cloud_cover_pct": 1.96,
+          "cloud_cover_land_pct": 1.96,
+          "sun_elevation_deg": 43.68910833,
+          "footprint_bbox": [
+            77.0799,
+            29.2502,
+            79.4185,
+            31.3483
+          ],
+          "footprint_centroid": [
+            78.2428,
+            30.2998
+          ],
+          "required_assets": {
+            "ST_B10": {
+              "stac_asset_key": "lwir11",
+              "present": true,
+              "size_bytes": 87259650,
+              "size_source": "http_head (server-reported Content-Length, not downloaded)"
+            },
+            "SR_B2": {
+              "stac_asset_key": "blue",
+              "present": true,
+              "size_bytes": 86815504,
+              "size_source": "http_head (server-reported Content-Length, not downloaded)"
+            },
+            "SR_B3": {
+              "stac_asset_key": "green",
+              "present": true,
+              "size_bytes": 89523217,
+              "size_source": "http_head (server-reported Content-Length, not downloaded)"
+            },
+            "SR_B4": {
+              "stac_asset_key": "red",
+              "present": true,
+              "size_bytes": 91041712,
+              "size_source": "http_head (server-reported Content-Length, not downloaded)"
+            }
+          },
+          "optional_qa_pixel_available": true,
+          "raw_size_bytes": 354640083,
+          "raw_size_source": "http_head",
+          "overlap_fraction_of_smaller_footprint": {
+            "reference": 0.0,
+            "LC09_L2SP_150041_20250416_02_T1": 0.0,
+            "LC09_L2SP_144041_20231213_02_T1": 0.0,
+            "LC08_L2SP_144048_20240427_02_T1": 0.0,
+            "LC08_L2SP_144053_20250225_02_T1": 0.0
+          },
+          "aoi_edge_margin_deg": 0.75,
+          "region": "Himalayan foothills, Uttarakhand (Dehradun)",
+          "reason_for_selection": "strong elevation gradient, forest, valley city, possible high-altitude snow; post-monsoon (Oct-Nov) acquisition; lowest land cloud cover among in-season T1 scenes with all required bands and the AOI 0.75 deg inside the footprint edge",
+          "quality_concerns": [
+            "snow/ice possible at high elevations (thermal extremes)",
+            "cloud cover is USGS STAC metadata only; scene is not verified cloud-free"
+          ],
+          "same_path_row_as_selected": true
+        },
+        {
+          "scene_id": "LC09_L2SP_146039_20231008_02_T1",
+          "source": "stac",
+          "platform": "landsat-9",
+          "acquisition_datetime_utc": "2023-10-08T05:18:34.899087Z",
+          "wrs_path": "146",
+          "wrs_row": "039",
+          "collection_category": "T1",
+          "eo_cloud_cover_pct": 2.19,
+          "cloud_cover_land_pct": 2.19,
+          "sun_elevation_deg": 49.58099324,
+          "footprint_bbox": [
+            77.1168,
+            29.2502,
+            79.4546,
+            31.348
+          ],
+          "footprint_centroid": [
+            78.2798,
+            30.2997
+          ],
+          "required_assets": {
+            "ST_B10": {
+              "stac_asset_key": "lwir11",
+              "present": true,
+              "size_bytes": 86633413,
+              "size_source": "http_head (server-reported Content-Length, not downloaded)"
+            },
+            "SR_B2": {
+              "stac_asset_key": "blue",
+              "present": true,
+              "size_bytes": 85373478,
+              "size_source": "http_head (server-reported Content-Length, not downloaded)"
+            },
+            "SR_B3": {
+              "stac_asset_key": "green",
+              "present": true,
+              "size_bytes": 88259313,
+              "size_source": "http_head (server-reported Content-Length, not downloaded)"
+            },
+            "SR_B4": {
+              "stac_asset_key": "red",
+              "present": true,
+              "size_bytes": 89354788,
+              "size_source": "http_head (server-reported Content-Length, not downloaded)"
+            }
+          },
+          "optional_qa_pixel_available": true,
+          "raw_size_bytes": 349620992,
+          "raw_size_source": "http_head",
+          "overlap_fraction_of_smaller_footprint": {
+            "reference": 0.0,
+            "LC09_L2SP_150041_20250416_02_T1": 0.0,
+            "LC09_L2SP_144041_20231213_02_T1": 0.0,
+            "LC08_L2SP_144048_20240427_02_T1": 0.0,
+            "LC08_L2SP_144053_20250225_02_T1": 0.0
+          },
+          "aoi_edge_margin_deg": 0.713,
+          "region": "Himalayan foothills, Uttarakhand (Dehradun)",
+          "reason_for_selection": "strong elevation gradient, forest, valley city, possible high-altitude snow; post-monsoon (Oct-Nov) acquisition; lowest land cloud cover among in-season T1 scenes with all required bands and the AOI 0.71 deg inside the footprint edge",
+          "quality_concerns": [
+            "snow/ice possible at high elevations (thermal extremes)",
+            "cloud cover is USGS STAC metadata only; scene is not verified cloud-free"
+          ],
+          "same_path_row_as_selected": true
+        }
+      ]
+    },
+    {
+      "region": "Brahmaputra valley, Assam (Guwahati)",
+      "aoi_point_lon_lat": [
+        91.74,
+        26.14
+      ],
+      "target_season": "winter (Nov-Feb)",
+      "character": "humid floodplain, wide braided river, tea/forest, hills",
+      "stac_items_returned": 58,
+      "eligible_after_filters": 57,
+      "eligible_in_target_season": 41,
+      "rejected_counts": {
+        "missing_required_asset": 0,
+        "aoi_outside_footprint": 1,
+        "overlaps_reference": 0,
+        "overlaps_selected": 0
+      },
+      "selected": {
+        "scene_id": "LC09_L2SP_137042_20230110_02_T1",
+        "source": "stac",
+        "platform": "landsat-9",
+        "acquisition_datetime_utc": "2023-01-10T04:24:27.716388Z",
+        "wrs_path": "137",
+        "wrs_row": "042",
+        "collection_category": "T1",
+        "eo_cloud_cover_pct": 0.02,
+        "cloud_cover_land_pct": 0.02,
+        "sun_elevation_deg": 36.40107217,
+        "footprint_bbox": [
+          89.9651,
+          24.939,
+          92.211,
+          27.0329
+        ],
+        "footprint_centroid": [
+          91.0816,
+          25.9863
+        ],
+        "required_assets": {
+          "ST_B10": {
+            "stac_asset_key": "lwir11",
+            "present": true,
+            "size_bytes": 83309575,
+            "size_source": "http_head (server-reported Content-Length, not downloaded)"
+          },
+          "SR_B2": {
+            "stac_asset_key": "blue",
+            "present": true,
+            "size_bytes": 84424527,
+            "size_source": "http_head (server-reported Content-Length, not downloaded)"
+          },
+          "SR_B3": {
+            "stac_asset_key": "green",
+            "present": true,
+            "size_bytes": 87265219,
+            "size_source": "http_head (server-reported Content-Length, not downloaded)"
+          },
+          "SR_B4": {
+            "stac_asset_key": "red",
+            "present": true,
+            "size_bytes": 89452225,
+            "size_source": "http_head (server-reported Content-Length, not downloaded)"
+          }
+        },
+        "optional_qa_pixel_available": true,
+        "raw_size_bytes": 344451546,
+        "raw_size_source": "http_head",
+        "overlap_fraction_of_smaller_footprint": {
+          "reference": 0.0,
+          "LC09_L2SP_150041_20250416_02_T1": 0.0,
+          "LC09_L2SP_144041_20231213_02_T1": 0.0,
+          "LC08_L2SP_144048_20240427_02_T1": 0.0,
+          "LC08_L2SP_144053_20250225_02_T1": 0.0,
+          "LC08_L2SP_146039_20241119_02_T1": 0.0
+        },
+        "aoi_edge_margin_deg": 0.326,
+        "region": "Brahmaputra valley, Assam (Guwahati)",
+        "reason_for_selection": "humid floodplain, wide braided river, tea/forest, hills; winter (Nov-Feb) acquisition; lowest land cloud cover among in-season T1 scenes with all required bands and the AOI 0.33 deg inside the footprint edge",
+        "quality_concerns": [
+          "cloud cover is USGS STAC metadata only; scene is not verified cloud-free"
+        ]
+      },
+      "alternates": [
+        {
+          "scene_id": "LC09_L2SP_137042_20231126_02_T1",
+          "source": "stac",
+          "platform": "landsat-9",
+          "acquisition_datetime_utc": "2023-11-26T04:24:20.052706Z",
+          "wrs_path": "137",
+          "wrs_row": "042",
+          "collection_category": "T1",
+          "eo_cloud_cover_pct": 0.03,
+          "cloud_cover_land_pct": 0.03,
+          "sun_elevation_deg": 39.41005461,
+          "footprint_bbox": [
+            89.9576,
+            24.9387,
+            92.2037,
+            27.0331
+          ],
+          "footprint_centroid": [
+            91.0743,
+            25.9863
+          ],
+          "required_assets": {
+            "ST_B10": {
+              "stac_asset_key": "lwir11",
+              "present": true,
+              "size_bytes": 83445254,
+              "size_source": "http_head (server-reported Content-Length, not downloaded)"
+            },
+            "SR_B2": {
+              "stac_asset_key": "blue",
+              "present": true,
+              "size_bytes": 83596447,
+              "size_source": "http_head (server-reported Content-Length, not downloaded)"
+            },
+            "SR_B3": {
+              "stac_asset_key": "green",
+              "present": true,
+              "size_bytes": 87438170,
+              "size_source": "http_head (server-reported Content-Length, not downloaded)"
+            },
+            "SR_B4": {
+              "stac_asset_key": "red",
+              "present": true,
+              "size_bytes": 88629020,
+              "size_source": "http_head (server-reported Content-Length, not downloaded)"
+            }
+          },
+          "optional_qa_pixel_available": true,
+          "raw_size_bytes": 343108891,
+          "raw_size_source": "http_head",
+          "overlap_fraction_of_smaller_footprint": {
+            "reference": 0.0,
+            "LC09_L2SP_150041_20250416_02_T1": 0.0,
+            "LC09_L2SP_144041_20231213_02_T1": 0.0,
+            "LC08_L2SP_144048_20240427_02_T1": 0.0,
+            "LC08_L2SP_144053_20250225_02_T1": 0.0,
+            "LC08_L2SP_146039_20241119_02_T1": 0.0
+          },
+          "aoi_edge_margin_deg": 0.319,
+          "region": "Brahmaputra valley, Assam (Guwahati)",
+          "reason_for_selection": "humid floodplain, wide braided river, tea/forest, hills; winter (Nov-Feb) acquisition; lowest land cloud cover among in-season T1 scenes with all required bands and the AOI 0.32 deg inside the footprint edge",
+          "quality_concerns": [
+            "cloud cover is USGS STAC metadata only; scene is not verified cloud-free"
+          ],
+          "same_path_row_as_selected": true
+        },
+        {
+          "scene_id": "LC09_L2SP_137042_20230126_02_T1",
+          "source": "stac",
+          "platform": "landsat-9",
+          "acquisition_datetime_utc": "2023-01-26T04:24:24.946206Z",
+          "wrs_path": "137",
+          "wrs_row": "042",
+          "collection_category": "T1",
+          "eo_cloud_cover_pct": 0.07,
+          "cloud_cover_land_pct": 0.07,
+          "sun_elevation_deg": 38.62587666,
+          "footprint_bbox": [
+            89.9648,
+            24.9387,
+            92.2103,
+            27.0329
+          ],
+          "footprint_centroid": [
+            91.0812,
+            25.9862
+          ],
+          "required_assets": {
+            "ST_B10": {
+              "stac_asset_key": "lwir11",
+              "present": true,
+              "size_bytes": 82362277,
+              "size_source": "http_head (server-reported Content-Length, not downloaded)"
+            },
+            "SR_B2": {
+              "stac_asset_key": "blue",
+              "present": true,
+              "size_bytes": 83078086,
+              "size_source": "http_head (server-reported Content-Length, not downloaded)"
+            },
+            "SR_B3": {
+              "stac_asset_key": "green",
+              "present": true,
+              "size_bytes": 84563337,
+              "size_source": "http_head (server-reported Content-Length, not downloaded)"
+            },
+            "SR_B4": {
+              "stac_asset_key": "red",
+              "present": true,
+              "size_bytes": 87916497,
+              "size_source": "http_head (server-reported Content-Length, not downloaded)"
+            }
+          },
+          "optional_qa_pixel_available": true,
+          "raw_size_bytes": 337920197,
+          "raw_size_source": "http_head",
+          "overlap_fraction_of_smaller_footprint": {
+            "reference": 0.0,
+            "LC09_L2SP_150041_20250416_02_T1": 0.0,
+            "LC09_L2SP_144041_20231213_02_T1": 0.0,
+            "LC08_L2SP_144048_20240427_02_T1": 0.0,
+            "LC08_L2SP_144053_20250225_02_T1": 0.0,
+            "LC08_L2SP_146039_20241119_02_T1": 0.0
+          },
+          "aoi_edge_margin_deg": 0.325,
+          "region": "Brahmaputra valley, Assam (Guwahati)",
+          "reason_for_selection": "humid floodplain, wide braided river, tea/forest, hills; winter (Nov-Feb) acquisition; lowest land cloud cover among in-season T1 scenes with all required bands and the AOI 0.33 deg inside the footprint edge",
+          "quality_concerns": [
+            "cloud cover is USGS STAC metadata only; scene is not verified cloud-free"
+          ],
+          "same_path_row_as_selected": true
+        }
+      ]
+    },
+    {
+      "region": "Rann of Kutch, Gujarat",
+      "aoi_point_lon_lat": [
+        70.2,
+        23.85
+      ],
+      "target_season": "winter (Dec-Feb)",
+      "character": "salt flats and marsh with strong thermal contrast, coast",
+      "stac_items_returned": 129,
+      "eligible_after_filters": 129,
+      "eligible_in_target_season": 40,
+      "rejected_counts": {
+        "missing_required_asset": 0,
+        "aoi_outside_footprint": 0,
+        "overlaps_reference": 0,
+        "overlaps_selected": 0
+      },
+      "selected": {
+        "scene_id": "LC08_L2SP_150044_20230214_02_T1",
+        "source": "stac",
+        "platform": "landsat-8",
+        "acquisition_datetime_utc": "2023-02-14T05:45:26.592711Z",
+        "wrs_path": "150",
+        "wrs_row": "044",
+        "collection_category": "T1",
+        "eo_cloud_cover_pct": 1.24,
+        "cloud_cover_land_pct": 1.4,
+        "sun_elevation_deg": 45.22739153,
+        "footprint_bbox": [
+          69.1859,
+          22.0611,
+          71.3707,
+          24.1548
+        ],
+        "footprint_centroid": [
+          70.2724,
+          23.1083
+        ],
+        "required_assets": {
+          "ST_B10": {
+            "stac_asset_key": "lwir11",
+            "present": true,
+            "size_bytes": 83195532,
+            "size_source": "http_head (server-reported Content-Length, not downloaded)"
+          },
+          "SR_B2": {
+            "stac_asset_key": "blue",
+            "present": true,
+            "size_bytes": 87031976,
+            "size_source": "http_head (server-reported Content-Length, not downloaded)"
+          },
+          "SR_B3": {
+            "stac_asset_key": "green",
+            "present": true,
+            "size_bytes": 89051175,
+            "size_source": "http_head (server-reported Content-Length, not downloaded)"
+          },
+          "SR_B4": {
+            "stac_asset_key": "red",
+            "present": true,
+            "size_bytes": 91931172,
+            "size_source": "http_head (server-reported Content-Length, not downloaded)"
+          }
+        },
+        "optional_qa_pixel_available": true,
+        "raw_size_bytes": 351209855,
+        "raw_size_source": "http_head",
+        "overlap_fraction_of_smaller_footprint": {
+          "reference": 0.0,
+          "LC09_L2SP_150041_20250416_02_T1": 0.0,
+          "LC09_L2SP_144041_20231213_02_T1": 0.0,
+          "LC08_L2SP_144048_20240427_02_T1": 0.0,
+          "LC08_L2SP_144053_20250225_02_T1": 0.0,
+          "LC08_L2SP_146039_20241119_02_T1": 0.0,
+          "LC09_L2SP_137042_20230110_02_T1": 0.0
+        },
+        "aoi_edge_margin_deg": 0.177,
+        "region": "Rann of Kutch, Gujarat",
+        "reason_for_selection": "salt flats and marsh with strong thermal contrast, coast; winter (Dec-Feb) acquisition; lowest land cloud cover among in-season T1 scenes with all required bands and the AOI 0.18 deg inside the footprint edge",
+        "quality_concerns": [
+          "AOI point only 0.18 deg from footprint edge",
+          "cloud cover is USGS STAC metadata only; scene is not verified cloud-free"
+        ]
+      },
+      "alternates": [
+        {
+          "scene_id": "LC09_L2SP_150044_20241225_02_T1",
+          "source": "stac",
+          "platform": "landsat-9",
+          "acquisition_datetime_utc": "2024-12-25T05:45:21.016270Z",
+          "wrs_path": "150",
+          "wrs_row": "044",
+          "collection_category": "T1",
+          "eo_cloud_cover_pct": 1.6,
+          "cloud_cover_land_pct": 1.84,
+          "sun_elevation_deg": 38.23932314,
+          "footprint_bbox": [
+            69.204,
+            22.0598,
+            71.3957,
+            24.1525
+          ],
+          "footprint_centroid": [
+            70.2939,
+            23.1065
+          ],
+          "required_assets": {
+            "ST_B10": {
+              "stac_asset_key": "lwir11",
+              "present": true,
+              "size_bytes": 78201500,
+              "size_source": "http_head (server-reported Content-Length, not downloaded)"
+            },
+            "SR_B2": {
+              "stac_asset_key": "blue",
+              "present": true,
+              "size_bytes": 84336028,
+              "size_source": "http_head (server-reported Content-Length, not downloaded)"
+            },
+            "SR_B3": {
+              "stac_asset_key": "green",
+              "present": true,
+              "size_bytes": 85529835,
+              "size_source": "http_head (server-reported Content-Length, not downloaded)"
+            },
+            "SR_B4": {
+              "stac_asset_key": "red",
+              "present": true,
+              "size_bytes": 89160974,
+              "size_source": "http_head (server-reported Content-Length, not downloaded)"
+            }
+          },
+          "optional_qa_pixel_available": true,
+          "raw_size_bytes": 337228337,
+          "raw_size_source": "http_head",
+          "overlap_fraction_of_smaller_footprint": {
+            "reference": 0.0,
+            "LC09_L2SP_150041_20250416_02_T1": 0.0,
+            "LC09_L2SP_144041_20231213_02_T1": 0.0,
+            "LC08_L2SP_144048_20240427_02_T1": 0.0,
+            "LC08_L2SP_144053_20250225_02_T1": 0.0,
+            "LC08_L2SP_146039_20241119_02_T1": 0.0,
+            "LC09_L2SP_137042_20230110_02_T1": 0.0
+          },
+          "aoi_edge_margin_deg": 0.179,
+          "region": "Rann of Kutch, Gujarat",
+          "reason_for_selection": "salt flats and marsh with strong thermal contrast, coast; winter (Dec-Feb) acquisition; lowest land cloud cover among in-season T1 scenes with all required bands and the AOI 0.18 deg inside the footprint edge",
+          "quality_concerns": [
+            "AOI point only 0.18 deg from footprint edge",
+            "cloud cover is USGS STAC metadata only; scene is not verified cloud-free"
+          ],
+          "same_path_row_as_selected": true
+        },
+        {
+          "scene_id": "LC08_L2SP_150044_20231231_02_T1",
+          "source": "stac",
+          "platform": "landsat-8",
+          "acquisition_datetime_utc": "2023-12-31T05:45:18.496837Z",
+          "wrs_path": "150",
+          "wrs_row": "044",
+          "collection_category": "T1",
+          "eo_cloud_cover_pct": 2.44,
+          "cloud_cover_land_pct": 2.72,
+          "sun_elevation_deg": 38.19709964,
+          "footprint_bbox": [
+            69.2154,
+            22.0605,
+            71.4004,
+            24.1544
+          ],
+          "footprint_centroid": [
+            70.302,
+            23.1077
+          ],
+          "required_assets": {
+            "ST_B10": {
+              "stac_asset_key": "lwir11",
+              "present": true,
+              "size_bytes": 80400586,
+              "size_source": "http_head (server-reported Content-Length, not downloaded)"
+            },
+            "SR_B2": {
+              "stac_asset_key": "blue",
+              "present": true,
+              "size_bytes": 84872111,
+              "size_source": "http_head (server-reported Content-Length, not downloaded)"
+            },
+            "SR_B3": {
+              "stac_asset_key": "green",
+              "present": true,
+              "size_bytes": 86649657,
+              "size_source": "http_head (server-reported Content-Length, not downloaded)"
+            },
+            "SR_B4": {
+              "stac_asset_key": "red",
+              "present": true,
+              "size_bytes": 90434700,
+              "size_source": "http_head (server-reported Content-Length, not downloaded)"
+            }
+          },
+          "optional_qa_pixel_available": true,
+          "raw_size_bytes": 342357054,
+          "raw_size_source": "http_head",
+          "overlap_fraction_of_smaller_footprint": {
+            "reference": 0.0,
+            "LC09_L2SP_150041_20250416_02_T1": 0.0,
+            "LC09_L2SP_144041_20231213_02_T1": 0.0,
+            "LC08_L2SP_144048_20240427_02_T1": 0.0,
+            "LC08_L2SP_144053_20250225_02_T1": 0.0,
+            "LC08_L2SP_146039_20241119_02_T1": 0.0,
+            "LC09_L2SP_137042_20230110_02_T1": 0.0
+          },
+          "aoi_edge_margin_deg": 0.182,
+          "region": "Rann of Kutch, Gujarat",
+          "reason_for_selection": "salt flats and marsh with strong thermal contrast, coast; winter (Dec-Feb) acquisition; lowest land cloud cover among in-season T1 scenes with all required bands and the AOI 0.18 deg inside the footprint edge",
+          "quality_concerns": [
+            "AOI point only 0.18 deg from footprint edge",
+            "cloud cover is USGS STAC metadata only; scene is not verified cloud-free"
+          ],
+          "same_path_row_as_selected": true
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "regions_searched": 7,
+    "candidates_selected": 7,
+    "total_scenes_including_reference": 8,
+    "proposed_scene_ids": [
+      "LC09_L2SP_150041_20250416_02_T1",
+      "LC09_L2SP_144041_20231213_02_T1",
+      "LC08_L2SP_144048_20240427_02_T1",
+      "LC08_L2SP_144053_20250225_02_T1",
+      "LC08_L2SP_146039_20241119_02_T1",
+      "LC09_L2SP_137042_20230110_02_T1",
+      "LC08_L2SP_150044_20230214_02_T1"
+    ],
+    "raw_download_bytes": 2416526574,
+    "raw_download_source": "http_head",
+    "processed_bytes_estimate": 17108290185,
+    "processed_estimate_basis": "estimate: 7 x measured processed size of LC09_L2SP_143050_20240327_02_T1 (256 px patches, stride 128, float32 thermal+RGB). Actual size scales with each scene's valid-pixel coverage, unknown before download."
+  },
+  "scientific_notes": [
+    "Future SR experiments remain synthetic x2 reconstruction against the 30 m Landsat thermal reference, not 15 m thermal ground truth.",
+    "Train/validation/test splits must be made at scene level; overlapping patches from one scene must never be treated as geographically independent.",
+    "Each scene keeps its own metadata, normalization statistics, validity masks and patch IDs."
+  ]
+}

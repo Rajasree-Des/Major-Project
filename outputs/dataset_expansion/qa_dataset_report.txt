@@ -1,0 +1,69 @@
+QA-PROCESSED DATASET REPORT (dataset\processed_qa)
+==============================================================================
+HR target is the 30 m Landsat thermal reference, not sub-30 m ground truth.
+Per-scene z-score statistics; never pooled. Splits must be scene-level.
+
+LC08_L2SP_144048_20240427_02_T1
+  grid: EPSG:32644 30.0 m, 7681x7831, QA aligned: identical (ST_B10, SR_B2, SR_B3, SR_B4)
+  STAC bit definitions verified: True | reader: tifffile
+  valid pixels: 67.44% -> 67.42% (12,119 excluded by QA)
+  QA flag set among otherwise-valid pixels: fill=0, dilated_cloud=4,335, cirrus=3, cloud=4,396, cloud_shadow=5,498, snow=0
+  patches: before QA 2323 accepted / 1217 rejected; after QA 2322 / 1218
+  thermal z-score: mean 324.497 K, std 4.974 K | valid LST range 300.2-348.4 K
+  storage: raw 341 MiB, processed 2.27 GiB
+
+LC08_L2SP_144053_20250225_02_T1
+  grid: EPSG:32643 30.0 m, 7561x7721, QA aligned: identical (ST_B10, SR_B2, SR_B3, SR_B4)
+  STAC bit definitions verified: True | reader: tifffile
+  valid pixels: 69.06% -> 68.19% (510,717 excluded by QA)
+  QA flag set among otherwise-valid pixels: fill=0, dilated_cloud=182,389, cirrus=1,163, cloud=152,459, cloud_shadow=243,294, snow=0
+  patches: before QA 2293 accepted / 1129 rejected; after QA 2202 / 1220
+  thermal z-score: mean 306.745 K, std 4.895 K | valid LST range 287.7-357.6 K
+  storage: raw 313 MiB, processed 2.15 GiB
+
+LC08_L2SP_146039_20241119_02_T1
+  grid: EPSG:32644 30.0 m, 7781x7921, QA aligned: identical (ST_B10, SR_B2, SR_B3, SR_B4)
+  STAC bit definitions verified: True | reader: tifffile
+  valid pixels: 65.65% -> 62.63% (1,864,715 excluded by QA)
+  QA flag set among otherwise-valid pixels: fill=0, dilated_cloud=663,881, cirrus=22,566, cloud=424,482, cloud_shadow=867,505, snow=336,870
+  patches: before QA 2318 accepted / 1222 rejected; after QA 2161 / 1379
+  thermal z-score: mean 291.893 K, std 5.960 K | valid LST range 247.8-316.7 K
+  storage: raw 339 MiB, processed 2.11 GiB
+
+LC09_L2SP_137042_20230110_02_T1
+  grid: EPSG:32646 30.0 m, 7711x7841, QA aligned: identical (ST_B10, SR_B2, SR_B3, SR_B4)
+  STAC bit definitions verified: True | reader: tifffile
+  valid pixels: 67.28% -> 67.20% (47,989 excluded by QA)
+  QA flag set among otherwise-valid pixels: fill=0, dilated_cloud=20,498, cirrus=0, cloud=9,363, cloud_shadow=23,417, snow=0
+  patches: before QA 2330 accepted / 1210 rejected; after QA 2330 / 1210
+  thermal z-score: mean 296.249 K, std 2.868 K | valid LST range 281.8-331.3 K
+  storage: raw 329 MiB, processed 2.28 GiB
+
+LC09_L2SP_143050_20240327_02_T1
+  grid: EPSG:32644 30.0 m, 7641x7781, QA aligned: identical (ST_B10, SR_B2, SR_B3, SR_B4)
+  STAC bit definitions verified: True | reader: tifffile
+  valid pixels: 68.39% -> 68.05% (206,133 excluded by QA)
+  QA flag set among otherwise-valid pixels: fill=0, dilated_cloud=32,341, cirrus=9, cloud=156,635, cloud_shadow=41,623, snow=0
+  patches: before QA 2330 accepted / 1092 rejected; after QA 2318 / 1104
+  thermal z-score: mean 316.855 K, std 4.809 K | valid LST range 300.5-357.5 K
+  storage: raw 340 MiB, processed 2.26 GiB
+
+LC09_L2SP_144041_20231213_02_T1
+  grid: EPSG:32644 30.0 m, 7661x7791, QA aligned: identical (ST_B10, SR_B2, SR_B3, SR_B4)
+  STAC bit definitions verified: True | reader: tifffile
+  valid pixels: 68.13% -> 68.07% (36,793 excluded by QA)
+  QA flag set among otherwise-valid pixels: fill=0, dilated_cloud=16,622, cirrus=5, cloud=7,293, cloud_shadow=17,345, snow=0
+  patches: before QA 2328 accepted / 1094 rejected; after QA 2325 / 1097
+  thermal z-score: mean 294.927 K, std 1.616 K | valid LST range 287.7-325.5 K
+  storage: raw 331 MiB, processed 2.27 GiB
+
+LC09_L2SP_150041_20250416_02_T1
+  grid: EPSG:32642 30.0 m, 7551x7691, QA aligned: identical (ST_B10, SR_B2, SR_B3, SR_B4)
+  STAC bit definitions verified: True | reader: tifffile
+  valid pixels: 70.11% -> 70.11% (0 excluded by QA)
+  QA flag set among otherwise-valid pixels: fill=0, dilated_cloud=0, cirrus=0, cloud=0, cloud_shadow=0, snow=0
+  patches: before QA 2327 accepted / 1036 rejected; after QA 2327 / 1036
+  thermal z-score: mean 331.248 K, std 2.007 K | valid LST range 305.4-339.3 K
+  storage: raw 321 MiB, processed 2.27 GiB
+
+TOTAL: 7 scenes, 15985 patches, raw 2.26 GiB, processed 15.62 GiB

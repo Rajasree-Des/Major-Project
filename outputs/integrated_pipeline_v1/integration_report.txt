@@ -1,0 +1,53 @@
+INTEGRATED PIPELINE v1 — validation report
+============================================================
+Synthetic ×2 thermal SR + frozen consistency refinement + colorization.
+Not real 15 m thermal accuracy.
+
+Phase 1 audit (code-backed):
+- Thermal Kelvin for colorization comes from colorization.thermal_predict.predict_refined_thermal_kelvin:
+  SwinIR(LR) -> refine_hr_normalized(swinir_z, lr, lr_mask, stats) -> denormalize; HR in ThermalSRDataset is
+  used only inside degrade_thermal_patch to synthesize LR, not as the colorization input.
+- RGB + valid_mask from ThermalSatelliteDataset (same patch_key, H×W validated in loader).
+- Refinement beta loaded from outputs/evaluation/physics_refinement_v1/METHOD.txt (frozen 1.0).
+- Degradation matches evaluation: DegradationConfig(scale=2, base_seed=42, blur 1.2, noise 0.05 K).
+- Duplicate inference paths consolidated in pipeline.integrated (colorization script still usable separately).
+- Masks: combined thermal∧RGB valid for colorization; LR mask used only in refinement step.
+
+Runtime total: 17.4 s
+Git: 0542cd2b13ae184d8eeb6487d00d71180f5b14d9
+Patches: 4
+Output: C:\Users\HP\Downloads\ISRO project\Major-Project\outputs\integrated_pipeline_v1
+
+HR separation checks (refined prediction ≠ HR reference Kelvin):
+[
+  {
+    "patch_id": "000096",
+    "mean_abs_diff_kelvin_vs_hr_reference": 0.16605298569258164,
+    "max_abs_diff_kelvin_vs_hr_reference": 10.486405116065384,
+    "note": "HR used only for this audit check; pipeline colorization uses refined prediction."
+  },
+  {
+    "patch_id": "000448",
+    "mean_abs_diff_kelvin_vs_hr_reference": 0.20780957912733988,
+    "max_abs_diff_kelvin_vs_hr_reference": 2.178012770242333,
+    "note": "HR used only for this audit check; pipeline colorization uses refined prediction."
+  },
+  {
+    "patch_id": "001006",
+    "mean_abs_diff_kelvin_vs_hr_reference": 0.10023059612020328,
+    "max_abs_diff_kelvin_vs_hr_reference": 1.8252580057391583,
+    "note": "HR used only for this audit check; pipeline colorization uses refined prediction."
+  },
+  {
+    "patch_id": "001116",
+    "mean_abs_diff_kelvin_vs_hr_reference": 0.1338599570284534,
+    "max_abs_diff_kelvin_vs_hr_reference": 2.136940066112686,
+    "note": "HR used only for this audit check; pipeline colorization uses refined prediction."
+  }
+]
+
+Limitations:
+  - Synthetic ×2 SR vs 30 m reference; not real 15 m thermal accuracy.
+  - Consistency refinement is not a validated radiative-transfer model.
+  - RGB guidance is 30 m reflectance visualization only.
+  - Kelvin arrays are stored separately from all colorized PNGs.

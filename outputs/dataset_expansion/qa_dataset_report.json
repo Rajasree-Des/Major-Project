@@ -1,0 +1,940 @@
+[
+  {
+    "scene_id": "LC08_L2SP_144048_20240427_02_T1",
+    "processing_version": "qa_v1",
+    "raster_reader_backend": "tifffile",
+    "source_files": {
+      "ST_B10": {
+        "path": "C:\\Users\\HP\\Downloads\\ISRO project\\Major-Project\\dataset\\raw\\LC08_L2SP_144048_20240427_02_T1\\ST_B10.tif",
+        "size": 89736014,
+        "sha256": "8ac52ebee55c36601fb61c0e2d778f68e95de0530faa9113f43d2622845da5dc"
+      },
+      "SR_B2": {
+        "path": "C:\\Users\\HP\\Downloads\\ISRO project\\Major-Project\\dataset\\raw\\LC08_L2SP_144048_20240427_02_T1\\SR_B2.tif",
+        "size": 86235687,
+        "sha256": "0213cea158795cc3f87662121522ff01669f927b865af7fb6ce253166287f9c1"
+      },
+      "SR_B3": {
+        "path": "C:\\Users\\HP\\Downloads\\ISRO project\\Major-Project\\dataset\\raw\\LC08_L2SP_144048_20240427_02_T1\\SR_B3.tif",
+        "size": 88208844,
+        "sha256": "ab446140b39ac8a635a52d43c84aa1b9982b27db552b5da9243a675ceecc36f7"
+      },
+      "SR_B4": {
+        "path": "C:\\Users\\HP\\Downloads\\ISRO project\\Major-Project\\dataset\\raw\\LC08_L2SP_144048_20240427_02_T1\\SR_B4.tif",
+        "size": 92583720,
+        "sha256": "252f09746b1f4fffe721801f5229e3be3bb0ac7521101bdd1d6886af0d9a3549"
+      },
+      "QA_PIXEL": {
+        "path": "C:\\Users\\HP\\Downloads\\ISRO project\\Major-Project\\dataset\\raw\\LC08_L2SP_144048_20240427_02_T1\\QA_PIXEL.tif",
+        "size": 548721,
+        "sha256": "1819d94ea55ed9c90397455f1a46d7888a8ccb0d11330fcb26b01f94060a4b90"
+      }
+    },
+    "raw_size_bytes": 357312986,
+    "grid": {
+      "crs": "EPSG:32644",
+      "resolution_m": {
+        "x": 30.0,
+        "y": 30.0
+      },
+      "dimensions": {
+        "width": 7681,
+        "height": 7831
+      },
+      "bounds": {
+        "left": 88785.0,
+        "bottom": 1802085.0,
+        "right": 319215.0,
+        "top": 2037015.0
+      },
+      "qa_alignment": {
+        "aligned_with": "ST_B10",
+        "checked": [
+          "crs",
+          "width",
+          "height",
+          "transform",
+          "bounds"
+        ],
+        "result": "identical",
+        "also_identical_to": [
+          "ST_B10",
+          "SR_B2",
+          "SR_B3",
+          "SR_B4"
+        ]
+      },
+      "qa_dtype": "uint16",
+      "qa_nodata": null
+    },
+    "stac_bitfield_check": true,
+    "valid_percent_before_qa": 67.445,
+    "valid_percent_after_qa": 67.425,
+    "pixels_excluded_by_qa": 12119,
+    "per_flag_among_base_valid": {
+      "fill": 0,
+      "dilated_cloud": 4335,
+      "cirrus": 3,
+      "cloud": 4396,
+      "cloud_shadow": 5498,
+      "snow": 0
+    },
+    "per_flag_all_pixels": {
+      "fill": 19581799,
+      "dilated_cloud": 4335,
+      "cirrus": 3,
+      "cloud": 4396,
+      "cloud_shadow": 5498,
+      "snow": 0
+    },
+    "patches": {
+      "before_qa": {
+        "accepted": 2323,
+        "rejected": 1217
+      },
+      "after_qa": {
+        "accepted": 2322,
+        "rejected": 1218
+      },
+      "rule": "window rejected if invalid fraction > 10.0% (same as original pipeline)"
+    },
+    "normalization": {
+      "method": "z_score_valid_pixels",
+      "note": "Z-score computed on scene-level valid pixels (finite, combined mask). Inverse: value_phys = value_norm * std + mean",
+      "thermal": {
+        "mean": 324.4971008300781,
+        "std": 4.974270343780518,
+        "method": "z_score_valid_pixels"
+      },
+      "rgb": [
+        {
+          "mean": 0.06533785164356232,
+          "std": 0.018694696947932243,
+          "method": "z_score_valid_pixels"
+        },
+        {
+          "mean": 0.10624826699495316,
+          "std": 0.025538504123687744,
+          "method": "z_score_valid_pixels"
+        },
+        {
+          "mean": 0.1359720230102539,
+          "std": 0.04243713617324829,
+          "method": "z_score_valid_pixels"
+        }
+      ]
+    },
+    "thermal_kelvin_valid_stats": {
+      "min": 300.17218017578125,
+      "max": 348.42437744140625,
+      "mean": 324.4971008300781,
+      "std": 4.974270343780518
+    },
+    "processed_size_bytes": 2435769812,
+    "raw_dir": "C:\\Users\\HP\\Downloads\\ISRO project\\Major-Project\\dataset\\raw\\LC08_L2SP_144048_20240427_02_T1"
+  },
+  {
+    "scene_id": "LC08_L2SP_144053_20250225_02_T1",
+    "processing_version": "qa_v1",
+    "raster_reader_backend": "tifffile",
+    "source_files": {
+      "ST_B10": {
+        "path": "C:\\Users\\HP\\Downloads\\ISRO project\\Major-Project\\dataset\\raw\\LC08_L2SP_144053_20250225_02_T1\\ST_B10.tif",
+        "size": 81247557,
+        "sha256": "77dec2eb1d512d8d1da167f24667b0c98e0684907d207cfec99b536852e8461d"
+      },
+      "SR_B2": {
+        "path": "C:\\Users\\HP\\Downloads\\ISRO project\\Major-Project\\dataset\\raw\\LC08_L2SP_144053_20250225_02_T1\\SR_B2.tif",
+        "size": 80130992,
+        "sha256": "2332f71dfcad13bcfed829c5657bc8b57d5dcaeb5cdfb185286ab308c9738b2b"
+      },
+      "SR_B3": {
+        "path": "C:\\Users\\HP\\Downloads\\ISRO project\\Major-Project\\dataset\\raw\\LC08_L2SP_144053_20250225_02_T1\\SR_B3.tif",
+        "size": 81499304,
+        "sha256": "ee4640e06277ce9deaf474833efa4ed264d67fdc7b33729a3cbde5f898144e78"
+      },
+      "SR_B4": {
+        "path": "C:\\Users\\HP\\Downloads\\ISRO project\\Major-Project\\dataset\\raw\\LC08_L2SP_144053_20250225_02_T1\\SR_B4.tif",
+        "size": 83979224,
+        "sha256": "1da56d8502b7015ebd491cbf6988854a7dd4edc291a1a6b53f2ae6735122d390"
+      },
+      "QA_PIXEL": {
+        "path": "C:\\Users\\HP\\Downloads\\ISRO project\\Major-Project\\dataset\\raw\\LC08_L2SP_144053_20250225_02_T1\\QA_PIXEL.tif",
+        "size": 863516,
+        "sha256": "9f12f25a925241894524f21ca894f4750a4512dbf1a5bdf20648da19ab3b33ed"
+      }
+    },
+    "raw_size_bytes": 327720593,
+    "grid": {
+      "crs": "EPSG:32643",
+      "resolution_m": {
+        "x": 30.0,
+        "y": 30.0
+      },
+      "dimensions": {
+        "width": 7561,
+        "height": 7721
+      },
+      "bounds": {
+        "left": 566685.0,
+        "bottom": 1003185.0,
+        "right": 793515.0,
+        "top": 1234815.0
+      },
+      "qa_alignment": {
+        "aligned_with": "ST_B10",
+        "checked": [
+          "crs",
+          "width",
+          "height",
+          "transform",
+          "bounds"
+        ],
+        "result": "identical",
+        "also_identical_to": [
+          "ST_B10",
+          "SR_B2",
+          "SR_B3",
+          "SR_B4"
+        ]
+      },
+      "qa_dtype": "uint16",
+      "qa_nodata": null
+    },
+    "stac_bitfield_check": true,
+    "valid_percent_before_qa": 69.064,
+    "valid_percent_after_qa": 68.189,
+    "pixels_excluded_by_qa": 510717,
+    "per_flag_among_base_valid": {
+      "fill": 0,
+      "dilated_cloud": 182389,
+      "cirrus": 1163,
+      "cloud": 152459,
+      "cloud_shadow": 243294,
+      "snow": 0
+    },
+    "per_flag_all_pixels": {
+      "fill": 17856035,
+      "dilated_cloud": 213387,
+      "cirrus": 1163,
+      "cloud": 191056,
+      "cloud_shadow": 295950,
+      "snow": 0
+    },
+    "patches": {
+      "before_qa": {
+        "accepted": 2293,
+        "rejected": 1129
+      },
+      "after_qa": {
+        "accepted": 2202,
+        "rejected": 1220
+      },
+      "rule": "window rejected if invalid fraction > 10.0% (same as original pipeline)"
+    },
+    "normalization": {
+      "method": "z_score_valid_pixels",
+      "note": "Z-score computed on scene-level valid pixels (finite, combined mask). Inverse: value_phys = value_norm * std + mean",
+      "thermal": {
+        "mean": 306.74456787109375,
+        "std": 4.894908428192139,
+        "method": "z_score_valid_pixels"
+      },
+      "rgb": [
+        {
+          "mean": 0.02672131359577179,
+          "std": 0.015948185697197914,
+          "method": "z_score_valid_pixels"
+        },
+        {
+          "mean": 0.045817725360393524,
+          "std": 0.024416401982307434,
+          "method": "z_score_valid_pixels"
+        },
+        {
+          "mean": 0.042532388120889664,
+          "std": 0.03548070788383484,
+          "method": "z_score_valid_pixels"
+        }
+      ]
+    },
+    "thermal_kelvin_valid_stats": {
+      "min": 287.7476806640625,
+      "max": 357.61199951171875,
+      "mean": 306.74456787109375,
+      "std": 4.894908428192139
+    },
+    "processed_size_bytes": 2310057177,
+    "raw_dir": "C:\\Users\\HP\\Downloads\\ISRO project\\Major-Project\\dataset\\raw\\LC08_L2SP_144053_20250225_02_T1"
+  },
+  {
+    "scene_id": "LC08_L2SP_146039_20241119_02_T1",
+    "processing_version": "qa_v1",
+    "raster_reader_backend": "tifffile",
+    "source_files": {
+      "ST_B10": {
+        "path": "C:\\Users\\HP\\Downloads\\ISRO project\\Major-Project\\dataset\\raw\\LC08_L2SP_146039_20241119_02_T1\\ST_B10.tif",
+        "size": 87400682,
+        "sha256": "ea9a6bd507bbae11cee8a138da2db1c6a85f32d638349a7c4b914153fef1a9c7"
+      },
+      "SR_B2": {
+        "path": "C:\\Users\\HP\\Downloads\\ISRO project\\Major-Project\\dataset\\raw\\LC08_L2SP_146039_20241119_02_T1\\SR_B2.tif",
+        "size": 86516885,
+        "sha256": "b1ff7ad7ccb1595a3c3d642b30c608511ef0297cc2bbceef6686c03e4c1ce874"
+      },
+      "SR_B3": {
+        "path": "C:\\Users\\HP\\Downloads\\ISRO project\\Major-Project\\dataset\\raw\\LC08_L2SP_146039_20241119_02_T1\\SR_B3.tif",
+        "size": 89091481,
+        "sha256": "9587dd4b46e80e909a57d165dc1cd8c7d68a076ac83429af9ef4055650ee16a1"
+      },
+      "SR_B4": {
+        "path": "C:\\Users\\HP\\Downloads\\ISRO project\\Major-Project\\dataset\\raw\\LC08_L2SP_146039_20241119_02_T1\\SR_B4.tif",
+        "size": 91027100,
+        "sha256": "4ce94b196224d844353fa92f91e3266f75230a03454cd5f847013d57bcc72a2f"
+      },
+      "QA_PIXEL": {
+        "path": "C:\\Users\\HP\\Downloads\\ISRO project\\Major-Project\\dataset\\raw\\LC08_L2SP_146039_20241119_02_T1\\QA_PIXEL.tif",
+        "size": 1730086,
+        "sha256": "c0650194e404931f155c38b051ca4fb9781843dcb5ec6ba321a4c0f75c38e451"
+      }
+    },
+    "raw_size_bytes": 355766234,
+    "grid": {
+      "crs": "EPSG:32644",
+      "resolution_m": {
+        "x": 30.0,
+        "y": 30.0
+      },
+      "dimensions": {
+        "width": 7781,
+        "height": 7921
+      },
+      "bounds": {
+        "left": 121485.0,
+        "bottom": 3236685.0,
+        "right": 354915.0,
+        "top": 3474315.0
+      },
+      "qa_alignment": {
+        "aligned_with": "ST_B10",
+        "checked": [
+          "crs",
+          "width",
+          "height",
+          "transform",
+          "bounds"
+        ],
+        "result": "identical",
+        "also_identical_to": [
+          "ST_B10",
+          "SR_B2",
+          "SR_B3",
+          "SR_B4"
+        ]
+      },
+      "qa_dtype": "uint16",
+      "qa_nodata": null
+    },
+    "stac_bitfield_check": true,
+    "valid_percent_before_qa": 65.652,
+    "valid_percent_after_qa": 62.626,
+    "pixels_excluded_by_qa": 1864715,
+    "per_flag_among_base_valid": {
+      "fill": 0,
+      "dilated_cloud": 663881,
+      "cirrus": 22566,
+      "cloud": 424482,
+      "cloud_shadow": 867505,
+      "snow": 336870
+    },
+    "per_flag_all_pixels": {
+      "fill": 21111221,
+      "dilated_cloud": 684185,
+      "cirrus": 22566,
+      "cloud": 434495,
+      "cloud_shadow": 895268,
+      "snow": 340278
+    },
+    "patches": {
+      "before_qa": {
+        "accepted": 2318,
+        "rejected": 1222
+      },
+      "after_qa": {
+        "accepted": 2161,
+        "rejected": 1379
+      },
+      "rule": "window rejected if invalid fraction > 10.0% (same as original pipeline)"
+    },
+    "normalization": {
+      "method": "z_score_valid_pixels",
+      "note": "Z-score computed on scene-level valid pixels (finite, combined mask). Inverse: value_phys = value_norm * std + mean",
+      "thermal": {
+        "mean": 291.89312744140625,
+        "std": 5.959814071655273,
+        "method": "z_score_valid_pixels"
+      },
+      "rgb": [
+        {
+          "mean": 0.03202114254236221,
+          "std": 0.025377564132213593,
+          "method": "z_score_valid_pixels"
+        },
+        {
+          "mean": 0.05658617615699768,
+          "std": 0.033999405801296234,
+          "method": "z_score_valid_pixels"
+        },
+        {
+          "mean": 0.05531030148267746,
+          "std": 0.04122976213693619,
+          "method": "z_score_valid_pixels"
+        }
+      ]
+    },
+    "thermal_kelvin_valid_stats": {
+      "min": 247.78077697753906,
+      "max": 316.70172119140625,
+      "mean": 291.89312744140625,
+      "std": 5.959814071655273
+    },
+    "processed_size_bytes": 2267343505,
+    "raw_dir": "C:\\Users\\HP\\Downloads\\ISRO project\\Major-Project\\dataset\\raw\\LC08_L2SP_146039_20241119_02_T1"
+  },
+  {
+    "scene_id": "LC09_L2SP_137042_20230110_02_T1",
+    "processing_version": "qa_v1",
+    "raster_reader_backend": "tifffile",
+    "source_files": {
+      "ST_B10": {
+        "path": "C:\\Users\\HP\\Downloads\\ISRO project\\Major-Project\\dataset\\raw\\LC09_L2SP_137042_20230110_02_T1\\ST_B10.tif",
+        "size": 83309575,
+        "sha256": "6096d9244f91c8c55c1382b32dc001c35272fdac74db58572c9d3ad9e5019669"
+      },
+      "SR_B2": {
+        "path": "C:\\Users\\HP\\Downloads\\ISRO project\\Major-Project\\dataset\\raw\\LC09_L2SP_137042_20230110_02_T1\\SR_B2.tif",
+        "size": 84424527,
+        "sha256": "3791f9eb0cdfa411df751462f48dabc606adf33ed172b4616dfb57798c4d3704"
+      },
+      "SR_B3": {
+        "path": "C:\\Users\\HP\\Downloads\\ISRO project\\Major-Project\\dataset\\raw\\LC09_L2SP_137042_20230110_02_T1\\SR_B3.tif",
+        "size": 87265219,
+        "sha256": "f358158804f67f150cbf9dad89b7038c998d817be0511c5ca85f3fda0d5c988e"
+      },
+      "SR_B4": {
+        "path": "C:\\Users\\HP\\Downloads\\ISRO project\\Major-Project\\dataset\\raw\\LC09_L2SP_137042_20230110_02_T1\\SR_B4.tif",
+        "size": 89452225,
+        "sha256": "f09362fddd2569ec47279842ce4a19cb4d359ee2fa08c2c7b1605c2dfc12de43"
+      },
+      "QA_PIXEL": {
+        "path": "C:\\Users\\HP\\Downloads\\ISRO project\\Major-Project\\dataset\\raw\\LC09_L2SP_137042_20230110_02_T1\\QA_PIXEL.tif",
+        "size": 1029145,
+        "sha256": "9c4fa04a7a72f731ab17cab5acff082812458250674b0fb5df64c2ca8d7c1f85"
+      }
+    },
+    "raw_size_bytes": 345480691,
+    "grid": {
+      "crs": "EPSG:32646",
+      "resolution_m": {
+        "x": 30.0,
+        "y": 30.0
+      },
+      "dimensions": {
+        "width": 7711,
+        "height": 7841
+      },
+      "bounds": {
+        "left": 191985.0,
+        "bottom": 2758185.0,
+        "right": 423315.0,
+        "top": 2993415.0
+      },
+      "qa_alignment": {
+        "aligned_with": "ST_B10",
+        "checked": [
+          "crs",
+          "width",
+          "height",
+          "transform",
+          "bounds"
+        ],
+        "result": "identical",
+        "also_identical_to": [
+          "ST_B10",
+          "SR_B2",
+          "SR_B3",
+          "SR_B4"
+        ]
+      },
+      "qa_dtype": "uint16",
+      "qa_nodata": null
+    },
+    "stac_bitfield_check": true,
+    "valid_percent_before_qa": 67.276,
+    "valid_percent_after_qa": 67.196,
+    "pixels_excluded_by_qa": 47989,
+    "per_flag_among_base_valid": {
+      "fill": 0,
+      "dilated_cloud": 20498,
+      "cirrus": 0,
+      "cloud": 9363,
+      "cloud_shadow": 23417,
+      "snow": 0
+    },
+    "per_flag_all_pixels": {
+      "fill": 19782605,
+      "dilated_cloud": 20498,
+      "cirrus": 0,
+      "cloud": 9363,
+      "cloud_shadow": 23417,
+      "snow": 0
+    },
+    "patches": {
+      "before_qa": {
+        "accepted": 2330,
+        "rejected": 1210
+      },
+      "after_qa": {
+        "accepted": 2330,
+        "rejected": 1210
+      },
+      "rule": "window rejected if invalid fraction > 10.0% (same as original pipeline)"
+    },
+    "normalization": {
+      "method": "z_score_valid_pixels",
+      "note": "Z-score computed on scene-level valid pixels (finite, combined mask). Inverse: value_phys = value_norm * std + mean",
+      "thermal": {
+        "mean": 296.2490234375,
+        "std": 2.86836314201355,
+        "method": "z_score_valid_pixels"
+      },
+      "rgb": [
+        {
+          "mean": 0.035065487027168274,
+          "std": 0.02566753700375557,
+          "method": "z_score_valid_pixels"
+        },
+        {
+          "mean": 0.06090943142771721,
+          "std": 0.030766285955905914,
+          "method": "z_score_valid_pixels"
+        },
+        {
+          "mean": 0.05804826319217682,
+          "std": 0.038179751485586166,
+          "method": "z_score_valid_pixels"
+        }
+      ]
+    },
+    "thermal_kelvin_valid_stats": {
+      "min": 281.8276672363281,
+      "max": 331.33770751953125,
+      "mean": 296.2490234375,
+      "std": 2.86836314201355
+    },
+    "processed_size_bytes": 2444198560,
+    "raw_dir": "C:\\Users\\HP\\Downloads\\ISRO project\\Major-Project\\dataset\\raw\\LC09_L2SP_137042_20230110_02_T1"
+  },
+  {
+    "scene_id": "LC09_L2SP_143050_20240327_02_T1",
+    "processing_version": "qa_v1",
+    "raster_reader_backend": "tifffile",
+    "source_files": {
+      "ST_B10": {
+        "path": "C:\\Users\\HP\\Downloads\\ISRO project\\Major-Project\\dataset\\raw\\LC09_L2SP_143050_20240327_02_T1\\ST_B10.tif",
+        "size": 88705063,
+        "sha256": "c81a2ce4d03a725cd789c727f1487e0690edee6ae73924c821c8c0b3c242bc96"
+      },
+      "SR_B2": {
+        "path": "C:\\Users\\HP\\Downloads\\ISRO project\\Major-Project\\dataset\\raw\\LC09_L2SP_143050_20240327_02_T1\\SR_B2.tif",
+        "size": 86026912,
+        "sha256": "8aabec9b77fc8811031d636bcd6cc898c2071eb0dfcb0d86a0c285bf3483d1a3"
+      },
+      "SR_B3": {
+        "path": "C:\\Users\\HP\\Downloads\\ISRO project\\Major-Project\\dataset\\raw\\LC09_L2SP_143050_20240327_02_T1\\SR_B3.tif",
+        "size": 88447305,
+        "sha256": "6771c24c0538cbe927cbcac8070f2171bf52a017d83f9e39d2b5605d6bd961b9"
+      },
+      "SR_B4": {
+        "path": "C:\\Users\\HP\\Downloads\\ISRO project\\Major-Project\\dataset\\raw\\LC09_L2SP_143050_20240327_02_T1\\SR_B4.tif",
+        "size": 93095615,
+        "sha256": "4b84df694bc8342f1a03ecc5265800ce4dd37d1103227021f4ca13483cd67d03"
+      },
+      "QA_PIXEL": {
+        "path": "C:\\Users\\HP\\Downloads\\ISRO project\\Major-Project\\dataset\\raw_supplement\\LC09_L2SP_143050_20240327_02_T1\\QA_PIXEL.tif",
+        "size": 565593,
+        "sha256": "ac9b336cd26947fffbef754283d5a8bd64d5e70a932cdbf97e1b4bc1fdf6f2c4"
+      }
+    },
+    "raw_size_bytes": 356840488,
+    "grid": {
+      "crs": "EPSG:32644",
+      "resolution_m": {
+        "x": 30.0,
+        "y": 30.0
+      },
+      "dimensions": {
+        "width": 7641,
+        "height": 7781
+      },
+      "bounds": {
+        "left": 180285.0,
+        "bottom": 1481985.0,
+        "right": 409515.0,
+        "top": 1715415.0
+      },
+      "qa_alignment": {
+        "aligned_with": "ST_B10",
+        "checked": [
+          "crs",
+          "width",
+          "height",
+          "transform",
+          "bounds"
+        ],
+        "result": "identical",
+        "also_identical_to": [
+          "ST_B10",
+          "SR_B2",
+          "SR_B3",
+          "SR_B4"
+        ]
+      },
+      "qa_dtype": "uint16",
+      "qa_nodata": null
+    },
+    "stac_bitfield_check": true,
+    "valid_percent_before_qa": 68.392,
+    "valid_percent_after_qa": 68.045,
+    "pixels_excluded_by_qa": 206133,
+    "per_flag_among_base_valid": {
+      "fill": 0,
+      "dilated_cloud": 32341,
+      "cirrus": 9,
+      "cloud": 156635,
+      "cloud_shadow": 41623,
+      "snow": 0
+    },
+    "per_flag_all_pixels": {
+      "fill": 18791128,
+      "dilated_cloud": 32341,
+      "cirrus": 9,
+      "cloud": 156635,
+      "cloud_shadow": 41623,
+      "snow": 0
+    },
+    "patches": {
+      "before_qa": {
+        "accepted": 2330,
+        "rejected": 1092
+      },
+      "after_qa": {
+        "accepted": 2318,
+        "rejected": 1104
+      },
+      "rule": "window rejected if invalid fraction > 10.0% (same as original pipeline)"
+    },
+    "normalization": {
+      "method": "z_score_valid_pixels",
+      "note": "Z-score computed on scene-level valid pixels (finite, combined mask). Inverse: value_phys = value_norm * std + mean",
+      "thermal": {
+        "mean": 316.8553771972656,
+        "std": 4.809076309204102,
+        "method": "z_score_valid_pixels"
+      },
+      "rgb": [
+        {
+          "mean": 0.055414941161870956,
+          "std": 0.019037611782550812,
+          "method": "z_score_valid_pixels"
+        },
+        {
+          "mean": 0.09236641228199005,
+          "std": 0.02635093778371811,
+          "method": "z_score_valid_pixels"
+        },
+        {
+          "mean": 0.12000130861997604,
+          "std": 0.04335122928023338,
+          "method": "z_score_valid_pixels"
+        }
+      ]
+    },
+    "thermal_kelvin_valid_stats": {
+      "min": 300.53106689453125,
+      "max": 357.48211669921875,
+      "mean": 316.8553771972656,
+      "std": 4.809076309204102
+    },
+    "processed_size_bytes": 2431598236,
+    "raw_dir": "C:\\Users\\HP\\Downloads\\ISRO project\\Major-Project\\dataset\\raw\\LC09_L2SP_143050_20240327_02_T1"
+  },
+  {
+    "scene_id": "LC09_L2SP_144041_20231213_02_T1",
+    "processing_version": "qa_v1",
+    "raster_reader_backend": "tifffile",
+    "source_files": {
+      "ST_B10": {
+        "path": "C:\\Users\\HP\\Downloads\\ISRO project\\Major-Project\\dataset\\raw\\LC09_L2SP_144041_20231213_02_T1\\ST_B10.tif",
+        "size": 80872876,
+        "sha256": "24847ed82121fad9ec9834bc421df76aadbdc52d482f45372d5faaffefedbb31"
+      },
+      "SR_B2": {
+        "path": "C:\\Users\\HP\\Downloads\\ISRO project\\Major-Project\\dataset\\raw\\LC09_L2SP_144041_20231213_02_T1\\SR_B2.tif",
+        "size": 86710557,
+        "sha256": "bd6271ed4623dde6abab04810f5931ea0f41721e107072dfeb8e6ffc5f74596c"
+      },
+      "SR_B3": {
+        "path": "C:\\Users\\HP\\Downloads\\ISRO project\\Major-Project\\dataset\\raw\\LC09_L2SP_144041_20231213_02_T1\\SR_B3.tif",
+        "size": 87871128,
+        "sha256": "c2ec985c6ad486aaef4dde2c4506cf7b6b253bbd50118ae1f49f79666ef64e89"
+      },
+      "SR_B4": {
+        "path": "C:\\Users\\HP\\Downloads\\ISRO project\\Major-Project\\dataset\\raw\\LC09_L2SP_144041_20231213_02_T1\\SR_B4.tif",
+        "size": 91303229,
+        "sha256": "f55d3bee2a270cdc0787339062041ecaa533412a864d9e94770568b3a673fa4e"
+      },
+      "QA_PIXEL": {
+        "path": "C:\\Users\\HP\\Downloads\\ISRO project\\Major-Project\\dataset\\raw\\LC09_L2SP_144041_20231213_02_T1\\QA_PIXEL.tif",
+        "size": 648474,
+        "sha256": "6c8e75883d39e1edb63bc731af3b92b6d09c28f927fe1875adf23a7361ff3f8d"
+      }
+    },
+    "raw_size_bytes": 347406264,
+    "grid": {
+      "crs": "EPSG:32644",
+      "resolution_m": {
+        "x": 30.0,
+        "y": 30.0
+      },
+      "dimensions": {
+        "width": 7661,
+        "height": 7791
+      },
+      "bounds": {
+        "left": 347685.0,
+        "bottom": 2916885.0,
+        "right": 577515.0,
+        "top": 3150615.0
+      },
+      "qa_alignment": {
+        "aligned_with": "ST_B10",
+        "checked": [
+          "crs",
+          "width",
+          "height",
+          "transform",
+          "bounds"
+        ],
+        "result": "identical",
+        "also_identical_to": [
+          "ST_B10",
+          "SR_B2",
+          "SR_B3",
+          "SR_B4"
+        ]
+      },
+      "qa_dtype": "uint16",
+      "qa_nodata": null
+    },
+    "stac_bitfield_check": true,
+    "valid_percent_before_qa": 68.133,
+    "valid_percent_after_qa": 68.071,
+    "pixels_excluded_by_qa": 36793,
+    "per_flag_among_base_valid": {
+      "fill": 0,
+      "dilated_cloud": 16622,
+      "cirrus": 5,
+      "cloud": 7293,
+      "cloud_shadow": 17345,
+      "snow": 0
+    },
+    "per_flag_all_pixels": {
+      "fill": 19019755,
+      "dilated_cloud": 16623,
+      "cirrus": 5,
+      "cloud": 7293,
+      "cloud_shadow": 17346,
+      "snow": 0
+    },
+    "patches": {
+      "before_qa": {
+        "accepted": 2328,
+        "rejected": 1094
+      },
+      "after_qa": {
+        "accepted": 2325,
+        "rejected": 1097
+      },
+      "rule": "window rejected if invalid fraction > 10.0% (same as original pipeline)"
+    },
+    "normalization": {
+      "method": "z_score_valid_pixels",
+      "note": "Z-score computed on scene-level valid pixels (finite, combined mask). Inverse: value_phys = value_norm * std + mean",
+      "thermal": {
+        "mean": 294.9273986816406,
+        "std": 1.6160457134246826,
+        "method": "z_score_valid_pixels"
+      },
+      "rgb": [
+        {
+          "mean": 0.05579488351941109,
+          "std": 0.019350633025169373,
+          "method": "z_score_valid_pixels"
+        },
+        {
+          "mean": 0.09384439140558243,
+          "std": 0.022996243089437485,
+          "method": "z_score_valid_pixels"
+        },
+        {
+          "mean": 0.08792801201343536,
+          "std": 0.03195710852742195,
+          "method": "z_score_valid_pixels"
+        }
+      ]
+    },
+    "thermal_kelvin_valid_stats": {
+      "min": 287.7066650390625,
+      "max": 325.5168151855469,
+      "mean": 294.9273986816406,
+      "std": 1.6160457134246826
+    },
+    "processed_size_bytes": 2438936456,
+    "raw_dir": "C:\\Users\\HP\\Downloads\\ISRO project\\Major-Project\\dataset\\raw\\LC09_L2SP_144041_20231213_02_T1"
+  },
+  {
+    "scene_id": "LC09_L2SP_150041_20250416_02_T1",
+    "processing_version": "qa_v1",
+    "raster_reader_backend": "tifffile",
+    "source_files": {
+      "ST_B10": {
+        "path": "C:\\Users\\HP\\Downloads\\ISRO project\\Major-Project\\dataset\\raw\\LC09_L2SP_150041_20250416_02_T1\\ST_B10.tif",
+        "size": 78803333,
+        "sha256": "d655052f3f6fed125d979e2b359712a47cc0318dad018464a94a6abc3d597ddf"
+      },
+      "SR_B2": {
+        "path": "C:\\Users\\HP\\Downloads\\ISRO project\\Major-Project\\dataset\\raw\\LC09_L2SP_150041_20250416_02_T1\\SR_B2.tif",
+        "size": 82755063,
+        "sha256": "d29971b76bcfe9ea7c180abfcb13d913e1d73722434ce8116c6420d353c89924"
+      },
+      "SR_B3": {
+        "path": "C:\\Users\\HP\\Downloads\\ISRO project\\Major-Project\\dataset\\raw\\LC09_L2SP_150041_20250416_02_T1\\SR_B3.tif",
+        "size": 86234534,
+        "sha256": "bf02b96507d0484c8bac17ba65daf119c1a31e1b23aff519e7fbe14dd399f455"
+      },
+      "SR_B4": {
+        "path": "C:\\Users\\HP\\Downloads\\ISRO project\\Major-Project\\dataset\\raw\\LC09_L2SP_150041_20250416_02_T1\\SR_B4.tif",
+        "size": 88656963,
+        "sha256": "f62b551980ed31a1a500c5e51945fc5f015521fb56f9c3cb01eb4cc744e0a937"
+      },
+      "QA_PIXEL": {
+        "path": "C:\\Users\\HP\\Downloads\\ISRO project\\Major-Project\\dataset\\raw\\LC09_L2SP_150041_20250416_02_T1\\QA_PIXEL.tif",
+        "size": 342638,
+        "sha256": "cf8aeae64043d54c65af57461e467659e0748e5edae0f5bd11c39a0cf5762deb"
+      }
+    },
+    "raw_size_bytes": 336792531,
+    "grid": {
+      "crs": "EPSG:32642",
+      "resolution_m": {
+        "x": 30.0,
+        "y": 30.0
+      },
+      "dimensions": {
+        "width": 7551,
+        "height": 7691
+      },
+      "bounds": {
+        "left": 616485.0,
+        "bottom": 2920485.0,
+        "right": 843015.0,
+        "top": 3151215.0
+      },
+      "qa_alignment": {
+        "aligned_with": "ST_B10",
+        "checked": [
+          "crs",
+          "width",
+          "height",
+          "transform",
+          "bounds"
+        ],
+        "result": "identical",
+        "also_identical_to": [
+          "ST_B10",
+          "SR_B2",
+          "SR_B3",
+          "SR_B4"
+        ]
+      },
+      "qa_dtype": "uint16",
+      "qa_nodata": null
+    },
+    "stac_bitfield_check": true,
+    "valid_percent_before_qa": 70.111,
+    "valid_percent_after_qa": 70.111,
+    "pixels_excluded_by_qa": 0,
+    "per_flag_among_base_valid": {
+      "fill": 0,
+      "dilated_cloud": 0,
+      "cirrus": 0,
+      "cloud": 0,
+      "cloud_shadow": 0,
+      "snow": 0
+    },
+    "per_flag_all_pixels": {
+      "fill": 17358249,
+      "dilated_cloud": 0,
+      "cirrus": 0,
+      "cloud": 0,
+      "cloud_shadow": 0,
+      "snow": 0
+    },
+    "patches": {
+      "before_qa": {
+        "accepted": 2327,
+        "rejected": 1036
+      },
+      "after_qa": {
+        "accepted": 2327,
+        "rejected": 1036
+      },
+      "rule": "window rejected if invalid fraction > 10.0% (same as original pipeline)"
+    },
+    "normalization": {
+      "method": "z_score_valid_pixels",
+      "note": "Z-score computed on scene-level valid pixels (finite, combined mask). Inverse: value_phys = value_norm * std + mean",
+      "thermal": {
+        "mean": 331.248291015625,
+        "std": 2.0065441131591797,
+        "method": "z_score_valid_pixels"
+      },
+      "rgb": [
+        {
+          "mean": 0.11965402215719223,
+          "std": 0.015302869491279125,
+          "method": "z_score_valid_pixels"
+        },
+        {
+          "mean": 0.18732917308807373,
+          "std": 0.02286003716289997,
+          "method": "z_score_valid_pixels"
+        },
+        {
+          "mean": 0.2417064756155014,
+          "std": 0.03008398786187172,
+          "method": "z_score_valid_pixels"
+        }
+      ]
+    },
+    "thermal_kelvin_valid_stats": {
+      "min": 305.4359436035156,
+      "max": 339.2948303222656,
+      "mean": 331.248291015625,
+      "std": 2.0065441131591797
+    },
+    "processed_size_bytes": 2441006212,
+    "raw_dir": "C:\\Users\\HP\\Downloads\\ISRO project\\Major-Project\\dataset\\raw\\LC09_L2SP_150041_20250416_02_T1"
+  }
+]

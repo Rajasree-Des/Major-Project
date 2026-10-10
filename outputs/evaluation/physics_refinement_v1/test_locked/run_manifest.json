@@ -1,0 +1,18 @@
+{
+  "command": "py -W ignore -m evaluation.evaluate_physics_refinement --role test_locked",
+  "beta": 1.0,
+  "degradation": {
+    "scale": 2,
+    "blur_sigma_hr_pixels": 1.2,
+    "noise_std_kelvin": 0.05,
+    "downsample_method": "area",
+    "interpolation_note": "Masked area averaging after Gaussian low-pass in Kelvin",
+    "base_seed": 42
+  },
+  "scene_ids": [
+    "LC08_L2SP_144048_20240427_02_T1",
+    "LC09_L2SP_137042_20230110_02_T1"
+  ],
+  "patch_selection": "non_overlapping",
+  "git_commit": "0542cd2b13ae184d8eeb6487d00d71180f5b14d9"
+}

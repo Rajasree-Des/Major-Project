@@ -1,0 +1,77 @@
+THERMAL SUPER-RESOLUTION BASELINE EVALUATION
+============================================================
+*** SINGLE-SCENE DEVELOPMENT EVALUATION — NOT FINAL SCIENTIFIC EVALUATION ***
+
+Synthetic x2 super-resolution evaluation: 30 m Landsat thermal reference (256x256) -> synthetic degradation -> 128x128 LR -> reconstruction to 256x256, scored against the 30 m reference. The HR target is NOT true 15 m thermal ground truth, and results from one scene do not establish generalization.
+
+Timestamp (UTC):   2026-10-09T06:03:39+00:00
+Scene(s):          LC09_L2SP_143050_20240327_02_T1
+Split:             val  (DEVELOPMENT SPLIT — NOT FINAL SCIENTIFIC EVALUATION (random patch split within scene; spatial leakage likely))
+Patches:           233  (LR 128x128 -> HR 256x256, x2)
+Valid HR pixels:   15,259,238 of 15,269,888
+Seed:              42
+Degradation:       blur sigma 1.2 HR px, area downsample, noise 0.05 K
+Model:             official SwinIR-S x2 (904,744 params), checkpoint 002_lightweightSR_DIV2K_s64w8_SwinIR-S_x2.pth
+
+METRICS (MAE/RMSE pooled over valid pixels; PSNR/SSIM mean over patches)
+------------------------------------------------------------
+Method                                              MAE     RMSE    PSNR    SSIM   MAE_K  RMSE_K
+Bicubic x2                                      0.04493  0.06455   36.27  0.8878  0.2202  0.3164
+SwinIR-S x2 pretrained (thermal-adapted)        0.04404  0.06252   36.51  0.8927  0.2159  0.3065
+SwinIR-S x2 short CPU fine-tune (PRELIMINARY)   0.04012  0.05760   37.25  0.9056  0.1967  0.2823
+
+Pooled PSNR (global data range):
+  Bicubic x2                                   45.59 dB
+  SwinIR-S x2 pretrained (thermal-adapted)     45.87 dB
+  SwinIR-S x2 short CPU fine-tune (PRELIMINARY) 46.58 dB
+
+Relative to bicubic:
+  SwinIR-S x2 pretrained (thermal-adapted)     MAE -2.0%  RMSE_K -0.0099 K  PSNR +0.24 dB  SSIM +0.0048
+  SwinIR-S x2 short CPU fine-tune (PRELIMINARY) MAE -10.7%  RMSE_K -0.0341 K  PSNR +0.98 dB  SSIM +0.0178
+
+INFERENCE TIME (CPU)
+------------------------------------------------------------
+Total evaluation wall-clock: 40492.7 s (data loading + degradation 7.9 s)
+  Bicubic x2                                        0.3 s total, 0.004 s/batch, 0.001 s/patch
+  SwinIR-S x2 pretrained (thermal-adapted)      31056.3 s total, 526.377 s/batch, 133.289 s/patch
+  SwinIR-S x2 short CPU fine-tune (PRELIMINARY)   9387.6 s total, 159.112 s/batch, 40.290 s/patch
+
+SANITY CHECKS
+------------------------------------------------------------
+Overall: PASS
+  LR/HR/output shapes correct:        True
+  All outputs finite:                 True
+  All final metrics finite:           True
+  Identical samples for all methods:  True
+  Masked-valid but non-finite HR px:  0
+  Invalid HR pixels excluded:         10,650
+  Invalid LR pixels zero-filled:      2,553
+  Patches with no valid pixels:       0
+
+PRELIMINARY CHECKPOINT
+------------------------------------------------------------
+PRELIMINARY sanity-check checkpoint from a few CPU optimizer steps; not a converged fine-tune.
+  C:\Users\HP\Downloads\ISRO project\Major-Project\outputs\models\swinir\best.pt (epoch 2, batch size 2, max_train_batches 3, freeze_epochs 2)
+
+FIGURES
+------------------------------------------------------------
+  figures\01_largest_gain_vs_bicubic_patch_001604.png  (largest_gain_vs_bicubic, valid 100.0%)
+  figures\02_median_gain_vs_bicubic_patch_001941.png  (median_gain_vs_bicubic, valid 100.0%)
+  figures\03_smallest_gain_vs_bicubic_patch_001152.png  (smallest_gain_vs_bicubic, valid 100.0%)
+  figures\04_most_textured_hr_patch_000985.png  (most_textured_hr, valid 100.0%)
+  figures\05_partially_invalid_mask_patch_002241.png  (partially_invalid_mask, valid 91.1%)
+
+LIMITATIONS
+------------------------------------------------------------
+The 30 m thermal patch is treated as the HR reference for a synthetic SR experiment. This does not provide true higher-resolution thermal ground truth. The degradation operator defines the synthetic LR problem. Performance on synthetic degradation does not automatically prove real-world sub-30-m thermal reconstruction accuracy. Later evaluation should include synthetic benchmark performance and physical/thermal consistency checks.
+Single scene, random patch split within the scene: overlapping neighbouring patches mean the validation patches are not independent of the training patches.
+No training was performed in this evaluation.
+
+TIMING NOTE (added after the run)
+------------------------------------------------------------
+The full run's wall-clock and per-method forward times include an ~11 h period in which the machine was suspended (between batches 1 and 11) and are NOT valid inference timings. Use 'clean_timing_check' (separate 10-batch / 40-patch rerun on the same split, same CPU, uninterrupted). Metrics are unaffected.
+Clean timing check (10 batches, 40 patches, batch size 4, CPU):
+  Bicubic x2                                   0.003 s/batch, 0.001 s/patch
+  SwinIR-S x2 pretrained (thermal-adapted)     5.274 s/batch, 1.318 s/patch
+  SwinIR-S x2 short CPU fine-tune (PRELIMINARY) 5.310 s/batch, 1.327 s/patch
+  Estimated uninterrupted SwinIR inference over all 233 validation patches: ~5.1 min per model (estimate)

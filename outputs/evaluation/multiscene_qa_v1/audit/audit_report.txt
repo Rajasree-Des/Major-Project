@@ -1,0 +1,78 @@
+QA_V1 DATASET AUDIT
+==============================================================================
+root: dataset\processed_qa | scenes: 7 | patches: 15985 | reader: tifffile
+
+LC08_L2SP_144048_20240427_02_T1 (landsat-8)
+  structure ok: True (patches 2322)
+  thermal mean/std stored 324.4971/4.9743 K, recomputed float64 324.4971/4.9743 K -> ok True
+  patch values vs raw Kelvin: max err 1.58e-05 K, mask mismatches 0 -> ok True
+  QA: 12 distinct values; flags(all px) {'fill': 19581799, 'dilated_cloud': 4335, 'cirrus': 3, 'cloud': 4396, 'cloud_shadow': 5498, 'snow': 0}; fill==band NoData: False; STAC cloud 0.01% (land 0.01%)
+  QA top values: 21824x40107265, 1x19581799, 21952x448726, 22280x4396, 23888x3385
+  readers: STAC proj grid performed True passed True; STAC scale/offset passed True; Pillow pixels performed True passed True; rasterio vs tifffile performed False
+  normalization: std 4.974 K, 0.05 K noise = 0.0101 z
+
+LC08_L2SP_144053_20250225_02_T1 (landsat-8)
+  structure ok: True (patches 2202)
+  thermal mean/std stored 306.7446/4.8949 K, recomputed float64 306.7445/4.8949 K -> ok True
+  patch values vs raw Kelvin: max err 1.63e-05 K, mask mismatches 0 -> ok True
+  QA: 16 distinct values; flags(all px) {'fill': 17856035, 'dilated_cloud': 213387, 'cirrus': 1163, 'cloud': 191056, 'cloud_shadow': 295950, 'snow': 0}; fill==band NoData: False; STAC cloud 0.47% (land 0.4%)
+  QA top values: 21824x31452144, 1x17856035, 21952x8462117, 23888x198848, 22280x189894
+  readers: STAC proj grid performed True passed True; STAC scale/offset passed True; Pillow pixels performed True passed True; rasterio vs tifffile performed False
+  normalization: std 4.895 K, 0.05 K noise = 0.0102 z
+
+LC08_L2SP_146039_20241119_02_T1 (landsat-8)
+  structure ok: True (patches 2161)
+  thermal mean/std stored 291.8931/5.9598 K, recomputed float64 291.8931/5.9598 K -> ok True
+  patch values vs raw Kelvin: max err 1.58e-05 K, mask mismatches 0 -> ok True
+  QA: 26 distinct values; flags(all px) {'fill': 21111221, 'dilated_cloud': 684185, 'cirrus': 22566, 'cloud': 434495, 'cloud_shadow': 895268, 'snow': 340278}; fill==band NoData: False; STAC cloud 1.07% (land 1.07%)
+  QA top values: 21824x37689676, 1x21111221, 21952x889604, 23888x562201, 22280x434388
+  readers: STAC proj grid performed True passed True; STAC scale/offset passed True; Pillow pixels performed True passed True; rasterio vs tifffile performed False
+  normalization: std 5.960 K, 0.05 K noise = 0.0084 z
+
+LC09_L2SP_137042_20230110_02_T1 (landsat-9)
+  structure ok: True (patches 2330)
+  thermal mean/std stored 296.2490/2.8684 K, recomputed float64 296.2490/2.8684 K -> ok True
+  patch values vs raw Kelvin: max err 1.55e-05 K, mask mismatches 0 -> ok True
+  QA: 14 distinct values; flags(all px) {'fill': 19782605, 'dilated_cloud': 20498, 'cirrus': 0, 'cloud': 9363, 'cloud_shadow': 23417, 'snow': 0}; fill==band NoData: False; STAC cloud 0.02% (land 0.02%)
+  QA top values: 21824x39660738, 1x19782605, 21952x921506, 22080x42868, 23888x17190
+  readers: STAC proj grid performed True passed True; STAC scale/offset passed True; Pillow pixels performed True passed True; rasterio vs tifffile performed False
+  normalization: std 2.868 K, 0.05 K noise = 0.0174 z
+
+LC09_L2SP_143050_20240327_02_T1 (landsat-9)
+  structure ok: True (patches 2318)
+  thermal mean/std stored 316.8554/4.8091 K, recomputed float64 316.8554/4.8091 K -> ok True
+  patch values vs raw Kelvin: max err 1.58e-05 K, mask mismatches 0 -> ok True
+  QA: 15 distinct values; flags(all px) {'fill': 18791128, 'dilated_cloud': 32341, 'cirrus': 9, 'cloud': 156635, 'cloud_shadow': 41623, 'snow': 0}; fill==band NoData: False; STAC cloud 0.39% (land 0.02%)
+  QA top values: 21824x40062796, 1x18791128, 21952x391749, 22280x156635, 24082x20308
+  readers: STAC proj grid performed True passed True; STAC scale/offset passed True; Pillow pixels performed True passed True; rasterio vs tifffile performed False
+  normalization: std 4.809 K, 0.05 K noise = 0.0104 z
+
+LC09_L2SP_144041_20231213_02_T1 (landsat-9)
+  structure ok: True (patches 2325)
+  thermal mean/std stored 294.9274/1.6160 K, recomputed float64 294.9274/1.6160 K -> ok True
+  patch values vs raw Kelvin: max err 1.54e-05 K, mask mismatches 0 -> ok True
+  QA: 15 distinct values; flags(all px) {'fill': 19019755, 'dilated_cloud': 16623, 'cirrus': 5, 'cloud': 7293, 'cloud_shadow': 17346, 'snow': 0}; fill==band NoData: False; STAC cloud 0.02% (land 0.02%)
+  QA top values: 21824x40344677, 1x19019755, 21952x176255, 22080x108554, 23888x10057
+  readers: STAC proj grid performed True passed True; STAC scale/offset passed True; Pillow pixels performed True passed True; rasterio vs tifffile performed False
+  normalization: std 1.616 K, 0.05 K noise = 0.0309 z
+
+LC09_L2SP_150041_20250416_02_T1 (landsat-9)
+  structure ok: True (patches 2327)
+  thermal mean/std stored 331.2483/2.0065 K, recomputed float64 331.2483/2.0065 K -> ok True
+  patch values vs raw Kelvin: max err 1.60e-05 K, mask mismatches 0 -> ok True
+  QA: 3 distinct values; flags(all px) {'fill': 17358249, 'dilated_cloud': 0, 'cirrus': 0, 'cloud': 0, 'cloud_shadow': 0, 'snow': 0}; fill==band NoData: True; STAC cloud 0.0% (land 0.0%)
+  QA top values: 21824x40680115, 1x17358249, 21952x36377
+  readers: STAC proj grid performed True passed True; STAC scale/offset passed True; Pillow pixels performed True passed True; rasterio vs tifffile performed False
+  normalization: std 2.007 K, 0.05 K noise = 0.0249 z
+
+DEVELOPMENT PATCH SPLIT ON THIS ROOT
+  scenes per partition: {'train': 7, 'validation': 7, 'test': 7}; mixes scenes: True
+
+OTHER FINDINGS
+  - training/train_swinir.py build_datasets uses development_patch_split on the whole root (mixes scenes) and its Kelvin metrics use the first scene's normalization stats; guarded in this task.
+  - Degradation noise RNG is keyed by seed and scene-local patch_id only, so equal patch IDs in different scenes receive identical noise fields (not changed; same inputs for every method).
+  - Normalized-space MAE/RMSE equal Kelvin error divided by each scene's thermal std, so they are not comparable across scenes; Kelvin metrics are. Per-patch PSNR (patch-range) is invariant to the linear normalization; SSIM constants are fixed in z-units, so SSIM depends on scene std.
+  - Kelvin reconstruction value_K = z*std+mean is exact (up to float32 rounding) only with the patch's own scene statistics; never with pooled or another scene's statistics.
+
+mask check (scripts.verify_qa_patches): True
+rasterio-vs-tifffile evidence: only LC09_L2SP_143050_20240327_02_T1: original pipeline re-run with tifffile reproduced dataset/processed (produced earlier with rasterio) byte-identically, passed=True

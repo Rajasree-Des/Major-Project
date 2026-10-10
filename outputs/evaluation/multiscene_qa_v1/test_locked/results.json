@@ -1,0 +1,279 @@
+{
+  "scene_ids": [
+    "LC08_L2SP_144048_20240427_02_T1",
+    "LC09_L2SP_137042_20230110_02_T1"
+  ],
+  "patch_selection": "non_overlapping",
+  "max_patches_per_scene": null,
+  "num_patches": 1165,
+  "patch_key_sha256": "b62dc6c4a55b1499139556fd5e19bc5e0358e20793817cee2ad2dac6e2f1d134",
+  "per_scene": [
+    {
+      "scene_id": "LC08_L2SP_144048_20240427_02_T1",
+      "thermal_mean_k": 324.4971008300781,
+      "thermal_std_k": 4.974270343780518,
+      "patches_total": 582,
+      "patches_scored": 582,
+      "patches_excluded_zero_valid": 0,
+      "valid_pixels": 38081751,
+      "metrics": {
+        "bicubic": {
+          "mae_z": 0.05461749455778943,
+          "rmse_z": 0.07631568336979244,
+          "mae_kelvin": 0.27168218343040584,
+          "rmse_kelvin": 0.3796148405517024,
+          "psnr_mean_per_patch": 36.27786023510281,
+          "ssim_mean_per_patch": 0.8796819693239284,
+          "psnr_infinite_patches": 0,
+          "nonfinite_predictions_at_valid_pixels": 0,
+          "forward_s": 0.8039532500260975
+        },
+        "swinir_pretrained": {
+          "mae_z": 0.053400033409343274,
+          "rmse_z": 0.07391146676281153,
+          "mae_kelvin": 0.26562620254498504,
+          "rmse_kelvin": 0.3676556171835726,
+          "psnr_mean_per_patch": 36.53261326432638,
+          "ssim_mean_per_patch": 0.884173618661579,
+          "psnr_infinite_patches": 0,
+          "nonfinite_predictions_at_valid_pixels": 0,
+          "forward_s": 1089.6083988001774
+        }
+      },
+      "delta_vs_bicubic": {
+        "swinir_pretrained": {
+          "mae_z": -0.0012174611484461542,
+          "rmse_z": -0.0024042166069809107,
+          "mae_kelvin": -0.006055980885420809,
+          "rmse_kelvin": -0.011959223368129823,
+          "psnr_mean_per_patch": 0.254753029223572,
+          "ssim_mean_per_patch": 0.004491649337650561
+        }
+      }
+    },
+    {
+      "scene_id": "LC09_L2SP_137042_20230110_02_T1",
+      "thermal_mean_k": 296.2490234375,
+      "thermal_std_k": 2.86836314201355,
+      "patches_total": 583,
+      "patches_scored": 583,
+      "patches_excluded_zero_valid": 0,
+      "valid_pixels": 38115193,
+      "metrics": {
+        "bicubic": {
+          "mae_z": 0.05355301104502474,
+          "rmse_z": 0.08386205121399963,
+          "mae_kelvin": 0.15360948302539376,
+          "rmse_kelvin": 0.24054681671588923,
+          "psnr_mean_per_patch": 35.18171247037361,
+          "ssim_mean_per_patch": 0.8587011205189019,
+          "psnr_infinite_patches": 0,
+          "nonfinite_predictions_at_valid_pixels": 0,
+          "forward_s": 0.5958422498079017
+        },
+        "swinir_pretrained": {
+          "mae_z": 0.053209833441423854,
+          "rmse_z": 0.08190829001797557,
+          "mae_kelvin": 0.15262512503606024,
+          "rmse_kelvin": 0.23494272011291742,
+          "psnr_mean_per_patch": 35.314642491512394,
+          "ssim_mean_per_patch": 0.8589318241304231,
+          "psnr_infinite_patches": 0,
+          "nonfinite_predictions_at_valid_pixels": 0,
+          "forward_s": 937.3556259001634
+        }
+      },
+      "delta_vs_bicubic": {
+        "swinir_pretrained": {
+          "mae_z": -0.0003431776036008846,
+          "rmse_z": -0.0019537611960240564,
+          "mae_kelvin": -0.000984357989333523,
+          "rmse_kelvin": -0.005604096602971814,
+          "psnr_mean_per_patch": 0.13293002113878316,
+          "ssim_mean_per_patch": 0.00023070361152122132
+        }
+      }
+    }
+  ],
+  "aggregate": {
+    "scenes_with_metrics": 2,
+    "scenes_without_metrics": 0,
+    "bicubic": {
+      "mae_z": {
+        "macro_mean_over_scenes": 0.05408525280140708,
+        "min": 0.05355301104502474,
+        "max": 0.05461749455778943
+      },
+      "rmse_z": {
+        "macro_mean_over_scenes": 0.08008886729189604,
+        "min": 0.07631568336979244,
+        "max": 0.08386205121399963
+      },
+      "mae_kelvin": {
+        "macro_mean_over_scenes": 0.21264583322789982,
+        "min": 0.15360948302539376,
+        "max": 0.27168218343040584
+      },
+      "rmse_kelvin": {
+        "macro_mean_over_scenes": 0.3100808286337958,
+        "min": 0.24054681671588923,
+        "max": 0.3796148405517024
+      },
+      "psnr_mean_per_patch": {
+        "macro_mean_over_scenes": 35.72978635273821,
+        "min": 35.18171247037361,
+        "max": 36.27786023510281
+      },
+      "ssim_mean_per_patch": {
+        "macro_mean_over_scenes": 0.8691915449214151,
+        "min": 0.8587011205189019,
+        "max": 0.8796819693239284
+      },
+      "pooled_mae_kelvin": 0.21261992282362593,
+      "pooled_rmse_kelvin": 0.3177517477284618
+    },
+    "swinir_pretrained": {
+      "mae_z": {
+        "macro_mean_over_scenes": 0.05330493342538356,
+        "min": 0.053209833441423854,
+        "max": 0.053400033409343274
+      },
+      "rmse_z": {
+        "macro_mean_over_scenes": 0.07790987839039355,
+        "min": 0.07391146676281153,
+        "max": 0.08190829001797557
+      },
+      "mae_kelvin": {
+        "macro_mean_over_scenes": 0.20912566379052264,
+        "min": 0.15262512503606024,
+        "max": 0.26562620254498504
+      },
+      "rmse_kelvin": {
+        "macro_mean_over_scenes": 0.301299168648245,
+        "min": 0.23494272011291742,
+        "max": 0.3676556171835726
+      },
+      "psnr_mean_per_patch": {
+        "macro_mean_over_scenes": 35.92362787791939,
+        "min": 35.314642491512394,
+        "max": 36.53261326432638
+      },
+      "ssim_mean_per_patch": {
+        "macro_mean_over_scenes": 0.871552721396001,
+        "min": 0.8589318241304231,
+        "max": 0.884173618661579
+      },
+      "pooled_mae_kelvin": 0.20910086632598093,
+      "pooled_rmse_kelvin": 0.3084911955789906,
+      "scenes_better_than_baseline_rmse_kelvin": 2
+    },
+    "note": "Macro means weight every scene equally; pooled Kelvin metrics weight scenes by valid pixels. z-space metrics are not pooled across scenes because each scene has its own std."
+  },
+  "sanity_checks": {
+    "lr_shape_ok": true,
+    "output_shape_ok": true,
+    "masked_but_nonfinite_hr": 0,
+    "identical_valid_pixels_all_methods": true,
+    "all_predictions_finite_at_valid_pixels": true,
+    "passed": true
+  },
+  "methods": {
+    "bicubic": "Bicubic x2 (torch, align_corners=False)",
+    "swinir_pretrained": "SwinIR-S x2 pretrained, thermal-adapted, no fine-tuning"
+  },
+  "baseline_method": "bicubic",
+  "role": "test",
+  "label": "Synthetic x2 reconstruction against the 30 m Landsat thermal reference; not evidence of real 15 m thermal accuracy.",
+  "lock_label": "LOCKED - one-time baseline; do not use for model selection",
+  "split_manifest": "C:\\Users\\HP\\Downloads\\ISRO project\\Major-Project\\dataset\\splits\\scene_split_qa_v1.json",
+  "split_manifest_sha256": "12bd1ff703b60732d23b7337c2d86d4eefabfd1542114d7c0ef33de2c6f40f7e",
+  "processed_root": "C:\\Users\\HP\\Downloads\\ISRO project\\Major-Project\\dataset\\processed_qa",
+  "degradation": {
+    "scale": 2,
+    "blur_sigma_hr_pixels": 1.2,
+    "noise_std_kelvin": 0.05,
+    "downsample_method": "area",
+    "interpolation_note": "Masked area averaging after Gaussian low-pass in Kelvin",
+    "base_seed": 42
+  },
+  "seed": 42,
+  "model": {
+    "variant": "lightweight_x2",
+    "config": {
+      "upscale": 2,
+      "in_channels": 1,
+      "out_channels": 1,
+      "img_size": 64,
+      "window_size": 8,
+      "img_range": 1.0,
+      "depths": [
+        6,
+        6,
+        6,
+        6
+      ],
+      "embed_dim": 60,
+      "num_heads": [
+        6,
+        6,
+        6,
+        6
+      ],
+      "mlp_ratio": 2.0,
+      "upsampler": "pixelshuffledirect",
+      "resi_connection": "1conv",
+      "input_scale": 0.125,
+      "variant": "lightweight_x2"
+    },
+    "parameters": 904744,
+    "pretrained_checkpoint": {
+      "checkpoint_path": "C:\\Users\\HP\\Downloads\\ISRO project\\Major-Project\\pretrained\\swinir\\002_lightweightSR_DIV2K_s64w8_SwinIR-S_x2.pth",
+      "source_url": "https://github.com/JingyunLiang/SwinIR/releases/download/v0.0/002_lightweightSR_DIV2K_s64w8_SwinIR-S_x2.pth",
+      "sha256": "193b229909ca89cd8b55de9c9e7fce146ae759d59dfcd78d8feb9dd1d6fa0fd7",
+      "state_key": "params",
+      "matched_tensors": 327,
+      "matched_parameters": 902040,
+      "adapted_tensors": [
+        "conv_first.weight",
+        "upsample.0.weight",
+        "upsample.0.bias"
+      ],
+      "adapted_parameters": 2704,
+      "newly_initialized_tensors": [],
+      "newly_initialized_parameters": 0,
+      "unexpected_tensors": [],
+      "regenerated_buffers": 36
+    }
+  },
+  "metric_definitions": {
+    "mae_z/rmse_z": "pooled over all valid HR pixels of the scene, in that scene's z-score units",
+    "mae_kelvin/rmse_kelvin": "pred and HR de-normalized with the scene's own mean/std (z*std+mean), then pooled over valid pixels; exact inverse of the preprocessing z-score",
+    "psnr_mean_per_patch": "training.metrics.compute_psnr per patch (data range = patch HR valid range; invariant to the linear normalization), averaged over scored patches",
+    "ssim_mean_per_patch": "training.metrics.compute_ssim per patch (mask-weighted 11x11 Gaussian, constants in z-units), averaged over scored patches",
+    "valid_pixels": "hr_valid_mask & finite(HR); identical for every method",
+    "lr_input": "invalid LR pixels zero-filled (prepare_lr) for every method"
+  },
+  "limitations": [
+    "Synthetic degradation (Gaussian blur sigma 1.2 HR px, area downsample, 0.05 K noise) against the 30 m reference; real 100 m TIRS acquisition physics and real 15 m truth are not represented.",
+    "Few scenes: 1 validation and 2 test scenes; per-scene results are case studies, not population estimates.",
+    "Degradation noise is keyed by seed and scene-local patch ID, so equal patch IDs in different scenes share a noise field (identical for every method).",
+    "Per-scene z-score normalization: z-space metrics scale with 1/std and SSIM constants are fixed in z-units, so only Kelvin metrics and per-patch PSNR are comparable across scenes.",
+    "Pretrained SwinIR weights are DIV2K RGB weights adapted to one channel; no thermal fine-tuning.",
+    "Raster reading used the tifffile fallback; rasterio-vs-tifffile equivalence was tested only on the reference scene (see audit)."
+  ],
+  "training_performed": false,
+  "timing": {
+    "device": "cpu",
+    "cpu": "Intel64 Family 6 Model 140 Stepping 1, GenuineIntel",
+    "torch_threads": 4,
+    "torch_version": "2.14.1+cpu",
+    "role_total_s": 2133.2657537000196
+  },
+  "timestamp_utc": "2026-10-09T08:24:14+00:00",
+  "figures": [
+    "figures\\LC08_L2SP_144048_20240427_02_T1_median_gain_1_patch_001272.png",
+    "figures\\LC08_L2SP_144048_20240427_02_T1_median_gain_2_patch_000243.png",
+    "figures\\LC09_L2SP_137042_20230110_02_T1_median_gain_1_patch_000404.png",
+    "figures\\LC09_L2SP_137042_20230110_02_T1_median_gain_2_patch_000155.png"
+  ]
+}

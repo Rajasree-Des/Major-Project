@@ -1,0 +1,131 @@
+{
+  "label": "CPU-ONLY FEASIBILITY BENCHMARK (10 optimizer steps); epoch times are ESTIMATES",
+  "status": "complete",
+  "device": "cpu",
+  "cpu": "Intel64 Family 6 Model 140 Stepping 1, GenuineIntel",
+  "logical_cpus": 8,
+  "torch_threads": 4,
+  "torch_version": "2.14.1+cpu",
+  "system_ram_gb": 15.68770980834961,
+  "system_ram_available_gb_at_start": 7.0520782470703125,
+  "config": {
+    "batch_size": 4,
+    "learning_rate": 0.0001,
+    "weight_decay": 0.0,
+    "num_workers": 0,
+    "loss": "l1",
+    "seed": 42,
+    "variant": "lightweight_x2",
+    "pretrained": "auto",
+    "train_samples": 1864,
+    "val_samples": 233
+  },
+  "batches_run": 10,
+  "wall_clock_s": 328.22552999999607,
+  "avg_s_per_batch": 32.82255299999961,
+  "avg_s_per_batch_excl_first": 29.72302240000378,
+  "batches_per_s": 0.030466856127858547,
+  "samples_per_s": 0.12186742451143419,
+  "avg_data_s": 0.2525682300009066,
+  "avg_compute_s": 32.56410721000284,
+  "initial_loss": 0.04226779192686081,
+  "final_loss": 0.03411581739783287,
+  "peak_process_ram_mb": 7907.78515625,
+  "final_process_ram_mb": 126.1484375,
+  "val_batches_timed": 2,
+  "avg_val_batch_s": 10.174188600009074,
+  "estimates": {
+    "note": "ESTIMATES extrapolated from steady-state batch time (excl. first batch) and 2 timed val batches",
+    "train_batches_per_epoch": 466,
+    "val_batches_per_epoch": 59,
+    "epoch_train_only_min": 230.84880730669605,
+    "epoch_with_val_min": 240.85342609670496,
+    "1_epochs_h": 4.014223768278416,
+    "5_epochs_h": 20.07111884139208,
+    "10_epochs_h": 40.14223768278416,
+    "20_epochs_h": 80.28447536556833
+  },
+  "checkpoints_untouched": true,
+  "per_batch": [
+    {
+      "batch": 1,
+      "loss": 0.04226779192686081,
+      "data_s": 0.3730380999913905,
+      "compute_s": 60.28651470001205,
+      "total_s": 60.65955280000344,
+      "rss_mb": 164.23046875
+    },
+    {
+      "batch": 2,
+      "loss": 0.04607216268777847,
+      "data_s": 0.3587982000026386,
+      "compute_s": 32.618561300012516,
+      "total_s": 32.977359500015154,
+      "rss_mb": 151.2109375
+    },
+    {
+      "batch": 3,
+      "loss": 0.04403025284409523,
+      "data_s": 0.2105364000017289,
+      "compute_s": 27.050971299991943,
+      "total_s": 27.261507699993672,
+      "rss_mb": 169.203125
+    },
+    {
+      "batch": 4,
+      "loss": 0.043113816529512405,
+      "data_s": 0.24333840000326745,
+      "compute_s": 26.446743699983926,
+      "total_s": 26.690082099987194,
+      "rss_mb": 232.296875
+    },
+    {
+      "batch": 5,
+      "loss": 0.042876068502664566,
+      "data_s": 0.21984430000884458,
+      "compute_s": 27.521969499997795,
+      "total_s": 27.74181380000664,
+      "rss_mb": 154.44921875
+    },
+    {
+      "batch": 6,
+      "loss": 0.042020637542009354,
+      "data_s": 0.2264564000070095,
+      "compute_s": 29.010448599990923,
+      "total_s": 29.236904999997932,
+      "rss_mb": 134.90234375
+    },
+    {
+      "batch": 7,
+      "loss": 0.03769299387931824,
+      "data_s": 0.21233639999991283,
+      "compute_s": 25.47522000002209,
+      "total_s": 25.687556400022004,
+      "rss_mb": 134.9609375
+    },
+    {
+      "batch": 8,
+      "loss": 0.032218847423791885,
+      "data_s": 0.21250309998868033,
+      "compute_s": 33.35467030000291,
+      "total_s": 33.56717339999159,
+      "rss_mb": 105.484375
+    },
+    {
+      "batch": 9,
+      "loss": 0.029416343197226524,
+      "data_s": 0.2463497999997344,
+      "compute_s": 36.04395399999339,
+      "total_s": 36.290303799993126,
+      "rss_mb": 125.17578125
+    },
+    {
+      "batch": 10,
+      "loss": 0.03411581739783287,
+      "data_s": 0.22248120000585914,
+      "compute_s": 27.832018700020853,
+      "total_s": 28.054499900026713,
+      "rss_mb": 126.1484375
+    }
+  ]
+}
